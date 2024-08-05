@@ -67,7 +67,19 @@
                 </li>
             </ul>
         </div>
-    </nav>
+            <div class="g5core-header-customize-inner">
+                        <div class="g5core-header-customize-item g5core-hc-custom-html">
+                            <ul class="custom-header-contact pdr-35">
+                                <li><i class="fas fa-phone fa-flip-horizontal poppins-regular"></i><span>Hubungi: +6285692592551 </span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div data-off-canvas-target="#g5core_menu_mobile" class="menu-mobile-toggle">
+                    <div class="toggle-icon"><span></span></div>
+                </div>
+            </div>
+        </nav>
 
     <section id="hero">
         <div class="container">

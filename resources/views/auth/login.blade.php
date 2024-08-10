@@ -94,5 +94,23 @@
 <script src="{{ asset('adminLte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminLte/dist/js/adminlte.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if ($message = Session::get('failed'))
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: '{{ $message }}',
+        });
+    </script>
+@endif
+@if ($message = Session::get('success'))
+    <script>
+        Swal.fire({
+            icon: "success",
+            text: '{{ $message }}',
+        });
+    </script>
+@endif
 </body>
 </html>

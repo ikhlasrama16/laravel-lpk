@@ -19,10 +19,19 @@ class LoginController extends Controller
             'password'  =>$request->password
         ];
 
-        Auth::attempt($data);
+        if(Auth::attempt($data)){
+            return redirect()->route('homepage.dashboard');
+        }else{
+            return redirect()->route('homepage.login')->with('failed', 'login credential incorrect');
+        }
     }
 
     public function login(){
         return view('auth.login');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('homepage.login')->with('success','You logged out');
     }
 }

@@ -64,7 +64,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('homepage.dashboard') }}" class="nav-link">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -72,7 +72,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('homepage.user') }}" class="nav-link">
+                    <a href="{{ route('admin.user') }}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             User
@@ -89,9 +89,9 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column mt-auto" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="{{ route('logout') }}" class="nav-link text-danger">
-                    <i class="nav-icon fas fa-user"></i>
-                    <p>
+                <a href="{{ route('logout') }}" class="nav-link btn-danger">
+                    <i class="nav-icon fas fa-user text-white"></i>
+                    <p class="text-white">
                         Logout
                     </p>
                 </a>

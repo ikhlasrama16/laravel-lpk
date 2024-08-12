@@ -20,9 +20,9 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($data)){
-            return redirect()->route('homepage.dashboard');
+            return redirect()->route('admin.dashboard');
         }else{
-            return redirect()->route('homepage.login')->with('failed', 'login credential incorrect');
+            return redirect()->route('login')->with('failed', 'login credential incorrect');
         }
     }
 
@@ -32,6 +32,14 @@ class LoginController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('homepage.login')->with('success','You logged out');
+        return redirect()->route('login')->with('success','You logged out');
+    }
+
+    public function register(){
+        return view('auth.register');
+    }
+
+    public function register_process(Request $request){
+        dd($request->all());
     }
 }

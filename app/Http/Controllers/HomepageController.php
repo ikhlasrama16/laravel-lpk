@@ -11,6 +11,9 @@ class HomepageController extends Controller
     public function dashboard(){
         return view('admin.dashboard');
     }
+    public function blog(){
+        return view('admin.blog');
+    }
 
     public function user()
     {

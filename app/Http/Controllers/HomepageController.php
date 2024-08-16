@@ -21,9 +21,14 @@ class HomepageController extends Controller
         return view('admin.user', compact('data'));
     }
 
+    public function add_user(){
+        return view('admin.adduser');
+    }
+
     public function index(){
         $data = User::get();
 
         return view('homepage', compact('data'));
     }
+
 }

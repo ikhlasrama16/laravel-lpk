@@ -16,6 +16,11 @@
               <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
           </div><!-- /.col -->
+          <div class="mt-5 mr-md-3">
+            <a href="{{ route('admin.add_user') }}" class="btn btn-success">
+                Tambah User
+            </a>
+          </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

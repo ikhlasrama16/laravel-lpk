@@ -17,7 +17,7 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
     Route::get('/user', [HomepageController::class, 'user'])->name('user');
-    Route::get('/add_user', [HomepageController::class, 'add_user'])->name('add_user');
+    Route::get('/add_user', [AdminController::class, 'add_user'])->name('add_user');
     Route::post('/ADD_USER_PROCESS', [AdminController::class, 'ADD_USER_PROCESS'])->name('ADD_USER_PROCESS');
     Route::get('/dashboard', [HomepageController::class, 'dashboard'])->name('dashboard');
     Route::get('/blog', [HomepageController::class, 'blog'])->name('blog');

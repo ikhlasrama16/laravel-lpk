@@ -10,30 +10,34 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+
     public function ADD_USER_PROCESS(Request $request)
     {
-        dd($request->all());
-        // $request->validate([
-        //     'name'      => 'required',
-        //     'email'     => 'required|email|unique:users,email',
-        //     'password'  => 'required|min:6'
-        // ]);
+        $request->validate([
+            'name'      => 'required',
+            'email'     => 'required|email|unique:users,email',
+            'password'  => 'required|min:6'
+        ]);
 
-        // $data['name']       = $request->name;
-        // $data['email']      = $request->email;
-        // $data['password']   = Hash::make($request->password);
+        $data['name']       = $request->name;
+        $data['email']      = $request->email;
+        $data['password']   = Hash::make($request->password);
 
-        // User::create($data);
+        User::create($data);
 
-        // $login = [
-        //     'email'     => $request->email,
-        //     'password'  => $request->password
-        // ];
+        $login = [
+            'email'     => $request->email,
+            'password'  => $request->password
+        ];
 
-        // if (Auth::attempt($login)) {
-        //     return redirect()->route('admin.dashboard');
-        // } else {
-        //     return redirect()->route('login')->with('failed', 'login credential incorrect');
-        // }
+        if (Auth::attempt($login)) {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return redirect()->route('admin.user')->with('failed', 'login credential incorrect');
+        }
+    }
+
+    public function add_user(){
+        return view('admin.adduser');
     }
 }

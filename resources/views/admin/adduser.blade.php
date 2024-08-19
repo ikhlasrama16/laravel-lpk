@@ -9,12 +9,12 @@
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{ route('ADD_USER_PROCESS') }}" id="quickForm" method="POST" >
+              <form action="{{ route('admin.ADD_USER_PROCESS') }}" id="quickForm" method="POST" >
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Lengkap</label>
-                    <input type="email" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                    <input type="string" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
                   </div>
                   @error('name')
                     <small class="text-danger">{{ $message }}</small>

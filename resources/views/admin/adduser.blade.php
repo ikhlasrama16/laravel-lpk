@@ -9,7 +9,7 @@
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{ route('admin.ADD_USER_PROCESS') }}" id="quickForm" method="POST" >
+              <form action="{{ route('admin.store') }}" id="quickForm" method="POST" >
                 @csrf
                 <div class="card-body">
                   <div class="form-group">

@@ -5,36 +5,29 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
 
-    public function ADD_USER_PROCESS(Request $request)
-    {
-        $request->validate([
+
+    public function store(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email'     => 'required|email',
             'name'      => 'required',
-            'email'     => 'required|email|unique:users,email',
-            'password'  => 'required|min:6'
+            'password'  => 'required'
         ]);
 
-        $data['name']       = $request->name;
-        $data['email']      = $request->email;
-        $data['password']   = Hash::make($request->password);
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        $data['email']         = $request->email;
+        $data['name']          = $request->name;
+        $data['password']      = Hash::make($request->passwordl);
 
         User::create($data);
+        return redirect()->route('admin.user');
 
-        $login = [
-            'email'     => $request->email,
-            'password'  => $request->password
-        ];
-
-        if (Auth::attempt($login)) {
-            return redirect()->route('admin.dashboard');
-        } else {
-            return redirect()->route('admin.user')->with('failed', 'login credential incorrect');
-        }
     }
 
     public function add_user(){

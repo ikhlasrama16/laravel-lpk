@@ -33,4 +33,30 @@ class AdminController extends Controller
     public function add_user(){
         return view('admin.adduser');
     }
+
+    public function edit_user(Request $request, $id){
+        $data = User::find($id);
+        return view('admin.edituser', compact('data'));
+    }
+
+    public function update_user(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'email'     => 'required|email',
+            'name'      => 'required',
+            'password'  => 'nullable'
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        $data['email']         = $request->email;
+        $data['name']          = $request->name;
+
+        if ($request->password) {
+            $data['password']      = Hash::make($request->passwordl);
+        }
+
+
+        User::whereId($id)->update($data);
+        return redirect()->route('admin.user');
+    }
 }

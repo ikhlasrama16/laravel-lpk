@@ -62,7 +62,7 @@
                       <td>{{ $data->name }}</td>
                       <td>{{ $data->email }}</td>
                       <td>
-                        <a href="" class="btn btn-warning"><i class="fas fa-pen">Edit</i></a>
+                        <a href="{{ route('admin.edit_user', ['id' => $data->id]) }}" class="btn btn-warning"><i class="fas fa-pen">Edit</i></a>
                         <a href="" class="btn btn-danger"><i class="fas fa-trash">Delete</i></a>
                       </td>
                     </tr>

@@ -59,4 +59,14 @@ class AdminController extends Controller
         User::whereId($id)->update($data);
         return redirect()->route('admin.user');
     }
+
+    public function delete_user(Request $request,  $id){
+        $data = User::find($id);
+
+        if ($data) {
+            $data->delete();
+        }
+
+        return redirect()->route('admin.user');
+    }
 }

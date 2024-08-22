@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
 
     Route::get('/edit/{id}', [AdminController::class, 'edit_user'])->name('edit_user');
     Route::put('/update/{id}', [AdminController::class, 'update_user'])->name('update_user');
+    Route::delete('/delete/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
 
 
     Route::get('/dashboard', [HomepageController::class, 'dashboard'])->name('dashboard');

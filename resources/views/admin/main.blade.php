@@ -112,4 +112,14 @@
 
 @include('includes.admin.script')
 </body>
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote({
+        placeholder:'Deskripsi',
+        tabsize: 2,
+        height: 300
+    })
+  })
+</script>
 </html>

@@ -22,8 +22,6 @@
 <script src="{{ asset('adminLte/plugins/daterangepicker/daterangepicker.js')  }}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="{{ asset('adminLte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')  }}"></script>
-<!-- Summernote -->
-<script src="{{ asset('adminLte/plugins/summernote/summernote-bs4.min.js')  }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('adminLte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')  }}"></script>
 <!-- AdminLTE App -->
@@ -32,3 +30,5 @@
 <script src="{{ asset('adminLte/dist/js/demo.js')  }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('adminLte/dist/js/pages/dashboard.js')  }}"></script>
+{{-- Summernote --}}
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>

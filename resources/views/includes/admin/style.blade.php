@@ -17,4 +17,4 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{ asset('adminLte/plugins/daterangepicker/daterangepicker.css')  }}">
   <!-- summernote -->
-  <link rel="stylesheet" href="{{ asset('adminLte/plugins/summernote/summernote-bs4.min.css')  }}">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">

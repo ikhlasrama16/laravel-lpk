@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
@@ -24,6 +25,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/edit/{id}', [AdminController::class, 'edit_user'])->name('edit_user');
     Route::put('/update/{id}', [AdminController::class, 'update_user'])->name('update_user');
     Route::delete('/delete/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
+
+
+    Route::post('post', [PostController::class, 'store']);
 
 
     Route::get('/dashboard', [HomepageController::class, 'dashboard'])->name('dashboard');

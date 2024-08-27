@@ -29,7 +29,7 @@
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm">
+              <form id="quickForm" action="post" method="POST">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Judul</label>
@@ -39,8 +39,8 @@
                     <label for="file">Upload Gambar</label>
                     <input type="file" name="password" class="form-control">
                   </div>
-                  <textarea id="summernote">
-                    Place <em>some</em> <u>text</u> <strong>here</strong>
+                  <textarea id="description">
+
                   </textarea>
                 </div>
                 <!-- /.card-body -->

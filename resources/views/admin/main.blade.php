@@ -115,7 +115,7 @@
 <script>
   $(function () {
     // Summernote
-    $('#summernote').summernote({
+    $('#description').summernote({
         placeholder:'Deskripsi',
         tabsize: 2,
         height: 300

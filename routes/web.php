@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::delete('/delete/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
 
 
-    Route::post('post', [PostController::class, 'store']);
+    Route::post('/post', [PostController::class, 'post'])->name('post');
 
 
     Route::get('/dashboard', [HomepageController::class, 'dashboard'])->name('dashboard');

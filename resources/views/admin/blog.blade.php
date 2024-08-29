@@ -29,11 +29,11 @@
             <div class="card card-primary">
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action="post" method="POST">
+              <form id="quickForm" action="{{ route('admin.post') }}" method="POST">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Judul</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                   </div>
                   <div class="form-group">
                     <label for="file">Upload Gambar</label>

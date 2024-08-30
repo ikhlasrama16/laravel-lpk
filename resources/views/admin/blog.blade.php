@@ -30,10 +30,11 @@
               <!-- /.card-header -->
               <!-- form start -->
               <form id="quickForm" action="{{ route('admin.post') }}" method="POST">
+                @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Judul</label>
-                    <input name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
                   </div>
                   <div class="form-group">
                     <label for="file">Upload Gambar</label>

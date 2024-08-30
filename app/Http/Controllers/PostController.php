@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function post(Request $request){
-        $description = $request->description;
+        $description = $request->input('description');
 
         $dom = new DOMDocument();
         $dom -> loadHTML($description, 9);

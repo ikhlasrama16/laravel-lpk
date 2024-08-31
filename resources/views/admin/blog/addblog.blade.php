@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Validation</h1>
+            <h1>Tambah Artikel</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -40,9 +40,7 @@
                     <label for="file">Upload Gambar</label>
                     <input type="file" name="password" class="form-control">
                   </div>
-                  <textarea id="description">
-
-                  </textarea>
+                  <textarea id="description" name="description"></textarea>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

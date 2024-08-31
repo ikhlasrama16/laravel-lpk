@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    public function add_blog(){
+        return view('admin.blog.addblog');
+    }
+
     public function post(Request $request){
         $description = $request->input('description');
 
@@ -32,6 +37,9 @@ class PostController extends Controller
             'title' => $request->title,
             'description' => $description,
         ]);
-        return redirect('/');
+        return redirect('/blog');
     }
+
+
+
 }

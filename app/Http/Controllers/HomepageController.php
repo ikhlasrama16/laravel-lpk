@@ -12,17 +12,17 @@ class HomepageController extends Controller
         return view('admin.dashboard');
     }
     public function blog(){
-        return view('admin.blog');
+        return view('admin.blog.blog');
     }
 
     public function user()
     {
         $data = User::get();
-        return view('admin.user', compact('data'));
+        return view('admin.user.user', compact('data'));
     }
 
     public function add_user(){
-        return view('admin.adduser');
+        return view('admin.user.adduser');
     }
 
     public function index(){

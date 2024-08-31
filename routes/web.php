@@ -28,10 +28,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
 
 
     Route::post('/post', [PostController::class, 'post'])->name('post');
+    Route::get('/add_blog', [PostController::class, 'add_blog'])->name('add_blog');
 
 
     Route::get('/dashboard', [HomepageController::class, 'dashboard'])->name('dashboard');
     Route::get('/blog', [HomepageController::class, 'blog'])->name('blog');
+
 });
 
 

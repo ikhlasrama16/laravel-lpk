@@ -31,12 +31,12 @@ class AdminController extends Controller
     }
 
     public function add_user(){
-        return view('admin.adduser');
+        return view('admin.user.create');
     }
 
     public function edit_user(Request $request, $id){
         $data = User::find($id);
-        return view('admin.edituser', compact('data'));
+        return view('admin.user.edit', compact('data'));
     }
 
     public function update_user(Request $request, $id){

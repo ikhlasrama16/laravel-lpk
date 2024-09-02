@@ -11,7 +11,7 @@ class PostController extends Controller
 {
 
     public function add_blog(){
-        return view('admin.blog.addblog');
+        return view('admin.blog.create');
     }
 
     public function post(Request $request){
@@ -37,7 +37,7 @@ class PostController extends Controller
             'title' => $request->title,
             'description' => $description,
         ]);
-        return redirect('/blog');
+        return redirect('/admin/blog');
     }
 
 

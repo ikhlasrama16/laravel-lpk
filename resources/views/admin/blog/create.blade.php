@@ -18,11 +18,11 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- Main content -->
-    <section class="content">
+    <section class="">
         <div class="container-fluid">
-            <div class="row">
+
                 <!-- left column -->
-                 <div class="col-md-12 shadow rounded-4 border-0">
+                 <div class="col-md-11 rounded-5">
                     <!-- jquery validation -->
                      <div class="card bg-white p-4">
                         <!-- /.card-header --><!-- form start -->
@@ -43,9 +43,8 @@
                             </div>
                             <textarea id="description" name="description"></textarea>
                             <!-- /.card-body -->
-                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -53,7 +52,6 @@
 
                 </div>
             </div>
-        </div>
     </section>
 </div>
 @endsection

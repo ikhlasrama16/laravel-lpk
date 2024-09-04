@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
-use DOMDocument;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,29 +13,20 @@ class PostController extends Controller
     }
 
     public function post(Request $request){
-        $description = $request->input('description');
+        $rules=[
+            'title' => 'required',
+            'image' => 'required|max:1000|mimes:jpg, png, jpeg',
+            'desc' => 'required|min:20'
+        ];
 
-        $dom = new DOMDocument();
-        $dom -> loadHTML($description, 9);
+        $messages = [
+            'title.required' => 'judul wajib di isi',
+            'image.required' => 'gambar wajib di upload',
+            'desc.required' => 'deskripsi wajib di isi',
+        ];
 
-        $images = $dom->getElementsByTagName('img');
-
-        foreach ($images as $key => $img) {
-            $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
-            $image_name = "/upload/" . time(). $key. 'png';
-            file_put_contents(public_path().$image_name, $data);
-
-            $img->removeAttribute('src');
-            $img->setAttribute('src', $image_name);
-
-        }
-        $description = $dom->saveHTML();
-
-        Post::create([
-            'title' => $request->title,
-            'description' => $description,
-        ]);
-        return redirect('/admin/blog');
+        $this->validate($request, $rules, $messages);
+        return redirect('admin.blog.cfreate')->with('success', 'data berhasil di simpan');
     }
 
 

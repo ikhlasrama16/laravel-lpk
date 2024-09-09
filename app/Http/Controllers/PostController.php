@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
+use Log;
 
 class PostController extends Controller
 {
@@ -15,63 +16,64 @@ class PostController extends Controller
     }
 
     public function post(Request $request){
-    $rules = [
-        'title' => 'required',
-        'image' => 'required|mimes:jpg,jpeg,png|max:1000', // Pemisah koma yang benar tanpa spasi
-        'description' => 'required|min:20'
-    ];
+        $rules = [
+            'judul' => 'required',
+            'image' => 'required|max:1000|mimes:jpg,jpeg,png,webp',
+            'desc' => 'required|min:20',
+        ];
 
-    $messages = [
-        'title.required' => 'judul wajib di isi',
-        'image.required' => 'gambar wajib di upload',
-        'description.required' => 'deskripsi wajib di isi',
-    ];
+        $messages = [
+            'judul.required' => 'Judul wajib diisi!',
+            'image.required' => 'Judul wajib diisi!',
+            'desc.required' => 'Judul wajib diisi!',
+        ];
 
-    $this->validate($request, $rules, $messages);
+        $this->validate($request, $rules, $messages);
 
-    // Proses gambar utama
-    $fileName = time() . '.' . $request->file('image')->extension();
-    $request->file('image')->storeAs('public/artikel', $fileName); // Menyimpan gambar utama
+        // // Image
+        // $fileName = time() . '.' . $request->image->extension();
+        // $request->file('image')->storeAs('public/artikel', $fileName);
 
-    // Manipulasi konten gambar pada Summernote
-    $storage = "storage/content-artikel";
-    $dom = new \DOMDocument();
-    libxml_use_internal_errors(true);
-    $dom->loadHTML($request->description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
-    libxml_clear_errors();
+        // # Artikel
+        // $storage = "storage/content-artikel";
+        // $dom = new \DOMDocument();
 
-    $images = $dom->getElementsByTagName('img');
+        // # untuk menonaktifkan kesalahan libxml standar dan memungkinkan penanganan kesalahan pengguna.
+        // libxml_use_internal_errors(true);
+        // $dom->loadHTML($request->desc, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
+        // # Menghapus buffer kesalahan libxml
+        // libxml_clear_errors();
 
-    foreach ($images as $img) {
-        $src = $img->getAttribute('src');
-        if (preg_match('/data:image/', $src)) {
-            preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
-            $mimetype = $groups['mime'];
-            $fileNameContent = uniqid();
-            $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
-            $filePath = ("$storage/$fileNameContentRand.$mimetype");
+        // # Baca di https://dosenit.com/php/fungsi-libxml-php
+        // $images = $dom->getElementsByTagName('img');
 
-            // Proses penyimpanan gambar dari summernote
-            $image = \Image::make($src)
-                ->resize(1200, 1200) // Resize jika diperlukan
-                ->encode($mimetype, 100)
-                ->save(public_path($filePath));
+        // foreach ($images as $img) {
+        //     $src = $img->getAttribute('src');
+        //     if (preg_match('/data:image/', $src)) {
+        //         preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+        //         $mimetype = $groups['mime'];
+        //         $fileNameContent = uniqid();
+        //         $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
+        //         $filePath = ("$storage/$fileNameContentRand.$mimetype");
+        //         $image = Image::make($src)->resize(1440, 720)->encode($mimetype, 100)->save(public_path($filePath));
+        //         $new_src = asset($filePath);
+        //         $img->removeAttribute('src');
+        //         $img->setAttribute('src', $new_src);
+        //         $img->setAttribute('class', 'img-responsive');
+        //     }
+        // }
 
-            $new_src = asset($filePath);
-            $img->removeAttribute('src');
-            $img->setAttribute('src', $new_src);
-            $img->setAttribute('class', 'img-responsive');
-        }
+        // Post::create([
+        //     'judul' => $request->judul,
+        //     'image' => $fileName,
+        //     'desc' => $dom->saveHTML(),
+        // ]);
+
+        // return redirect(route('admin.blog'))->with('success', 'data berhasil di simpan');
+
+        Log::info('Data: ', $request->all());
+
     }
 
-    // Penyimpanan data ke dalam database
-    Post::create([
-        'title' => $request->title,
-        'image' => $fileName,
-        'description' => $dom->saveHTML(),
-    ]);
-
-    return redirect()->route('admin.blog.create')->with('success', 'Data berhasil disimpan');
-}
 
 }

@@ -14,4 +14,8 @@ class HomepageController extends Controller
         return view('homepage', compact('data'));
     }
 
+    public function blog(){
+        return view('blog');
+    }
+
 }

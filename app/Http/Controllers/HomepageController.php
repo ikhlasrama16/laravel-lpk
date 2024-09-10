@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,10 @@ class HomepageController extends Controller
         return view('admin.dashboard');
     }
     public function blog(){
-        return view('admin.blog.index');
+        return view('admin.blog.index', [
+            'artikels' => Post::all()
+        ]);
+
     }
 
     public function user()

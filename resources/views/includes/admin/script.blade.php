@@ -8,6 +8,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('adminLte/plugins/bootstrap/js/bootstrap.bundle.min.js')  }}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('adminLte/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- ChartJS -->
 <script src="{{ asset('adminLte/plugins/chart.js/Chart.min.js')  }}"></script>
 <!-- Sparkline -->
@@ -26,9 +28,9 @@
 <script src="{{ asset('adminLte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')  }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminLte/dist/js/adminlte.js')  }}"></script>
-<!-- AdminLTE for demo purposes -->
+{{-- <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('adminLte/dist/js/demo.js')  }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('adminLte/dist/js/pages/dashboard.js')  }}"></script>
+<script src="{{ asset('adminLte/dist/js/pages/dashboard.js')  }}"></script> --}}
 {{-- Summernote --}}
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>

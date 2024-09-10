@@ -121,5 +121,9 @@
         height: 300
     })
   })
+
+  $(function () {
+    bsCustomFileInput.init();
+  });
 </script>
 </html>

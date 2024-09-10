@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">List Artikel</h1>
+            <h1 class="m-0">Tulis Artikel</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,7 @@
                     <!-- jquery validation -->
                      <div class="card bg-white p-4">
                         <!-- /.card-header --><!-- form start -->
-                         <form action="{{ route('admin.post') }}" id="quickForm" method="POST">
+                         <form action="{{ route('admin.post') }}" id="quickForm" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="exampleInputEmail1">Judul</label>
@@ -36,9 +36,17 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="">Upload Image</label>
-                                <input type="file" class="form-control" name="image">
+                            <div class="form-group">
+                                <label for="exampleInputFile">File input</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
                                 @error('image')
                                 <div class="invalid-feedback">
                                     {{ $message }}

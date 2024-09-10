@@ -1,105 +1,72 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>Homepage</title>
-    <link rel="shortcut icon" href="{{ asset(" assets/logo/favicon.ico") }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LPK Mandiri</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light poppins-bold py-3">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('assets/logo/Logo-Mandiri-Nusantara.png') }}" class="img-fluid" alt="Brand Logo"
-                style="max-height: 60px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tentang Kami</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Program</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kontak</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <span class="x-menu-link-text">
-                                    <img class="wpml-ls-flag"
-                                        src="https://lpkmandirinusantara.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/id.png"
-                                        alt="">
-                                    <span class="wpml-ls-native" lang="id">Indonesia</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <span class="x-menu-link-text">
-                                    <img class="wpml-ls-flag"
-                                        src="https://lpkmandirinusantara.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/ja.png"
-                                        alt="">
-                                    <span class="wpml-ls-native" lang="ja">日本語</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <span class="x-menu-link-text">
-                                    <img class="wpml-ls-flag"
-                                        src="https://lpkmandirinusantara.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png"
-                                        alt="">
-                                    <span class="wpml-ls-native" lang="en">English</span>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="g5core-header-customize-inner">
-            <div class="g5core-header-customize-item g5core-hc-custom-html">
-                <ul class="custom-header-contact pdr-35">
-                    <li><i class="fas fa-phone fa-flip-horizontal poppins-regular"></i><span>Hubungi: +6285692592551
-                        </span></li>
+    {{-- Navbar --}}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-white shadow py-3">
+        <div class="container col-xxl-10">
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('assets/logo/Logo-Mandiri-Nusantara.png') }}" alt="" height="80">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Program</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Kontak</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
                 </ul>
+                <div class="g5core-header-customize-inner py-3">
+                    <div class="g5core-header-customize-item g5core-hc-custom-html">
+                        <ul class="custom-header-contact pdr-35">
+                            <li>
+                                <i class="fas fa-phone fa-flip-horizontal poppins-regular">
+
+                                </i>
+                                <span>Hubungi: +6285692592551</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-        <div data-off-canvas-target="#g5core_menu_mobile" class="menu-mobile-toggle">
-            <div class="toggle-icon"><span></span></div>
-        </div>
-        </div>
     </nav>
-
-    <section id="hero">
-        <div class="container">
-            <h1 class="poppins-medium">coba coba</h1>
-        </div>
-    </section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

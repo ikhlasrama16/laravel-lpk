@@ -3,70 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
 
-
-    public function store(Request $request){
-        $validator = Validator::make($request->all(), [
-            'email'     => 'required|email',
-            'name'      => 'required',
-            'password'  => 'required'
+    public function dashboard(){
+        return view('admin.dashboard');
+    }
+    public function blog(){
+        return view('admin.blog.index', [
+            'artikels' => Post::all()
         ]);
 
-        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+    }
 
-        $data['email']         = $request->email;
-        $data['name']          = $request->name;
-        $data['password']      = Hash::make($request->passwordl);
-
-        User::create($data);
-        return redirect()->route('admin.user');
-
+    public function user()
+    {
+        $data = User::get();
+        return view('admin.user.index', compact('data'));
     }
 
     public function add_user(){
-        return view('admin.user.create');
+        return view('admin.user.adduser');
     }
 
-    public function edit_user(Request $request, $id){
-        $data = User::find($id);
-        return view('admin.user.edit', compact('data'));
+    public function index(){
+        $data = User::get();
+
+        return view('homepage', compact('data'));
     }
 
-    public function update_user(Request $request, $id){
-        $validator = Validator::make($request->all(), [
-            'email'     => 'required|email',
-            'name'      => 'required',
-            'password'  => 'nullable'
-        ]);
-
-        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
-
-        $data['email']         = $request->email;
-        $data['name']          = $request->name;
-
-        if ($request->password) {
-            $data['password']      = Hash::make($request->passwordl);
-        }
-
-
-        User::whereId($id)->update($data);
-        return redirect()->route('admin.user');
-    }
-
-    public function delete_user(Request $request,  $id){
-        $data = User::find($id);
-
-        if ($data) {
-            $data->delete();
-        }
-
-        return redirect()->route('admin.user');
-    }
 }

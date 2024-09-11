@@ -7,7 +7,6 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
-use Log;
 
 class PostController extends Controller
 {
@@ -72,6 +71,12 @@ class PostController extends Controller
 
         return redirect(route('admin.blog'))->with('success', 'data berhasil di simpan');
 
+    }
+
+    public function edit_blog($id)
+    {
+        $artikel = Post::find($id);
+        return view('admin.blog.edit', ['artikel' => $artikel]);
     }
 
 

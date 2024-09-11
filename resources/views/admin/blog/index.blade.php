@@ -67,8 +67,8 @@
                                 <img src="{{ asset('storage/artikel/'. $artikel->image) }}" height="100" alt="">
                             </td>
                             <td>
-                                <a href="/edit" class="btn btn-success">Edit</a>
-                                <a href="/delete" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('admin.edit_blog', ['id' => $artikel->id]) }}" class="btn btn-success">Edit</a>
+                                <a href="/delete/{$id}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

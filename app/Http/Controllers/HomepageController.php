@@ -22,4 +22,10 @@ class HomepageController extends Controller
         ]);
     }
 
+    public function blog_detail($id) {
+
+        $artikel = Post::find($id);
+        return view('blogdetail', ['artikel' => $artikel]);
+    }
+
 }

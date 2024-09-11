@@ -16,8 +16,9 @@ Route::post('/registerprocess', [LoginController::class, 'register_process'])->n
 
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
-
 Route::get('/blog', [HomepageController::class, 'blog'])->name('blog');
+Route::get('/blog/detail/{id}', [HomepageController::class, 'blog_detail'])->name('blog_detail');
+
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
@@ -26,13 +27,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/add_user', [UserController::class, 'add_user'])->name('add_user');
     Route::post('/store', [UserController::class, 'store'])->name('store');
 
-    Route::get('/edit/{id}', [UserController::class, 'edit_user'])->name('edit_user');
+    Route::get('/user/edit/{id}', [UserController::class, 'edit_user'])->name('edit_user');
     Route::put('/update/{id}', [UserController::class, 'update_user'])->name('update_user');
-    Route::delete('/delete/{id}', [UserController::class, 'delete_user'])->name('delete_user');
+    Route::delete('/user/delete/{id}', [UserController::class, 'delete_user'])->name('delete_user');
 
 
     Route::post('/post', [PostController::class, 'post'])->name('post');
     Route::get('/add_blog', [PostController::class, 'add_blog'])->name('add_blog');
+    Route::get('/blog/edit/{id}', [PostController::class, 'edit_blog'])->name('edit_blog');
+
 
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');

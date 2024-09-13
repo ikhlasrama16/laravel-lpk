@@ -110,6 +110,12 @@ class PostController extends Controller
             $request->file('image')->storeAs('public/artikel', $fileName);
         }
 
+        if ($request->hasFile('image')) {
+            $checkFileName = $fileName;
+        }else{
+            $checkFileName = $artikel->image;
+        }
+
 
 
         $this->validate($request, $rules, $messages);
@@ -147,7 +153,7 @@ class PostController extends Controller
             }
         }
 
-        Post::create([
+        $artikel->update([
             'title' => $request->title,
             'image' => $fileName,
             'description' => $dom->saveHTML(),

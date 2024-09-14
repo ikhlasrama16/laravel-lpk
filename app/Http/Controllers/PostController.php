@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
+
 class PostController extends Controller
 {
     public function add_blog(){
@@ -79,16 +80,15 @@ class PostController extends Controller
         return view('admin.blog.edit', ['artikel' => $artikel]);
     }
 
-    public function update(Request $request, $id)
+    public function update_blog(Request $request, $id)
     {
         $artikel = Post::find($id);
 
         if ($request->hasFile('image')) {
             $fileCheck = 'required|image|mimes:jpeg,png,jpg|max:2048';
-        }else{
+        } else {
             $fileCheck = 'image|mimes:jpeg,png,jpg|max:2048';
         }
-
 
         $rules = [
             'title' => 'required',
@@ -102,39 +102,30 @@ class PostController extends Controller
             'description.required' => 'Deskripsi wajib diisi!',
         ];
 
+        $this->validate($request, $rules, $messages);
+
         if ($request->hasFile('image')) {
             if (\File::exists('storage/artikel/'.$artikel->image)) {
                 \File::delete('storage/artikel/'.$artikel->image);
             }
-            $fileName = time().'.'.$request->image->exstension();
-            $request->file('image')->storeAs('public/artikel', $fileName);
+            $file = $request->file('image');
+            if ($file) {
+                $fileName = time() . '.' . $file->extension();
+                $file->storeAs('public/artikel', $fileName);
+            }
+        } else {
+            $fileName = $artikel->image;
         }
 
-        if ($request->hasFile('image')) {
-            $checkFileName = $fileName;
-        }else{
-            $checkFileName = $artikel->image;
-        }
-
-
-
-        $this->validate($request, $rules, $messages);
-
-        // Image
-        $fileName = time() . '.' . $request->image->extension();
-        $request->file('image')->storeAs('public/artikel', $fileName);
-
-        # Artikel
+        // Image handling
         $storage = "storage/content-artikel";
         $dom = new \DOMDocument();
 
-        # untuk menonaktifkan kesalahan libxml standar dan memungkinkan penanganan kesalahan pengguna.
+        // Enable user error handling for libxml
         libxml_use_internal_errors(true);
         $dom->loadHTML($request->description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
-        # Menghapus buffer kesalahan libxml
         libxml_clear_errors();
 
-        # Baca di https://dosenit.com/php/fungsi-libxml-php
         $images = $dom->getElementsByTagName('img');
 
         foreach ($images as $img) {
@@ -159,9 +150,9 @@ class PostController extends Controller
             'description' => $dom->saveHTML(),
         ]);
 
-        return redirect(route('admin.blog'))->with('success', 'data berhasil di simpan');
-
+        return redirect(route('admin.blog'))->with('success', 'Data berhasil disimpan');
     }
+
 
 
 }

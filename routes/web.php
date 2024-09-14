@@ -28,13 +28,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::post('/store', [UserController::class, 'store'])->name('store');
 
     Route::get('/user/edit/{id}', [UserController::class, 'edit_user'])->name('edit_user');
-    Route::put('/update/{id}', [UserController::class, 'update_user'])->name('update_user');
+    Route::put('/user/update/{id}', [UserController::class, 'update_user'])->name('update_user');
     Route::delete('/user/delete/{id}', [UserController::class, 'delete_user'])->name('delete_user');
 
 
     Route::post('/post', [PostController::class, 'post'])->name('post');
     Route::get('/add_blog', [PostController::class, 'add_blog'])->name('add_blog');
     Route::get('/blog/edit/{id}', [PostController::class, 'edit_blog'])->name('edit_blog');
+    Route::put('/blog/update/{id}', [PostController::class, 'update_blog'])->name('update_blog');
 
 
 

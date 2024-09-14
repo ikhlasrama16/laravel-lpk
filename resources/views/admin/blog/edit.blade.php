@@ -36,7 +36,8 @@
                     @endif
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ route('admin.edit_blog', ['id' => $artikel->id]) }}" id="quickForm" method="PUT" enctype="multipart/form-data">
+                    <form action="{{ route('admin.update_blog', ['id' => $artikel->id]) }}" id="quickForm" method="POST" enctype="multipart/form-data">
+                        @method('PUT')
                         @csrf
                         <div class="form-group mb-3">
                             <label for="exampleInputEmail1">Judul</label>

@@ -153,6 +153,18 @@ class PostController extends Controller
         return redirect(route('admin.blog'))->with('success', 'Data berhasil disimpan');
     }
 
+    public function delete_blog($id){
+        $artikel = Post::find($id);
+        if (\File::exists('storage/artikel/' . $artikel->image)) {
+            \File::delete('storage/artikel/' . $artikel->image);
+        }
+
+        $artikel->delete();
+
+        return redirect(route('admin.blog'))->with('success', 'data berhasil di hapus');
+
+    }
+
 
 
 }

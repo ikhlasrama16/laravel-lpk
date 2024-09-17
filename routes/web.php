@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/add_blog', [PostController::class, 'add_blog'])->name('add_blog');
     Route::get('/blog/edit/{id}', [PostController::class, 'edit_blog'])->name('edit_blog');
     Route::put('/blog/update/{id}', [PostController::class, 'update_blog'])->name('update_blog');
+    Route::delete('/blog/delete/{id}', [PostController::class, 'delete_blog'])->name('delete_blog');
 
 
 

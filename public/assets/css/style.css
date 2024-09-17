@@ -31,10 +31,43 @@
     margin-right: 5px;
 }
 
-#hero {
-    background-image: url("../../assets/background/hero-bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 800px;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background: url("../background/Hero-BG-Cornflour-Blue.svg");
+    color: white;
+    height: 100vh;
+}
+.hero-text {
+    max-width: 50%;
+}
+.hero-text h1 {
+    font-size: 3em;
+    margin: 0;
+}
+.hero-text p {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+.hero-text button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #6a1b9a;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.hero-image {
+    max-width: 40%;
+}
+.hero-image img {
+    width: 100%;
+    border-radius: 10px;
 }

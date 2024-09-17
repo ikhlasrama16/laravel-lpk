@@ -9,13 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body>
     {{-- Navbar --}}
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-white shadow py-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-white shadow py-3 sticky-top">
         <div class="container col-xxl-10">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="{{ asset('assets/logo/Logo-Mandiri-Nusantara.png') }}" alt="" height="80">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -26,7 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Tentang Kami</a>

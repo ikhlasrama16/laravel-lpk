@@ -68,7 +68,11 @@
                             </td>
                             <td>
                                 <a href="{{ route('admin.edit_blog', ['id' => $artikel->id]) }}" class="btn btn-success">Edit</a>
-                                <a href="/delete/{$id}" class="btn btn-danger">Delete</a>
+                                <form action="{{ route('admin.delete_blog', ['id' => $artikel->id]) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

@@ -4,14 +4,21 @@
     <section>
         <div class="hero">
             <div class="hero-text">
-                <h1>Menyiapkan Tenaga Kerja Handal</h1>
-                <p>Siap Kerja 100%</p>
-                <button>PENDAFTARAN</button>
+                <h2 class="py-3 poppins-bold">Menyiapkan Tenaga Kerja Handal</h2>
+                <h2 class="poppins-bold">Siap Kerja 100%</h2>
+                <button class="mt-2">PENDAFTARAN</button>
             </div>
             <div class="hero-image">
                 <img src="{{ asset('assets/background/Hero-LPK1.png') }}" alt="Hero Image">
             </div>
         </div>
-        <h1>ini Homepage</h1>
+        <div id="menjadikan">
+            <H2 class="poppins-bold d-flex justify-content-center mt-5">Menjadikan Tenaga Kerja<br> Terampil, Handal, Cekatan</H2>
+            <p class="centered-text">
+                Lembaga Pendidikan Keterampilan yang mengutamakan kualitas pendidikan dan menyiapkan tenaga kerja yang handal dan
+                memberi jaminan penempatan kerja & karir untuk para lulusan ke negara Asia , Eropa dan Amerika, saat ini kami fokus ke
+                negara Jepang
+            </p>
+        </div>
     </section>
 @endsection

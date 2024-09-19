@@ -74,7 +74,17 @@ body {
     width: 100%;
     border-radius: 10px;
 }
-.centered-text {
+.stripe{
+    width: 20%; /* Lebar garis */
+    height: 8px; /* Tinggi garis */
+    background-color: #00008B; /* Warna garis */
+    margin: 10px auto; /* Margin atas dan bawah, serta pusatkan garis */
+    border-radius: 22px;
+    margin-left: 0;
+
+}
+
+#menjadikan p {
     font-family: 'Poppins', sans-serif; /* Pastikan font Poppins sudah diimpor */
     font-size: 1.2em; /* Sesuaikan ukuran font */
     font-weight: 400; /* Berat font reguler */

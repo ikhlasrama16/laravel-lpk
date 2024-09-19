@@ -6,6 +6,7 @@
             <div class="hero-text">
                 <h2 class="py-3 poppins-bold">Menyiapkan Tenaga Kerja Handal</h2>
                 <h2 class="poppins-bold">Siap Kerja 100%</h2>
+                <div class="stripe"></div>
                 <button class="mt-2">PENDAFTARAN</button>
             </div>
             <div class="hero-image">
@@ -14,11 +15,15 @@
         </div>
         <div id="menjadikan">
             <H2 class="poppins-bold d-flex justify-content-center mt-5">Menjadikan Tenaga Kerja<br> Terampil, Handal, Cekatan</H2>
-            <p class="centered-text">
+            <p>
                 Lembaga Pendidikan Keterampilan yang mengutamakan kualitas pendidikan dan menyiapkan tenaga kerja yang handal dan
                 memberi jaminan penempatan kerja & karir untuk para lulusan ke negara Asia , Eropa dan Amerika, saat ini kami fokus ke
                 negara Jepang
             </p>
+        </div>
+
+        <div id="program">
+
         </div>
     </section>
 @endsection

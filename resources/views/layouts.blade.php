@@ -14,7 +14,7 @@
 
 <body>
     {{-- Navbar --}}
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-white shadow sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow py-3 fixed-top">
         <div class="container col-xxl-10">
             <a class="navbar-brand" href="/">
                 <img src="{{ asset('assets/logo/Logo-Mandiri-Nusantara.png') }}" alt="" height="80">

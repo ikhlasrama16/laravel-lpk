@@ -42,7 +42,7 @@ body {
     padding: 50px;
     background: url("../background/Hero-BG-Cornflour-Blue.svg");
     color: white;
-    height: 60vh;
+    height: 80vh;
 }
 .hero-text {
     max-width: 50%;
@@ -94,6 +94,16 @@ body {
     line-height: 1.5; /* Jarak antar baris */
     color: #1e1e25; /* Warna teks */
 }
+
+.navbar {
+    transition: background-color 0.3s;
+}
+
+.navbar.scrolled {
+    background-color: rgb(255, 255, 255); /* Contoh warna background */
+    box-shadow: inset;
+}
+
 
 /*
 .btn-purple{

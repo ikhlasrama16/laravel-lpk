@@ -22,8 +22,22 @@
             </p>
         </div>
 
-        <div id="program">
+        <div id="program" class="container py-5 col-xxl-10">
+            <div class="row center-content">
+                <div class="col">
+                    <img src="{{ asset('assets/background/program-homepage.jpg') }}" alt="" class="rounded w-75">
+                </div>
+                <div class="col">
+                    <h2 class="poppins-bold">Apa saja Progam Magang di<br> LPK Mandiri Nusantara?</h2>
+                <div class="stripe"></div>
+                </div>
+            </div>
+        </div>
 
+        <div id="mengapa">
+            <div class="row">
+
+            </div>
         </div>
     </section>
 @endsection

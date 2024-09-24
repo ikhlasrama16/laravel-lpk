@@ -104,10 +104,58 @@ body {
     box-shadow: inset;
 }
 
+#program .col {
+    padding-left: 0; /* Menghilangkan padding kiri pada kolom */
+    padding-right: 0; /* Menghilangkan padding kanan pada kolom */
+}
 
-/*
-.btn-purple{
-    background-color: #230c63;
-    border-radius: 15px;
-    border-color: #230c63;
-} */
+#program img.rounded.w-75 {
+    margin: 0; /* Menghilangkan margin pada gambar */
+    width: 100%; /* Mengatur lebar gambar agar sesuai dengan kolom */
+}
+
+#program .row {
+    margin-left: 0; /* Menghilangkan margin kiri pada baris */
+    margin-right: 0; /* Menghilangkan margin kanan pada baris */
+}
+
+
+.hover-container {
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.hover-content {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.hover-image {
+    max-width: 100px; /* Atur ukuran maksimum gambar */
+    max-height: 100px; /* Atur tinggi maksimum gambar */
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.hover-container:hover .hover-content {
+    transform: translateY(-100%);
+}
+
+.hover-container:hover .hover-text {
+    transform: translateY(0);
+}
+
+

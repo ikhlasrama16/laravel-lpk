@@ -50,20 +50,19 @@
             </div>
         </div>
 
-        <div id="mengapa" class="container py-5 col-xxl-10">
-            <div class="row">
-                <div class="col">
-                    <h3 class="poppins-bold align-start">Mengapa Memilih LPK Mandiri <br> Nusantara</h3>
+       <div id="mengapa" class="container-fluid py-5 d-flex justify-content-center align-items-center flex-column">
+            <div class="content d-flex flex-column flex-md-row align-items-center">
+                <div class="text-center text-md-start me-md-4">
+                    <h3 class="poppins-bold">Mengapa Memilih LPK Mandiri <br> Nusantara</h3>
                     <div class="stripe mt-0"></div>
-                    <p class="poppins-regular">LPK Mandiri Nusantara adalah lembaga pendidikan dan keterampilan yang berizin resmi dari
-                        departement tenaga kerja
-                        Indonesia, dengan pengajar profesional dan kami akan membantu menyalurkan tenaga kerja ke institusi atau
-                        perusahaan yang
-                        tepat untuk Anda seperti di Jepang.</p>
+                    <p class="poppins-regular">LPK Mandiri Nusantara adalah lembaga pendidikan dan keterampilan yang berizin
+                        resmi dari
+                        departement tenaga kerja Indonesia, dengan pengajar profesional dan kami akan membantu menyalurkan
+                        tenaga kerja ke institusi atau perusahaan yang tepat untuk Anda seperti di Jepang.</p>
                 </div>
-                <div class="col">
-                    <img src="{{ asset('assets/content/mengapa-lpk-mandiri-nusantara-1.jpg') }}" alt="Mengapa LPK Mandiri Nusantara"
-                        class="w-50">
+                <div class="text-center">
+                    <img src="{{ asset('assets/content/mengapa-lpk-mandiri-nusantara-1.jpg') }}"
+                        alt="Mengapa LPK Mandiri Nusantara" class="">
                 </div>
             </div>
         </div>

@@ -160,12 +160,36 @@ body {
 
 
 #mengapa {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
+    width: 100vw; /* Lebar penuh viewport */
+    background-color: #eefbff; /* Light blue background */
+    display: flex; /* Menggunakan Flexbox */
+    justify-content: center; /* Memusatkan konten secara horizontal */
+    align-items: center; /* Memusatkan konten secara vertikal */
+    padding: 20px; /* Padding untuk memberikan ruang di dalam elemen */
+    box-sizing: border-box; /* Memastikan padding tidak menambah lebar elemen */
+    margin: 0; /* Menghilangkan margin default */
+
+}
+
+.content {
+    max-width: 1200px; /* Lebar maksimum konten */
+    width: 100%; /* Lebar penuh konten */
+    display: flex; /* Menggunakan Flexbox */
+    flex-direction: column; /* Mengatur arah flex ke kolom */
+    align-items: center; /* Memusatkan konten secara horizontal */
+}
+
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row; /* Mengatur arah flex ke baris pada layar yang lebih besar */
+        justify-content: space-between; /* Memberikan ruang antara elemen */
+    }
 }
 
 
+#mengapa img{
+    width: 150%; /* Sesuaikan ukuran gambar */
+    padding-top: 20px; /* Jarak antara teks dan gambar */
+    padding-bottom: 20px; /* Jarak antara gambar dan bawah */
+
+}

@@ -22,13 +22,13 @@
             </p>
         </div>
 
-        <div id="program" class="container py-5 col-xxl-10">
-            <div class="row center-content">
-                <div class="col">
+        <div id="program" class="py-5">
+            <div class="container d-flex justify-content-between">
+                <div class="image">
                     <img src="{{ asset('assets/content/program-homepage.jpg') }}" alt="Program Homepage"
                         class="rounded w-75">
                 </div>
-                <div class="col">
+                <div class="description">
                     <h2 class="poppins-bold">Apa saja Progam Magang di<br> LPK Mandiri Nusantara?</h2>
                     <div class="stripe"></div>
                     <p>Tokutei Ginou 特定技能 (kontrak dan visa kerja 5 tahun)</p>
@@ -50,21 +50,26 @@
             </div>
         </div>
 
-       <div id="mengapa" class="container-fluid py-5 d-flex justify-content-center align-items-center flex-column">
-            <div class="content d-flex flex-column flex-md-row align-items-center">
-                <div class="text-center text-md-start me-md-4">
-                    <h3 class="poppins-bold">Mengapa Memilih LPK Mandiri <br> Nusantara</h3>
-                    <div class="stripe mt-0"></div>
-                    <p class="poppins-regular">LPK Mandiri Nusantara adalah lembaga pendidikan dan keterampilan yang berizin
-                        resmi dari
-                        departement tenaga kerja Indonesia, dengan pengajar profesional dan kami akan membantu menyalurkan
-                        tenaga kerja ke institusi atau perusahaan yang tepat untuk Anda seperti di Jepang.</p>
+        <div id="mengapa">
+            <div class="container">
+                <div class="item">
+                    <h1 class="poppins-bold h1 py-5">Mengapa Memilih LPK Mandiri Nusantara</h1>
+                    <div class="stripe"></div>
+                    <p class="poppins-regular">
+                        LPK Mandiri Nusantara adalah lembaga pendidikan dan keterampilan yang berizin resmi dari departement tenaga kerja
+                        Indonesia, dengan pengajar profesional dan kami akan membantu menyalurkan tenaga kerja ke institusi atau perusahaan yang
+                        tepat untuk Anda seperti di Jepang.
+                    </p>
+                    <button class="mt-2">PENDAFTARAN</button>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('assets/content/mengapa-lpk-mandiri-nusantara-1.jpg') }}"
-                        alt="Mengapa LPK Mandiri Nusantara" class="">
+                <div class="item">
+                    <img src="{{ asset('assets/content/mengapa-lpk-mandiri-nusantara-1.jpg') }}" alt="" class="py-5">
                 </div>
             </div>
+        </div>
+
+        <div id="testimoni">
+
         </div>
     </section>
 @endsection

@@ -75,7 +75,7 @@ body {
     border-radius: 10px;
 }
 .stripe{
-    width: 20%; /* Lebar garis */
+    width: 17%; /* Lebar garis */
     height: 8px; /* Tinggi garis */
     background-color: #00008B; /* Warna garis */
     margin: 10px auto; /* Margin atas dan bawah, serta pusatkan garis */
@@ -149,7 +149,7 @@ body {
 
 #mengapa {
     width: 100vw;
-    height: 52vh;
+    height: 59vh;
     background-color: #eefbff;
 }
 
@@ -181,4 +181,41 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 22px;
+}
+
+#testimoni{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../background/testimoni-background.jpg");
+    color: white;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+}
+
+#testimoni .card{
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40%;
+    max-width: 500px;
+    text-align: center;
+    background-color: #ffffffc7;
+    border: none;
+}
+
+#testimoni img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+#partner img{
+    width: 250px;
+    height: 200px;
 }

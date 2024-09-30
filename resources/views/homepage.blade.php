@@ -86,28 +86,29 @@
 
         <div id="partner">
             <div class="container d-flex justify-between">
-                <div>
+                <div class="py-5">
                     <h1 class="poppins-bold mt-5">Partners</h1>
                     <div class="stripe"></div>
                 </div>
-                <div class="slider">
-                    <div class="slide-track">
-                        <div class="slide">
-                            <img src="{{ asset('assets/logo/Logo-BP2MI.png') }}" alt="">
-                        </div>
-                        <div class="slide">
-                            <img src="{{ asset('assets/logo/Logo-JapanFoundation.png') }}" alt="">
-                        </div>
-                        <div class="slide">
-                            <img src="{{ asset('assets/logo/Logo-KEMNAKER.png') }}" alt="">
-                        </div>
-                        <div class="slide">
-                            <img src="{{ asset('assets/logo/logo-persemki-indonesia.png') }}" alt="">
-                        </div>
-                        <!-- Tambahkan lebih banyak slide jika diperlukan -->
+                <div class="logos">
+                    <div class="logos-slide">
+                        <img src="{{ asset('assets/logo/Logo-BP2MI.png') }}" alt="BP2MI Logo">
+                        <img src="{{ asset('assets/logo/Logo-KEMNAKER.png') }}" alt="KEMNAKER Logo">
+                        <img src="{{ asset('assets/logo/Logo-JapanFoundation.png') }}" alt="Japan Foundation Logo">
+                        <img src="{{ asset('assets/logo/logo-persemki-indonesia.png') }}" alt="Persemki Indonesia Logo">
+                    </div>
+                    <div class="logos-slide">
+                        <img src="{{ asset('assets/logo/Logo-BP2MI.png') }}" alt="BP2MI Logo">
+                        <img src="{{ asset('assets/logo/Logo-KEMNAKER.png') }}" alt="KEMNAKER Logo">
+                        <img src="{{ asset('assets/logo/Logo-JapanFoundation.png') }}" alt="Japan Foundation Logo">
+                        <img src="{{ asset('assets/logo/logo-persemki-indonesia.png') }}" alt="Persemki Indonesia Logo">
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="lokasi">
+
         </div>
 
     </section>

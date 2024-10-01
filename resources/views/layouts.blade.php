@@ -29,22 +29,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="/">Home</a>
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('homepage.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Tentang Kami</a>
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('tentang') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Program</a>
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('program') }}">Program</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Gallery</a>
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('gallery') }}">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="#">Kontak</a>
+                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('kontak') }}">Kontak</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle fw-bold fs-5" href="#" role="button"
@@ -69,7 +69,7 @@
                     <div class="g5core-header-customize-item g5core-hc-custom-html">
                         <ul class="custom-header-contact pdr-35" style="list-style-type: none; padding-left: 0;">
                             <li>
-                                <i class="fas fa-phone fa-flip-horizontal poppins-regular"></i>
+                                <i class="fa-solid fa-phone"></i>
                                 <span>Hubungi: +6285692592551</span>
                             </li>
                         </ul>

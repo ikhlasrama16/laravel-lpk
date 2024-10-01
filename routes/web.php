@@ -14,10 +14,13 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/registerprocess', [LoginController::class, 'register_process'])->name('registerprocess');
 
-
 Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
 Route::get('/blog', [HomepageController::class, 'blog'])->name('blog');
 Route::get('/blog/detail/{id}', [HomepageController::class, 'blog_detail'])->name('blog_detail');
+Route::get('/tentang', [HomepageController::class, 'tentang'])->name('tentang');
+Route::get('/program', [HomepageController::class, 'program'])->name('program');
+Route::get('/gallery', [HomepageController::class, 'gallery'])->name('gallery');
+Route::get('/kontak', [HomepageController::class, 'kontak'])->name('kontak');
 
 
 

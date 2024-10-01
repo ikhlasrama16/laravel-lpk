@@ -86,7 +86,7 @@
 
         <div id="partner">
             <div class="container d-flex justify-between">
-                <div class="py-5">
+                <div class="py-5 col">
                     <h1 class="poppins-bold mt-5">Partners</h1>
                     <div class="stripe"></div>
                 </div>
@@ -108,7 +108,41 @@
         </div>
 
         <div id="lokasi">
-
+            <div class="container d-flex justify between">
+                <div class="py-5 col maps">
+                    <h1 class="poppins-bold mt-5">Lokasi</h1>
+                    <div class="stripe"></div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d991.3540845940355!2d106.728885!3d-6.340087!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ef817cec4ea1%3A0x5042bee18d803365!2sJl.%20Griya%20Jkt%20Blok%20A3%20No.9%2C%20RT.07%2FRW.7%2C%20Pamulang%20Bar.%2C%20Kec.%20Pamulang%2C%20Kota%20Tangerang%20Selatan%2C%20Banten%2015417%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1727751659771!5m2!1sen!2sus"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="mt-3"></iframe>
+                </div>
+                <div class="py-5 col email">
+                    <h1 class="poppins-bold mt-5">Hubungi Kami</h1>
+                    <div class="stripe"></div>
+                    <form action="mailto:someone@example.com" method="post" enctype="text/plain" class="mt-3">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="string" class="form-control" name="name">
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <div class="flex-fill me-2">
+                                <label class="form-label">Alamat Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                            </div>
+                            <div class="flex-fill ms-2">
+                                <label class="form-label">No Telephone / HP</label>
+                                <input type="number" class="form-control" name="phone">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Pesan</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 100%"></textarea>
+                        </div>
+                        <button type="submit" class="btn mt-4">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
     </section>

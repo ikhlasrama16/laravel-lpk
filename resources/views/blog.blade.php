@@ -1,7 +1,7 @@
 @extends('layouts')
 @section('content')
 {{-- blog artikel --}}
-    <section id="blog">
+    <section id="blog" class="mt-5 py-5">
         <div class="container col-xxl-10 py-5">
             <div class="row">
                 @foreach ($artikels as $item)

@@ -113,7 +113,7 @@
                     <h1 class="poppins-bold mt-5">Lokasi</h1>
                     <div class="stripe"></div>
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d991.3540845940355!2d106.728885!3d-6.340087!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ef817cec4ea1%3A0x5042bee18d803365!2sJl.%20Griya%20Jkt%20Blok%20A3%20No.9%2C%20RT.07%2FRW.7%2C%20Pamulang%20Bar.%2C%20Kec.%20Pamulang%2C%20Kota%20Tangerang%20Selatan%2C%20Banten%2015417%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1727751659771!5m2!1sen!2sus"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63446.662767426176!2d106.729101!3d-6.340076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ef817cec4ea1%3A0x5042bee18d803365!2sJl.%20Griya%20Jkt%20Blok%20A3%20No.9%2C%20RT.07%2FRW.7%2C%20Pamulang%20Bar.%2C%20Kec.%20Pamulang%2C%20Kota%20Tangerang%20Selatan%2C%20Banten%2015417%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1727770744139!5m2!1sen!2sus"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade" class="mt-3"></iframe>
                 </div>

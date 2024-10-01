@@ -30,10 +30,14 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+.fa {
+    font-family: 'Font Awesome 5 Free' !important;
+    font-weight: 900 !important;
+}
 
 body {
     margin: 0;
-    font-family: Poppins, sans-serif;
+    font-family: 'poppins';
 }
 .hero {
     display: flex;
@@ -258,4 +262,68 @@ body {
 #lokasi .email button{
     background: #00008B;
     color: #eefbff;
+}
+
+#footer{
+    height: 50vh;
+}
+#footer .container{
+    margin-top: 25px;
+}
+#footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+}
+#footer .logo{
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding-right: 15px;
+    padding-left: 15px;
+
+}
+#footer .address {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 400px;
+    font-size: small;
+}
+#footer .link{
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#footer img{
+    width: 150px;
+}
+#footer .row{
+    margin-left: 10%;
+}
+#footer ul {
+    list-style-type: none; /* Menghilangkan bullet points */
+    padding: 0; /* Menghilangkan padding default */
+}
+
+#footer ul li {
+    margin-bottom: 10px; /* Menambahkan jarak antar item */
+    display: flex; /* Mengatur ikon dan teks dalam satu baris */
+    align-items: center; /* Menyelaraskan ikon dan teks secara vertikal */
+}
+
+#footer ul li i {
+    margin-right: 10px; /* Menambahkan jarak antara ikon dan teks */
+}
+#footer a{
+    color: inherit;
+    text-decoration: none;
+}
+#footer a:hover{
+    color: inherit;
+    text-decoration: underline;
 }

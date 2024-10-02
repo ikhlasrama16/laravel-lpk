@@ -105,7 +105,7 @@ body {
 
 .navbar.scrolled {
     background-color: rgb(255, 255, 255); /* Contoh warna background */
-    box-shadow: inset;
+    box-shadow: #1e1e25;
 }
 
 #program .description{
@@ -326,4 +326,74 @@ body {
 #footer a:hover{
     color: inherit;
     text-decoration: underline;
+}
+/* About */
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* background: linear-gradient(to bottom, transparent 0%, transparent 7%, #eefbff 20%); */
+}
+#about .content-tentang{
+    background: linear-gradient(to bottom, #eefbff, white);
+    width: 100vw;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#about .content-visi{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#about .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+#about h1 {
+    padding-top: 2%;
+    text-align: center;
+    width: 100%;
+}
+#about .content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.content-visi p{
+    margin-top: 50px;
+}
+.content-visi ul{
+    padding: 0;
+}
+.content-visi li{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.content-visi ul li::marker {
+    color: rgb(24, 0, 90);
+}
+#about .content-fasilitas{
+    background: linear-gradient(to bottom, white, #eefbff);
+    width: 100vw;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 25px;
+}
+.content-fasilitas p{
+    margin-top: 50px;
+}
+.content-fasilitas ul{
+    padding: 0;
+}
+.content-fasilitas li{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.content-fasilitas ul li::marker {
+    color: rgb(24, 0, 90);
 }

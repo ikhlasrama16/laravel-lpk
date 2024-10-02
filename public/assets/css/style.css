@@ -332,8 +332,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    /* background: linear-gradient(to bottom, transparent 0%, transparent 7%, #eefbff 20%); */
+}
+#about .content{
+    margin-top: 5%;
 }
 #about .content-tentang{
     background: linear-gradient(to bottom, #eefbff, white);
@@ -396,4 +397,16 @@ body {
 }
 .content-fasilitas ul li::marker {
     color: rgb(24, 0, 90);
+}
+
+/* Program */
+#program {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#program h1 {
+    padding-top: 2%;
+    text-align: center;
+    width: 100%;
 }

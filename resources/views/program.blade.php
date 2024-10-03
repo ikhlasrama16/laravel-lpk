@@ -13,5 +13,53 @@
                 </div>
             </div>
         </div>
+        <div class="content-syarat">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Tahapan dan Syarat<br> Pemagang</h3>
+                        <div class="stripe"></div>
+                        <ul>
+                            <li>Memiliki minat tinggi kerja dijepang</li>
+                            <li>Mau mengikuti pembelajaran selama di asrama</li>
+                            <li>Tidak bertato dan tidak bekas tindik</li>
+                            <li>Disiplin dan bertanggung jawab</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Persyaratan Magang dan Kerja LPK Mandiri Nusantara</h3>
+                        <div class="stripe"></div>
+                        <ul>
+                            <li>Pendidikan Formal SMK/SMA/S-1 semua jurusan</li>
+                            <li>Laki-laki dan perempuan usia minimal 18 – 30 tahun</li>
+                            <li>Mencantumkan surat keterangan sehat ( puskesmas / klinik )</li>
+                            <li>Tidak cacat fisik dan buta warna</li>
+                            <li>Tinggi badan 150 cm ( perempuan )</li>
+                            <li>Tinggi badan 165 cm ( laki-laki )</li>
+                            <li>Mencantumkan diantaranya CV, pas foto 4x6 warna, SKKB, ijin orang tua bermaterai, fc KK, fc KTP, *sertifikat keahlian
+                            khusus</li>
+                            <li>Membawa foto warna ukuran 4x6 = 6 lembar, dan 3x4 = 6 lembar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-prosedur">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Prosedur Seleksi Kerja Magang</h3>
+                        <div class="stripe"></div>
+                        <img src="{{ asset('assets/content/program-prosedur-magang.jpg') }}" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Kegiatan Pembelajaran</h3>
+                        <div class="stripe"></div>
+                        <img src="{{ asset('assets/content/program-kegiatan-pembelajaran-saat-di-asrama.jpg') }}" alt="">
+                    </div>
+                </div>
+                <button class="mt-5">Daftar Sekarang</button>
+            </div>
+        </div>
     </section>
 @endsection

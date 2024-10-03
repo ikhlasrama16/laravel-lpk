@@ -108,7 +108,7 @@ body {
     box-shadow: #1e1e25;
 }
 
-#program .description{
+#program-homepage .description{
     transform: translateX(-75px);
 }
 .hover-container {
@@ -401,12 +401,66 @@ body {
 
 /* Program */
 #program {
+    margin-top: 50px;
+}
+
+#program .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100%;
 }
-#program h1 {
-    padding-top: 2%;
-    text-align: center;
+#program .content-program{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../background/program-background.jpg");
+    color: white;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    text-align: center; /* Menambahkan text-align center untuk memastikan teks di tengah */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+#program h1, #program h2 {
     width: 100%;
 }
+#program h2 {
+    padding-bottom: 3px;
+    border-bottom: 1px solid white;
+}
+#program .h3-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+.h3-wrapper h3 {
+    flex: 1;
+    text-align: center;
+}
+
+.h3-wrapper h3:first-child {
+    text-align: right;
+    padding-right: 30px;
+}
+
+.h3-wrapper h3:last-child {
+    text-align: left;
+    padding-left: 30px;
+}
+
+.h3-wrapper::after {
+    content: '|';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white; /* Sesuaikan warna garis */
+}
+
+

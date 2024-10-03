@@ -22,7 +22,7 @@
             </p>
         </div>
 
-        <div id="program" class="py-5">
+        <div id="program-homepage" class="py-5">
             <div class="container d-flex justify-content-between">
                 <div class="image">
                     <img src="{{ asset('assets/content/program-homepage.jpg') }}" alt="Program Homepage"

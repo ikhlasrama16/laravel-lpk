@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    {{-- magnific --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific.css') }}">
 </head>
 
 <body>
@@ -130,6 +132,8 @@
         </div>
     </div>
    </div>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script src="{{ asset('assets/script/magnific.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
@@ -137,6 +141,7 @@
 
 
     <script>
+        // scroll
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) { // Ubah nilai 50 sesuai kebutuhan
@@ -146,6 +151,17 @@
             }
         });
 
+
+        // magnific-gallery
+        $('.gallery').each(function() { // the containers for all your galleries
+            $(this).magnificPopup({
+                delegate: 'a', // the selector for gallery item
+                type: 'image',
+                gallery: {
+                    enabled:true
+                }
+            });
+        });
     </script>
 </body>
 

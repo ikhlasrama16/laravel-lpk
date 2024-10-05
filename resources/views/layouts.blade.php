@@ -21,7 +21,7 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light py-auto fixed-top">
         <div class="container col-xxl-10">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('assets/logo/Logo-Mandiri-Nusantara.png') }}" alt="" height="80">
+                <img src="{{ asset('assets/logo/KDJ Logo.png') }}" alt="" height="80">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -89,29 +89,16 @@
     <div class="container">
         <div class="row">
             <div class="col logo">
-                <img src="{{ asset('assets/logo/Logo-Mandiri-Nusantara.png') }}" alt="">
+                <img src="{{ asset('assets/logo/KDJ Logo.png') }}" alt="">
             </div>
             <div class="col address">
                 <h5 class="poppins-bold">Address</h5>
-                <p>Cabang Kota Blitar : <br>
-                Jl. Ciliwung No.109, Bendo, Kec. Kepanjenkidul, Kota Blitar, Jawa Timur 66116<br>
-                <a href="https://maps.app.goo.gl/Txjx57pWqQXeT52h8" style="font-style: none" target="blank">https://maps.app.goo.gl/Txjx57pWqQXeT52h8</a></p>
-                <p>
-                    Cabang Jakarta Utara : <br>
-                    Jl. Gadang No.7, RT.10/RW.3, Sungai Bambu, Kec. Tj. Priok, Jkt Utara, Daerah Khusus Ibukota Jakarta 14330 <br>
-                    <a href="https://maps.app.goo.gl/6fNCwiYPeJfmpQay8" style="font-style: normal" target="blank">https://maps.app.goo.gl/6fNCwiYPeJfmpQay8</a>
-                </p>
-                <p>
-                    Kantor Pusat : <br>
-                    Perumahan Griya Jakarta.
-                    Jalan Menteng Raya, blok C2 no 6B RT 07 RW 07. Kelurahan Pamulang Barat. Kecamatan Tangerang Selatan.<br>
-                    <a href="https://maps.app.goo.gl/6REmynMJthQMMQiz7" style="font-style: normal" target="blank">https://maps.app.goo.gl/6REmynMJthQMMQiz7</a>
-                </p>
+                <p>Jl. Wates No.Km.11, Bandut Lor, Argorejo, Kec. Sedayu, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55752</p>
                 <div class="kontak py-3">
                     <ul>
-                        <li><i class="fa-solid fa-phone"></i> +62 813-8989-1706</li>
-                        <li><i class="fa-brands fa-whatsapp"></i> +62 813-8989-1706</li>
-                        <li><i class="fa-solid fa-envelope"></i> info@lpkmandirinusantara.com</li>
+                        <li><i class="fa-solid fa-phone"></i> +62 811-2805-6666</li>
+                        <li><i class="fa-brands fa-whatsapp"></i> +62 811-2805-6666</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@karirdijepang.id</li>
                     </ul>
                 </div>
             </div>

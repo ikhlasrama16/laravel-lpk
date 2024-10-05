@@ -95,13 +95,11 @@
                         <img src="{{ asset('assets/logo/Logo-BP2MI.png') }}" alt="BP2MI Logo">
                         <img src="{{ asset('assets/logo/Logo-KEMNAKER.png') }}" alt="KEMNAKER Logo">
                         <img src="{{ asset('assets/logo/Logo-JapanFoundation.png') }}" alt="Japan Foundation Logo">
-                        <img src="{{ asset('assets/logo/logo-persemki-indonesia.png') }}" alt="Persemki Indonesia Logo">
                     </div>
                     <div class="logos-slide">
                         <img src="{{ asset('assets/logo/Logo-BP2MI.png') }}" alt="BP2MI Logo">
                         <img src="{{ asset('assets/logo/Logo-KEMNAKER.png') }}" alt="KEMNAKER Logo">
                         <img src="{{ asset('assets/logo/Logo-JapanFoundation.png') }}" alt="Japan Foundation Logo">
-                        <img src="{{ asset('assets/logo/logo-persemki-indonesia.png') }}" alt="Persemki Indonesia Logo">
                     </div>
                 </div>
             </div>
@@ -120,7 +118,7 @@
                 <div class="py-5 col email">
                     <h1 class="poppins-bold mt-5">Hubungi Kami</h1>
                     <div class="stripe"></div>
-                    <form action="mailto:someone@example.com" method="post" enctype="text/plain" class="mt-3">
+                    <form action="mailto:info@karirdijepang.id" method="post" enctype="text/plain" class="mt-3">
                         <div class="mb-3">
                             <label class="form-label">Nama Lengkap</label>
                             <input type="string" class="form-control" name="name">

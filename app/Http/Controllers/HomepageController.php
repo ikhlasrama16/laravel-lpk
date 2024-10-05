@@ -28,6 +28,9 @@ class HomepageController extends Controller
     public function tentang(){
         return view('about');
     }
+    public function tentang1(){
+        return view('aboutus');
+    }
 
     public function program(){
         return view('program');

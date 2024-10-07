@@ -58,7 +58,9 @@
                         <img src="{{ asset('assets/content/program-kegiatan-pembelajaran-saat-di-asrama.jpg') }}" alt="">
                     </div>
                 </div>
-                <button class="mt-5">Daftar Sekarang</button>
+                <a href="{{ route('pendaftaran') }}">
+                    <button class="mt-5">Daftar Sekarang</button>
+                </a>
             </div>
         </div>
     </section>

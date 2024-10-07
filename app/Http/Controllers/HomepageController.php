@@ -26,9 +26,6 @@ class HomepageController extends Controller
     }
 
     public function tentang(){
-        return view('about');
-    }
-    public function tentang1(){
         return view('aboutus');
     }
 
@@ -42,5 +39,9 @@ class HomepageController extends Controller
 
     public function kontak(){
         return view('kontak');
+    }
+
+    public function pendaftaran(){
+        return view('pendaftaran');
     }
 }

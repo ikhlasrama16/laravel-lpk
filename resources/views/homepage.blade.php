@@ -7,7 +7,9 @@
                 <h2 class="py-3 poppins-bold">Menyiapkan Tenaga Kerja Handal</h2>
                 <h2 class="poppins-bold">Siap Kerja 100%</h2>
                 <div class="stripe"></div>
-                <button class="mt-2">PENDAFTARAN</button>
+                <a href="{{ route('pendaftaran') }}">
+                    <button class="mt-2">PENDAFTARAN</button>
+                </a>
             </div>
             <div class="hero-image">
                 <img src="{{ asset('assets/background/Hero-LPK1.png') }}" alt="Hero Image">
@@ -60,7 +62,9 @@
                         Indonesia, dengan pengajar profesional dan kami akan membantu menyalurkan tenaga kerja ke institusi atau perusahaan yang
                         tepat untuk Anda seperti di Jepang.
                     </p>
-                    <button class="mt-2">PENDAFTARAN</button>
+                    <a href="{{ route('pendaftaran') }}">
+                        <button class="mt-2">PENDAFTARAN</button>
+                    </a>
                 </div>
                 <div class="item">
                     <img src="{{ asset('assets/content/mengapa-lpk-mandiri-nusantara-1.jpg') }}" alt="" class="py-5">

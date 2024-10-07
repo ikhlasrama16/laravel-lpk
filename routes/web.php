@@ -18,10 +18,11 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage.index');
 Route::get('/blog', [HomepageController::class, 'blog'])->name('blog');
 Route::get('/blog/detail/{id}', [HomepageController::class, 'blog_detail'])->name('blog_detail');
 Route::get('/tentang', [HomepageController::class, 'tentang'])->name('tentang');
-Route::get('/tentang1', [HomepageController::class, 'tentang1'])->name('tentang1');
 Route::get('/program', [HomepageController::class, 'program'])->name('program');
 Route::get('/gallery', [HomepageController::class, 'gallery'])->name('gallery');
 Route::get('/kontak', [HomepageController::class, 'kontak'])->name('kontak');
+Route::get('/pendaftaran', [HomepageController::class, 'pendaftaran'])->name('pendaftaran');
+
 
 
 

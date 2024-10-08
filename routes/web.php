@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DataPribadiController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
@@ -21,7 +22,9 @@ Route::get('/tentang', [HomepageController::class, 'tentang'])->name('tentang');
 Route::get('/program', [HomepageController::class, 'program'])->name('program');
 Route::get('/gallery', [HomepageController::class, 'gallery'])->name('gallery');
 Route::get('/kontak', [HomepageController::class, 'kontak'])->name('kontak');
+
 Route::get('/pendaftaran', [HomepageController::class, 'pendaftaran'])->name('pendaftaran');
+Route::post('/pedaftaran/post', [DataPribadiController::class, 'store'])->name('pendaftaran_post');
 
 
 

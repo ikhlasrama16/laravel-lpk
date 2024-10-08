@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('data_pribadis', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('tempat_lahir');
@@ -22,11 +23,11 @@ return new class extends Migration
             $table->string('alamat'); // Alamat
             $table->string('kode_pos'); // Kode Pos
             $table->string('provinsi'); // Provinsi
-            $table->text('alasan_kerja'); // Alasan Ingin Kerja di Jepang
-            $table->string('name_parent'); // Nama Lengkap Orang Tua
-            $table->string('job_parent'); // Pekerjaan Orang Tua
-            $table->string('alamat_parent'); // Alamat Orang Tua
-            $table->string('phone_parent'); // No Telepon Orang Tua
+            $table->text('alasan_ingin_kerja'); // Alasan Ingin Kerja di Jepang
+            $table->string('nama_orang_tua'); // Nama Lengkap Orang Tua
+            $table->string('pekerjaan_orang_tua'); // Pekerjaan Orang Tua
+            $table->string('alamat_orang_tua'); // Alamat Orang Tua
+            $table->string('phone_orang_tua'); // No Telepon Orang Tua
             $table->timestamps();
         });
     }

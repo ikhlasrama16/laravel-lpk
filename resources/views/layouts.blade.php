@@ -119,12 +119,40 @@
         </div>
     </div>
    </div>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
    <script src="{{ asset('assets/script/magnific.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+
+    @if(session('success'))
+    <script>
+        Swal.fire({
+            title: 'Success!',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    </script>
+    @endif
+
+    @if($errors->any())
+    <script>
+        let errorMessages = '';
+        @foreach($errors->all() as $error)
+            errorMessages += '{{ $error }}\n';
+        @endforeach
+
+        Swal.fire({
+            title: 'Error!',
+            text: errorMessages,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    </script>
+    @endif
 
 
     <script>

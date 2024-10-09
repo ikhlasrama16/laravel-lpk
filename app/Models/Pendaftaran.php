@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DataPribadi extends Model
+class Pendaftaran extends Model
 {
     use HasFactory;
+    // Spesifikasikan nama tabel
+    protected $table = 'pendaftaran';
+
     protected $fillable = [
         // Data Pribadi
         'nama',
@@ -28,5 +31,4 @@ class DataPribadi extends Model
         'alamat_orang_tua',
         'phone_orang_tua',
     ];
-
 }

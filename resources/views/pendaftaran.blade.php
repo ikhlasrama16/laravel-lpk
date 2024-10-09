@@ -4,14 +4,14 @@
         <div class="pendaftaran">
             <div class="container">
                 <h1>Pendaftaran</h1>
-                <form action="{{ route('pendaftaran_post') }}" class="col-md-9" method="POST">
+                <form action="{{ route('pendaftaran.store') }}" class="col-md-9" method="POST">
                     @csrf
                     <div>
                         <h3>Data Pribadi</h3>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="exampleInputEmail1">Nama Lengkap</label>
-                        <input type="name" class="form-control" name="nama" id="nama" required>
+                        <label>Nama Lengkap</label>
+                        <input type="text" class="form-control" name="nama" id="nama" required>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
@@ -26,11 +26,11 @@
                     <div class="form-row mb-3">
                         <div class="col">
                             <label for="">Tempat Lahir</label>
-                            <input type="text" class="form-control" id="tempat_lahir" required>
+                            <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" required>
                         </div>
                         <div class="col">
                             <label for="">Tanggal Lahir</label>
-                            <input type="date" class="form-control" id="tanggal_lahir" required>
+                            <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" required>
                         </div>
                     </div>
                     <div class="form-row mb-3">
@@ -56,8 +56,8 @@
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="exampleInputEmail1">Alamat</label>
-                        <input type="name" class="form-control" name="alamat" id="alamat" required>
+                        <label>Alamat</label>
+                        <input type="text" class="form-control" name="alamat" id="alamat" required>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
@@ -77,12 +77,12 @@
                         <h3>Data Orang Tua</h3>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="exampleInputEmail1">Nama Lengkap Orang Tua</label>
-                        <input type="name" class="form-control" name="nama_orang_tua" id="nama_orang_tua" required>
+                        <label>Nama Lengkap Orang Tua</label>
+                        <input type="text" class="form-control" name="nama_orang_tua" id="nama_orang_tua" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="exampleInputEmail1">Pekerjaan Orang Tua</label>
-                        <input type="name" class="form-control" name="pekerjaan_orang_tua" id="pekerjaan_orang_tua" required>
+                        <label>Pekerjaan Orang Tua</label>
+                        <input type="text" class="form-control" name="pekerjaan_orang_tua" id="pekerjaan_orang_tua" required>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">

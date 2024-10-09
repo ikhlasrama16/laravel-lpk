@@ -7,7 +7,7 @@
                 <h2 class="py-3 poppins-bold">Menyiapkan Tenaga Kerja Handal</h2>
                 <h2 class="poppins-bold">Siap Kerja 100%</h2>
                 <div class="stripe"></div>
-                <a href="{{ route('pendaftaran') }}">
+                <a href="{{ route('pendaftaran.index') }}">
                     <button class="mt-2">PENDAFTARAN</button>
                 </a>
             </div>
@@ -62,7 +62,7 @@
                         Indonesia, dengan pengajar profesional dan kami akan membantu menyalurkan tenaga kerja ke institusi atau perusahaan yang
                         tepat untuk Anda seperti di Jepang.
                     </p>
-                    <a href="{{ route('pendaftaran') }}">
+                    <a href="{{ route('pendaftaran.index') }}">
                         <button class="mt-2">PENDAFTARAN</button>
                     </a>
                 </div>

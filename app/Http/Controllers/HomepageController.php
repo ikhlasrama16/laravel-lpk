@@ -40,8 +40,4 @@ class HomepageController extends Controller
     public function kontak(){
         return view('kontak');
     }
-
-    public function pendaftaran(){
-        return view('pendaftaran');
-    }
 }

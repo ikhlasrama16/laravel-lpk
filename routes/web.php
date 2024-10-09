@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DataPribadiController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +23,8 @@ Route::get('/program', [HomepageController::class, 'program'])->name('program');
 Route::get('/gallery', [HomepageController::class, 'gallery'])->name('gallery');
 Route::get('/kontak', [HomepageController::class, 'kontak'])->name('kontak');
 
-Route::get('/pendaftaran', [HomepageController::class, 'pendaftaran'])->name('pendaftaran');
-Route::post('/pedaftaran/post', [DataPribadiController::class, 'store'])->name('pendaftaran_post');
+Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran.index');
+Route::post('/pendaftaran/store', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
 
 
 

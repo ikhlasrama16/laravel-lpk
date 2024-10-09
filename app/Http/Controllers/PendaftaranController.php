@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PendaftaranController extends Controller
 {
     public function index(){
-        return view('pendaftaran');
+        return view('homepage.pendaftaran');
     }
 
     public function admin_pendaftaran(){

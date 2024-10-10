@@ -28,7 +28,7 @@
                             <td>{{ $data->nama }}</td>
                             <td>{{ $data->email }}</td>
                             <td>
-                                <a href="{{ route('admin.edit_user', ['id' => $data->id]) }}" class="btn btn-warning"><i
+                                <a href="{{ route('admin.edit_pendaftaran', ['id' => $data->id]) }}" class="btn btn-warning"><i
                                         class="fas fa-pen">Edit</i></a>
                                 <a data-toggle="modal" data-target="#modal-hapus{{ $data->id }}" class="btn btn-danger"><i
                                         class="fas fa-trash">Hapus</i></a>
@@ -44,10 +44,10 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Apakah yakin ingin menghapus user <b>{{ $data->name }}</b></p>
+                                        <p>Apakah yakin ingin menghapus <b>{{ $data->nama }}</b></p>
                                     </div>
                                     <div class="modal-footer justify-content-between">
-                                        <form action="{{ route('admin.delete_user', ['id' => $data->id]) }}" method="POST">
+                                        <form action="{{ route('admin.delete_pendaftaran', ['id' => $data->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

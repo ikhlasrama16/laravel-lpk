@@ -31,22 +31,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('homepage.index') }}">Home</a>
+                        <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('homepage.index') ? 'highlight' : '' }}"
+                            href="{{ route('homepage.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('tentang') }}">Tentang Kami</a>
+                        <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('tentang') ? 'highlight' : '' }}"
+                            href="{{ route('tentang') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('program') }}">Program</a>
+                        <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('program') ? 'highlight' : '' }}"
+                            href="{{ route('program') }}">Program</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('gallery') }}">Gallery</a>
+                        <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('gallery') ? 'highlight' : '' }}"
+                            href="{{ route('gallery') }}">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('blog') }}">Blog</a>
+                        <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('blog') ? 'highlight' : '' }}"
+                            href="{{ route('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold fs-5 ms-3" aria-current="page" href="{{ route('kontak') }}">Kontak</a>
+                        <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('kontak') ? 'highlight' : '' }}"
+                            href="{{ route('kontak') }}">Kontak</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle fw-bold fs-5" href="#" role="button"

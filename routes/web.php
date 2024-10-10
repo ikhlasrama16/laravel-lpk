@@ -5,6 +5,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/pendaftaran/edit{id}', [PendaftaranController::class, 'edit_pendaftaran'])->name('edit_pendaftaran');
     Route::put('/pendaftaran/edit{id}/update', [PendaftaranController::class, 'update_pendaftaran'])->name('update_pendaftaran');
     Route::delete('/blog/delete/{id}', [PendaftaranController::class, 'delete_pendaftaran'])->name('delete_pendaftaran');
+
+    Route::get('/testimoni', [TestimoniController::class, 'index'])->name('testimoni');
+    Route::get('/testimoni/create', [TestimoniController::class, 'create'])->name('create_testimoni');
+    Route::post('/testimoni/store', [TestimoniController::class, 'store'])->name('store_testimoni');
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/blog', [AdminController::class, 'blog'])->name('blog');

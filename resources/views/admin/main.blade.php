@@ -71,9 +71,17 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.pendaftaran') }}" class="nav-link">
-                        <i class="nav-icon fas fa-blog"></i>
+                        <i class="nav-icon fas fa-list"></i>
                         <p>
                             Pendaftaran
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.testimoni') }}" class="nav-link">
+                        <i class="nav-icon fas fa-comment"></i>
+                        <p>
+                            Testimoni
                         </p>
                     </a>
                 </li>

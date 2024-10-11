@@ -42,11 +42,11 @@
                             Tidak Ada Gambar
                             @endif
                         </td>
-                        {{-- <td>
-                            <a href="{{ route('admin.testimoni.edit', $testimoni->id) }}" class="btn btn-warning btn-sm">
+                        <td>
+                            <a href="{{ route('admin.edit_testimoni', $testimoni->id) }}" class="btn btn-warning btn-sm">
                                 <i class="fas fa-pen"></i> Edit
                             </a>
-                            <form action="{{ route('admin.testimoni.destroy', $testimoni->id) }}" method="POST"
+                            <form action="{{ route('admin.delete_testimoni', $testimoni->id) }}" method="POST"
                                 style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
@@ -55,7 +55,7 @@
                                     <i class="fas fa-trash"></i> Hapus
                                 </button>
                             </form>
-                        </td> --}}
+                        </td>
                     </tr>
                     @empty
                     <tr>

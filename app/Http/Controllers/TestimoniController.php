@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Storage;
 
 class TestimoniController extends Controller
 {
@@ -72,7 +73,8 @@ class TestimoniController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $testimoni = Testimoni::findOrFail($id);
+        return view('admin.testimoni.edit', compact('testimoni'));
     }
 
     /**
@@ -80,7 +82,36 @@ class TestimoniController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $testimoni = Testimoni::findOrFail($id);
+
+        // Validasi input
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'pesan' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Update gambar jika diupload
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($testimoni->gambar && Storage::disk('public')->exists($testimoni->gambar)) {
+                Storage::disk('public')->delete($testimoni->gambar);
+            }
+            $gambarPath = $request->file('gambar')->store('testimoni', 'public');
+            $testimoni->gambar = $gambarPath;
+        }
+
+        // Update data lainnya
+        $testimoni->name = $request->name;
+        $testimoni->pesan = $request->pesan;
+        $testimoni->save();
+
+        return redirect()->route('admin.testimoni')->with('success', 'Testimoni berhasil diupdate.');
+
     }
 
     /**
@@ -88,6 +119,16 @@ class TestimoniController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $testimoni = Testimoni::findOrFail($id);
+
+        // Hapus gambar jika ada
+        if ($testimoni->gambar && Storage::disk('public')->exists($testimoni->gambar)) {
+            Storage::disk('public')->delete($testimoni->gambar);
+        }
+
+        $testimoni->delete();
+
+        return redirect()->route('admin.testimoni')->with('success', 'Testimoni berhasil dihapus.');
+
     }
 }

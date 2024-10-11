@@ -14,6 +14,9 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     {{-- magnific --}}
     <link rel="stylesheet" href="{{ asset('assets/css/magnific.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('OwlCarousel2/dist/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('OwlCarousel2/dist/assets/owl.theme.default.min.css') }}">
 </head>
 
 <body>
@@ -128,6 +131,7 @@
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
    <script src="{{ asset('assets/script/magnific.js') }}"></script>
+   <script src="{{ asset('OwlCarousel2/dist/owl.carousel.min.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
@@ -172,6 +176,19 @@
             }
         });
 
+        // owlcarousel
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                items: 1, // Number of items to display at a time
+                loop: true, // Loop through items
+                margin: 10, // Margin between items
+                nav: true, // Show navigation (next/prev arrows)
+                dots: true, // Show dots
+                autoplay: true, // Automatically play the slides
+                autoplayTimeout: 5000, // 5 seconds per slide
+                autoplayHoverPause: true, // Pause on hover
+            });
+        });
 
         // magnific-gallery
         $('.gallery').each(function() { // the containers for all your galleries

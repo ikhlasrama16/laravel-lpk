@@ -73,18 +73,16 @@
         </div>
 
         <div id="testimoni">
-            <div class="card">
-                <p>Selama saya di asrama, saya dididik untuk menjadi lebih mandiri, bertanggung jawab, dan memahami satu sama lain dengan
-                sifat dan karakter yang berbeda-beda. Jauh dari orang tua bukanlah hal yang mudah, namun pada akhirnya, sedikit demi
-                sedikit, saya belajar untuk tidak bergantung pada mereka dan bisa menyelesaikan masalah secara bersama-sama. Hal ini
-                sangat luar biasa bagi saya.
-                <br>
-                Sensei yang mengajar di asrama sangat baik, sabar, dan mau membimbing kami. Namun, ada kalanya mereka menjadi tegas
-                supaya kami bisa menjadi pribadi yang lebih baik lagi, baik secara fisik maupun mental. Kami juga harus disiapkan untuk
-                bekerja di luar negeri, seperti di Jepang, karena orang-orang di sana sangat disiplin, menaati aturan, dan tidak
-                membuang waktu karena bagi mereka waktu adalah uang.</p>
-                <img src="{{ asset('assets/testimoni/vira-testimonial-80x80.jpg') }}" alt="">
-                <h4 class="mt-5">virna</h4>
+            <div class="owl-carousel">
+                @foreach ($testimonis as $key => $testimoni)
+                <div class="card">
+                        <p>“ {{ $testimoni->pesan }} ”</p>
+                        @if($testimoni->gambar)
+                        <img src="{{ asset('storage/' . $testimoni->gambar) }}" alt="{{ $testimoni->name }}" class="rounded-circle" width="80">
+                        @endif
+                        <h5 class="mt-3">{{ $testimoni->name }}</h5>
+                </div>
+                @endforeach
             </div>
         </div>
 

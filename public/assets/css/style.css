@@ -207,7 +207,7 @@ button{
     justify-content: center;
     background: url("../background/testimoni-background.jpg");
     color: white;
-    height: 80vh;
+    height: 90vh;
     background-size: cover;
     background-position: center;
 }
@@ -218,11 +218,12 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 40%;
+    margin-left: 60%;
     max-width: 500px;
     text-align: center;
     background-color: #ffffffc7;
     border: none;
+
 }
 
 #testimoni img{

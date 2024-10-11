@@ -48,13 +48,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::delete('/blog/delete/{id}', [PostController::class, 'delete_blog'])->name('delete_blog');
 
     Route::get('/pendaftaran', [PendaftaranController::class, 'admin_pendaftaran'])->name('pendaftaran');
-    Route::get('/pendaftaran/edit{id}', [PendaftaranController::class, 'edit_pendaftaran'])->name('edit_pendaftaran');
-    Route::put('/pendaftaran/edit{id}/update', [PendaftaranController::class, 'update_pendaftaran'])->name('update_pendaftaran');
+    Route::get('/pendaftaran/edit/{id}', [PendaftaranController::class, 'edit_pendaftaran'])->name('edit_pendaftaran');
+    Route::put('/pendaftaran/edit/{id}/update', [PendaftaranController::class, 'update_pendaftaran'])->name('update_pendaftaran');
     Route::delete('/blog/delete/{id}', [PendaftaranController::class, 'delete_pendaftaran'])->name('delete_pendaftaran');
 
     Route::get('/testimoni', [TestimoniController::class, 'index'])->name('testimoni');
     Route::get('/testimoni/create', [TestimoniController::class, 'create'])->name('create_testimoni');
     Route::post('/testimoni/store', [TestimoniController::class, 'store'])->name('store_testimoni');
+    Route::get('/testimoni/edit/{id}', [TestimoniController::class, 'edit'])->name('edit_testimoni');
+    Route::put('/testimoni/edit/{id}/update', [TestimoniController::class, 'update'])->name('update_testimoni');
+    Route::delete('/testimoni/delete/{id}', [TestimoniController::class, 'destroy'])->name('delete_testimoni');
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/blog', [AdminController::class, 'blog'])->name('blog');

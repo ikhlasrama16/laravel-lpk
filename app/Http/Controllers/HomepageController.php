@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Testimoni;
 use App\Models\User;
 use App\Models\Post;
 
@@ -10,8 +11,8 @@ class HomepageController extends Controller
 {
 
     public function index(){
-        $data = User::get();
-        return view('homepage.homepage', compact('data'));
+        $testimonis = Testimoni::get();
+        return view('homepage.homepage', compact('testimonis'));
     }
 
     public function blog(){

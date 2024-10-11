@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
 
 
     Route::post('/post', [PostController::class, 'post'])->name('post');
+    Route::post('/upload', [PostController::class, 'upload'])->name('upload');
     Route::get('/add_blog', [PostController::class, 'add_blog'])->name('add_blog');
     Route::get('/blog/edit/{id}', [PostController::class, 'edit_blog'])->name('edit_blog');
     Route::put('/blog/update/{id}', [PostController::class, 'update_blog'])->name('update_blog');
@@ -50,7 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/pendaftaran', [PendaftaranController::class, 'admin_pendaftaran'])->name('pendaftaran');
     Route::get('/pendaftaran/edit/{id}', [PendaftaranController::class, 'edit_pendaftaran'])->name('edit_pendaftaran');
     Route::put('/pendaftaran/edit/{id}/update', [PendaftaranController::class, 'update_pendaftaran'])->name('update_pendaftaran');
-    Route::delete('/blog/delete/{id}', [PendaftaranController::class, 'delete_pendaftaran'])->name('delete_pendaftaran');
+    Route::delete('/pendaftaran/delete/{id}', [PendaftaranController::class, 'delete_pendaftaran'])->name('delete_pendaftaran');
 
     Route::get('/testimoni', [TestimoniController::class, 'index'])->name('testimoni');
     Route::get('/testimoni/create', [TestimoniController::class, 'create'])->name('create_testimoni');

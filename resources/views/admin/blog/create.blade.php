@@ -50,7 +50,8 @@
                                 <label for="exampleInputFile">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
+                                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="exampleInputFile"
+                                            name="image">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
@@ -64,7 +65,8 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror"></textarea>
+                                <textarea id="description" name="description"
+                                    class="form-control @error('description') is-invalid @enderror"></textarea>
                                 @error('description')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -74,11 +76,8 @@
                             <!-- /.card-body -->
 
                             <button type="submit" class="btn btn-primary mt-5">Submit</button>
-                        </form>
+                         </form>
                     </div>
-                </div>
-                <div class="col-md-6">
-
                 </div>
             </div>
     </section>

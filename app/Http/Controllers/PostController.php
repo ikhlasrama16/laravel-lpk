@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
+
 class PostController extends Controller
 {
     public function add_blog(){
@@ -31,48 +32,38 @@ class PostController extends Controller
 
         $this->validate($request, $rules, $messages);
 
-        // Image
+        // Simpan gambar utama
         $fileName = time() . '.' . $request->image->extension();
         $request->file('image')->storeAs('public/artikel', $fileName);
 
-        # Artikel
-        $storage = "storage/content-artikel";
-        $dom = new \DOMDocument();
-
-        # untuk menonaktifkan kesalahan libxml standar dan memungkinkan penanganan kesalahan pengguna.
-        libxml_use_internal_errors(true);
-        $dom->loadHTML($request->description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
-        # Menghapus buffer kesalahan libxml
-        libxml_clear_errors();
-
-        # Baca di https://dosenit.com/php/fungsi-libxml-php
-        $images = $dom->getElementsByTagName('img');
-
-        foreach ($images as $img) {
-            $src = $img->getAttribute('src');
-            if (preg_match('/data:image/', $src)) {
-                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
-                $mimetype = $groups['mime'];
-                $fileNameContent = uniqid();
-                $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
-                $filePath = ("$storage/$fileNameContentRand.$mimetype");
-                $image = Image::make($src)->resize(1440, 720)->encode($mimetype, 100)->save(public_path($filePath));
-                $new_src = asset($filePath);
-                $img->removeAttribute('src');
-                $img->setAttribute('src', $new_src);
-                $img->setAttribute('class', 'img-responsive');
-            }
-        }
-
+        // Simpan artikel tanpa memproses gambar dalam deskripsi (gambar sudah di-upload melalui AJAX Summernote)
         Post::create([
             'title' => $request->title,
             'image' => $fileName,
-            'description' => $dom->saveHTML(),
+            'description' => $request->description, // Deskripsi sudah berisi URL gambar langsung
         ]);
 
-        return redirect(route('admin.blog'))->with('success', 'data berhasil di simpan');
-
+        return redirect(route('admin.blog'))->with('success', 'Data berhasil disimpan');
     }
+
+    public function upload(Request $request)
+    {
+        // Validasi file gambar
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        // Menyimpan gambar ke folder 'storage/app/public/uploads'
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->extension();
+            $image->storeAs('public/uploads', $imageName);
+            // Mengembalikan URL gambar
+            return asset('storage/uploads/' . $imageName);
+        }
+
+        return response()->json(['error' => 'Image upload failed'], 400);
+    }
+
 
     public function edit_blog($id)
     {
@@ -85,7 +76,7 @@ class PostController extends Controller
         $artikel = Post::find($id);
 
         if ($request->hasFile('image')) {
-            $fileCheck = 'required|image|mimes:jpeg,png,jpg|max:2048';
+            $fileCheck = 'required|image|mimes:jpeg,png,jpg|max:10000';
         } else {
             $fileCheck = 'image|mimes:jpeg,png,jpg|max:2048';
         }

@@ -129,17 +129,38 @@
 @include('includes.admin.script')
 </body>
 <script>
-  $(function () {
-    // Summernote
+  $(document).ready(function() {
     $('#description').summernote({
-        placeholder:'Deskripsi',
-        tabsize: 2,
-        height: 300
-    })
-  })
+        height: 300, // Tinggi dari editor
+        callbacks: {
+            onImageUpload: function(files) {
+                uploadImage(files[0]);
+            }
+        }
+    });
+    function uploadImage(file) {
+        var data = new FormData();
+        data.append("image", file);
 
-  $(function () {
-    bsCustomFileInput.init();
+        $.ajax({
+            url: '{{ route("admin.upload") }}', // Route untuk upload gambar
+            method: 'POST',
+            data: data,
+            processData: false,
+            contentType: false,
+            success: function(url) {
+                $('#description').summernote('insertImage', url);
+            },
+            error: function(data){
+                console.log(data);
+            }
+        });
+    }
+  });
+
+  $('.custom-file-input').on('change', function() {
+    let fileName = $(this).val().split('\\').pop();
+    $(this).next('.custom-file-label').addClass("selected").html(fileName);
   });
 </script>
 </html>

@@ -32,5 +32,5 @@
 <script src="{{ asset('adminLte/dist/js/demo.js')  }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('adminLte/dist/js/pages/dashboard.js')  }}"></script> --}}
-{{-- Summernote --}}
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+{{-- summernote --}}
+<script src="{{ asset('summernote/summernote-bs4.min.js') }}"></script>

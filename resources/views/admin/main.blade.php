@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>AdminLTE 3 | Dashboard</title>
   <link rel="shortcut icon" href="{{ asset("assets/logo/favicon.ico") }}">
-
   @include('includes.admin.style')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -129,38 +129,57 @@
 @include('includes.admin.script')
 </body>
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
     $('#description').summernote({
-        height: 300, // Tinggi dari editor
+        height: 300,
         callbacks: {
             onImageUpload: function(files) {
                 uploadImage(files[0]);
             }
         }
     });
+
+
     function uploadImage(file) {
         var data = new FormData();
         data.append("image", file);
-
         $.ajax({
-            url: '{{ route("admin.upload") }}', // Route untuk upload gambar
+            url: '{{ route('admin.upload') }}',
             method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Pastikan CSRF token disertakan
+                },
             data: data,
             processData: false,
             contentType: false,
-            success: function(url) {
-                $('#description').summernote('insertImage', url);
+            success: function(response) {
+                $('#description').summernote('insertImage', response.url);
             },
-            error: function(data){
+            error: function(data) {
                 console.log(data);
             }
         });
     }
-  });
-
-  $('.custom-file-input').on('change', function() {
+});
+$('.custom-file-input').on('change', function() {
     let fileName = $(this).val().split('\\').pop();
     $(this).next('.custom-file-label').addClass("selected").html(fileName);
-  });
+    });
+
+@if(session()->has('success'))
+Swal.fire({
+    title: 'Success',
+    text: '{{ session('success') }}',
+    icon: 'success',
+    confirmButtonText: 'OK'
+});
+@elseif(session()->has('error'))
+Swal.fire({
+    title: 'Error',
+    text: '{{ session('error') }}',
+    icon: 'error',
+    confirmButtonText: 'OK'
+});
+@endif
 </script>
 </html>

@@ -73,7 +73,7 @@
         </div>
 
         <div id="testimoni">
-            <div class="owl-carousel">
+            <div class="owl-carousel owl-theme">
                 @foreach ($testimonis as $key => $testimoni)
                 <div class="card">
                         <p>“ {{ $testimoni->pesan }} ”</p>

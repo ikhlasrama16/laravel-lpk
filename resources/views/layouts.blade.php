@@ -185,7 +185,7 @@
                 nav: true, // Show navigation (next/prev arrows)
                 dots: true, // Show dots
                 autoplay: true, // Automatically play the slides
-                autoplayTimeout: 5000, // 5 seconds per slide
+                autoplayTimeout: 3000, // 3 seconds per slide
                 autoplayHoverPause: true, // Pause on hover
             });
         });

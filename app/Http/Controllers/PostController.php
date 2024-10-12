@@ -20,7 +20,7 @@ class PostController extends Controller
     public function post(Request $request){
         $rules = [
             'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
             'description' => 'required|min:20',
         ];
 
@@ -32,37 +32,42 @@ class PostController extends Controller
 
         $this->validate($request, $rules, $messages);
 
-        // Simpan gambar utama
-        $fileName = time() . '.' . $request->image->extension();
-        $request->file('image')->storeAs('public/artikel', $fileName);
+        try {
+            // Simpan gambar utama
+            $fileName = time() . '.' . $request->image->extension();
+            $request->file('image')->storeAs('public/artikel', $fileName);
 
-        // Simpan artikel tanpa memproses gambar dalam deskripsi (gambar sudah di-upload melalui AJAX Summernote)
-        Post::create([
-            'title' => $request->title,
-            'image' => $fileName,
-            'description' => $request->description, // Deskripsi sudah berisi URL gambar langsung
-        ]);
+            // Simpan artikel
+            Post::create([
+                'title' => $request->title,
+                'image' => $fileName,
+                'description' => $request->description,
+            ]);
 
-        return redirect(route('admin.blog'))->with('success', 'Data berhasil disimpan');
+            // Flash success message
+            return redirect(route('admin.blog'))->with('success', 'Artikel berhasil dibuat!');
+        } catch (\Exception $e) {
+            // Flash error message
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat membuat artikel!');
+        }
     }
 
-    public function upload(Request $request)
-    {
-        // Validasi file gambar
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-        // Menyimpan gambar ke folder 'storage/app/public/uploads'
+    public function uploadImage(Request $request) {
+        $rules = ['image' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000'];
+        $this->validate($request, $rules);
+
+        // Proses upload gambar
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->extension();
-            $image->storeAs('public/uploads', $imageName);
-            // Mengembalikan URL gambar
-            return asset('storage/uploads/' . $imageName);
+            $fileName = time() . '.' . $request->image->extension();
+            $filePath = $request->file('image')->storeAs('public/content-artikel', $fileName);
+            $url = Storage::url($filePath);  // Mengembalikan URL gambar yang disimpan
+
+            return response()->json(['url' => asset($url)]);
         }
 
-        return response()->json(['error' => 'Image upload failed'], 400);
+        return response()->json(['error' => 'Gagal mengupload gambar'], 400);
     }
+
 
 
     public function edit_blog($id)
@@ -73,76 +78,58 @@ class PostController extends Controller
 
     public function update_blog(Request $request, $id)
     {
-        $artikel = Post::find($id);
+        $artikel = Post::findOrFail($id);
 
-        if ($request->hasFile('image')) {
-            $fileCheck = 'required|image|mimes:jpeg,png,jpg|max:10000';
-        } else {
-            $fileCheck = 'image|mimes:jpeg,png,jpg|max:2048';
-        }
-
+        // Validation rules
         $rules = [
             'title' => 'required',
-            'image' => $fileCheck,
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:10000', // Gambar opsional
             'description' => 'required|min:20',
         ];
 
         $messages = [
             'title.required' => 'Judul wajib diisi!',
-            'image.required' => 'Gambar wajib diisi!',
             'description.required' => 'Deskripsi wajib diisi!',
         ];
 
         $this->validate($request, $rules, $messages);
 
-        if ($request->hasFile('image')) {
-            if (\File::exists('storage/artikel/'.$artikel->image)) {
-                \File::delete('storage/artikel/'.$artikel->image);
+        try {
+            // Handle image update if new image uploaded
+            if ($request->hasFile('image')) {
+                // Hapus gambar lama
+                if (\File::exists(public_path('storage/artikel/' . $artikel->image))) {
+                    \File::delete(public_path('storage/artikel/' . $artikel->image));
+                }
+
+                // Simpan gambar baru
+                $fileName = time() . '.' . $request->image->extension();
+                $request->file('image')->storeAs('public/artikel', $fileName);
+            } else {
+                $fileName = $artikel->image;
             }
-            $file = $request->file('image');
-            if ($file) {
-                $fileName = time() . '.' . $file->extension();
-                $file->storeAs('public/artikel', $fileName);
-            }
-        } else {
-            $fileName = $artikel->image;
+
+            // Proses gambar dalam deskripsi Summernote
+            $dom = new \DOMDocument();
+            libxml_use_internal_errors(true); // Abaikan kesalahan parsing HTML
+            $dom->loadHTML($request->description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
+            libxml_clear_errors();
+
+            // Update artikel
+            $artikel->update([
+                'title' => $request->title,
+                'image' => $fileName,
+                'description' => $dom->saveHTML(),
+            ]);
+
+            // Flash success message
+            return redirect(route('admin.blog'))->with('success', 'Artikel berhasil diupdate!');
+        } catch (\Exception $e) {
+            // Flash error message
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat mengupdate artikel!');
         }
-
-        // Image handling
-        $storage = "storage/content-artikel";
-        $dom = new \DOMDocument();
-
-        // Enable user error handling for libxml
-        libxml_use_internal_errors(true);
-        $dom->loadHTML($request->description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
-        libxml_clear_errors();
-
-        $images = $dom->getElementsByTagName('img');
-
-        foreach ($images as $img) {
-            $src = $img->getAttribute('src');
-            if (preg_match('/data:image/', $src)) {
-                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
-                $mimetype = $groups['mime'];
-                $fileNameContent = uniqid();
-                $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
-                $filePath = ("$storage/$fileNameContentRand.$mimetype");
-                $image = Image::make($src)->resize(1440, 720)->encode($mimetype, 100)->save(public_path($filePath));
-                $new_src = asset($filePath);
-                $img->removeAttribute('src');
-                $img->setAttribute('src', $new_src);
-                $img->setAttribute('class', 'img-responsive');
-            }
-        }
-
-        $artikel->update([
-            'title' => $request->title,
-            'image' => $fileName,
-            'description' => $dom->saveHTML(),
-        ]);
-
-        return redirect(route('admin.blog'))->with('success', 'Data berhasil disimpan');
     }
+
 
     public function delete_blog($id){
         $artikel = Post::find($id);

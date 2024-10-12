@@ -24,16 +24,6 @@
             <div class="col-md-11 rounded-5">
                 <!-- jquery validation -->
                 <div class="card bg-white p-4">
-                    @if (session()->has('success'))
-                    <script>
-                        Swal.fire({
-                                title: 'Informasi',
-                                text: '{{ session('success') }}',
-                                icon: 'success',
-                                confirmButtonText: 'OK'
-                            });
-                    </script>
-                    @endif
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form action="{{ route('admin.update_blog', ['id' => $artikel->id]) }}" id="quickForm" method="POST" enctype="multipart/form-data">

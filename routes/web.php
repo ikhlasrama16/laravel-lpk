@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
 
 
     Route::post('/post', [PostController::class, 'post'])->name('post');
-    Route::post('/upload', [PostController::class, 'upload'])->name('upload');
+    Route::post('/upload', [PostController::class, 'uploadImage'])->name('upload');
     Route::get('/add_blog', [PostController::class, 'add_blog'])->name('add_blog');
     Route::get('/blog/edit/{id}', [PostController::class, 'edit_blog'])->name('edit_blog');
     Route::put('/blog/update/{id}', [PostController::class, 'update_blog'])->name('update_blog');

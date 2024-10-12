@@ -50,6 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::delete('/blog/delete/{id}', [PostController::class, 'delete_blog'])->name('delete_blog');
 
     Route::get('/pendaftaran', [PendaftaranController::class, 'admin_pendaftaran'])->name('pendaftaran');
+    Route::get('/add_pendaftaran', [PendaftaranController::class, 'create_pendaftaran'])->name('create_pendaftaran');
     Route::get('/pendaftaran/edit/{id}', [PendaftaranController::class, 'edit_pendaftaran'])->name('edit_pendaftaran');
     Route::put('/pendaftaran/edit/{id}/update', [PendaftaranController::class, 'update_pendaftaran'])->name('update_pendaftaran');
     Route::delete('/pendaftaran/delete/{id}', [PendaftaranController::class, 'delete_pendaftaran'])->name('delete_pendaftaran');

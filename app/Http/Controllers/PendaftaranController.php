@@ -17,6 +17,9 @@ class PendaftaranController extends Controller
         $data = Pendaftaran::get();
         return view('admin.pendaftaran.index', compact('data'));
     }
+    public function create_pendaftaran(){
+        return view('admin.pendaftaran.create');
+    }
 
     public function store(Request $request){
         $validatedData = $request->validate([

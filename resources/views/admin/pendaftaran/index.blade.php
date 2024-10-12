@@ -5,6 +5,11 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
+        <div class="mt-5 mr-md-3">
+            <a href="{{ route('admin.create_pendaftaran') }}" class="btn btn-success">
+                Tambah Data
+            </a>
+        </div>
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -28,10 +33,12 @@
                             <td>{{ $data->nama }}</td>
                             <td>{{ $data->email }}</td>
                             <td>
-                                <a href="{{ route('admin.edit_pendaftaran', ['id' => $data->id]) }}" class="btn btn-warning"><i
-                                        class="fas fa-pen">Edit</i></a>
-                                <a data-toggle="modal" data-target="#modal-hapus{{ $data->id }}" class="btn btn-danger"><i
-                                        class="fas fa-trash">Hapus</i></a>
+                                <a href="{{ route('admin.edit_pendaftaran', ['id' => $data->id]) }}" class="btn btn-warning">
+                                    <i class="fas fa-pen"></i> Edit
+                                </a>
+                                <a data-toggle="modal" data-target="#modal-hapus{{ $data->id }}" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Hapus
+                                </a>
                             </td>
                         </tr>
                         <div class="modal fade" id="modal-hapus{{ $data->id }}">

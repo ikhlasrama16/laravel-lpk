@@ -31,6 +31,7 @@ Route::post('/pendaftaran/store', [PendaftaranController::class, 'store'])->name
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
+    Route::get('/admin', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/user', [AdminController::class, 'user'])->name('user');
 
     Route::get('/add_user', [UserController::class, 'add_user'])->name('add_user');

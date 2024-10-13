@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PendaftaranController;
@@ -61,6 +62,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/testimoni/edit/{id}', [TestimoniController::class, 'edit'])->name('edit_testimoni');
     Route::put('/testimoni/edit/{id}/update', [TestimoniController::class, 'update'])->name('update_testimoni');
     Route::delete('/testimoni/delete/{id}', [TestimoniController::class, 'destroy'])->name('delete_testimoni');
+
+    Route::get('/gallery', [GalleryController::class , 'index'])->name('gallery');
+    Route::get('/gallery/add', [GalleryController::class , 'create'])->name('add_gallery');
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/blog', [AdminController::class, 'blog'])->name('blog');

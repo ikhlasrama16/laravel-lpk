@@ -55,8 +55,6 @@ class PendaftaranController extends Controller
         $data = Pendaftaran::find($id);
         return view('admin.pendaftaran.edit', compact('data'));
     }
-
-
     public function update_pendaftaran(Request $request, $id)
     {
     // Validasi input

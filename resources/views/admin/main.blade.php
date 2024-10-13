@@ -86,10 +86,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.gallery') }}" class="nav-link">
                         <i class="nav-icon fas fa-image"></i>
                         <p>
-                            Manajemen Galeri
+                            Galeri
                         </p>
                     </a>
                 </li>

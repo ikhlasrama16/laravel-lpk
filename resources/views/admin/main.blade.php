@@ -137,6 +137,81 @@
 @include('includes.admin.script')
 </body>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    (function () {
+        'use strict';
+
+        const preventDefaults = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+        };
+
+        const highlight = (event) => event.target.classList.add('highlight');
+        const unhighlight = (event) => event.target.classList.remove('highlight');
+
+        const getInputAndGalleryRefs = (element) => {
+            const zone = element.closest('.upload_dropZone') || false;
+            const gallery = zone.querySelector('.upload_gallery') || false;
+            const input = zone.querySelector('input[type="file"]') || false;
+            return { input, gallery };
+        };
+
+        const handleDrop = (event) => {
+            const dataRefs = getInputAndGalleryRefs(event.target);
+            dataRefs.files = event.dataTransfer.files;
+            handleFiles(dataRefs);
+        };
+
+        const eventHandlers = (zone) => {
+            const dataRefs = getInputAndGalleryRefs(zone);
+            if (!dataRefs.input) return;
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(event => {
+                zone.addEventListener(event, preventDefaults, false);
+                document.body.addEventListener(event, preventDefaults, false);
+            });
+
+            ['dragenter', 'dragover'].forEach(event => zone.addEventListener(event, highlight, false));
+            ['dragleave', 'drop'].forEach(event => zone.addEventListener(event, unhighlight, false));
+
+            zone.addEventListener('drop', handleDrop, false);
+            dataRefs.input.addEventListener('change', (event) => {
+                dataRefs.files = event.target.files;
+                handleFiles(dataRefs);
+            }, false);
+        };
+
+        const dropZones = document.querySelectorAll('.upload_dropZone');
+        dropZones.forEach(zone => eventHandlers(zone));
+
+        const isImageFile = (file) => ['image/jpeg', 'image/png', 'image/svg+xml'].includes(file.type);
+
+        const previewFiles = (dataRefs) => {
+            if (!dataRefs.gallery) return;
+            for (const file of dataRefs.files) {
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onloadend = () => {
+                    let img = document.createElement('img');
+                    img.className = 'upload_img mt-2';
+                    img.alt = file.name;
+                    img.src = reader.result;
+                    dataRefs.gallery.appendChild(img);
+                };
+            }
+        };
+
+        const handleFiles = (dataRefs) => {
+            let files = [...dataRefs.files].filter(file => isImageFile(file));
+            if (!files.length) return;
+            dataRefs.files = files;
+            previewFiles(dataRefs);
+        };
+    })();
+});
+
+
+
 $(document).ready(function() {
     $('#description').summernote({
         height: 300,
@@ -169,10 +244,11 @@ $(document).ready(function() {
         });
     }
 });
+
 $('.custom-file-input').on('change', function() {
     let fileName = $(this).val().split('\\').pop();
     $(this).next('.custom-file-label').addClass("selected").html(fileName);
-    });
+});
 
 @if(session()->has('success'))
 Swal.fire({

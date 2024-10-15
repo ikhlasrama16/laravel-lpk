@@ -30,36 +30,6 @@
     object-fit: contain;
     }
 </style>
-<div class="content-wrapper">
-    <div class="container-fluid">
-        <div>
-            <h3>Tambah Foto Gallery</h3>
-        </div>
-        <form action="" method="POST" enctype="multipart/form-data">
-            @csrf
-            <fieldset class="upload_dropZone text-center mb-3 p-4">
-                <legend class="visually-hidden">Upload Foto Kegiatan</legend>
-
-                <svg class="upload_svg" width="60" height="60" aria-hidden="true">
-                    <use href="#icon-imageUpload"></use>
-                </svg>
-
-                <p class="small my-2">Drag &amp; Drop image(s) inside dashed region<br><i>or</i></p>
-
-                <input id="upload_image_gallery" name="image_gallery[]" class="position-absolute invisible" type="file"
-                    multiple accept="image/jpeg, image/png, image/svg+xml" />
-
-                <label class="btn btn-upload mb-3" for="upload_image_gallery">Choose file(s)</label>
-
-                <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
-            </fieldset>
-
-            <input type="submit" class="btn btn-primary" value="Upload Foto">
-        </form>
-    </div>
-</div>
-@endsection
-
 <svg style="display:none">
     <defs>
         <symbol id="icon-imageUpload" clip-rule="evenodd" viewBox="0 0 96 96">
@@ -68,3 +38,39 @@
         </symbol>
     </defs>
 </svg>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div>
+            <h3>Tambah Foto Gallery</h3>
+        </div>
+        <form action="{{ route('admin.upload_gallery') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <fieldset class="upload_dropZone text-center mb-3 p-4">
+                <legend class="visually-hidden">Upload Foto Kegiatan</legend>
+
+                <svg class="upload_svg" width="60" height="60" aria-hidden="true">
+                    <use href="#icon-imageUpload"></use>
+                </svg>
+
+                <p class="small my-2">Drag & Drop image(s) inside dashed region<br><i>or</i></p>
+
+                <input id="upload_image_gallery" name="image_gallery[]" class="position-absolute invisible" type="file" multiple
+                    accept="image/jpeg, image/png, image/svg+xml" />
+
+                <label class="btn btn-upload mb-3" for="upload_image_gallery">Choose file(s)</label>
+
+                <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
+            </fieldset>
+
+            <!-- Tampilkan error jika ada -->
+            @if ($errors->has('image_gallery'))
+            <div class="alert alert-danger">{{ $errors->first('image_gallery') }}</div>
+            @endif
+
+            <input type="submit" class="btn btn-primary" value="Upload Foto">
+        </form>
+    </div>
+</div>
+@endsection
+
+

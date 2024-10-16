@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery;
 use App\Models\Testimoni;
 use App\Models\User;
 use App\Models\Post;
@@ -16,9 +17,8 @@ class HomepageController extends Controller
     }
 
     public function blog(){
-        return view('homepage.blog',[
-            'artikels' => Post::all()
-        ]);
+        $artikels = Post::paginate(9);
+        return view('homepage.blog', compact('artikels'));
     }
 
     public function blog_detail($id) {
@@ -35,7 +35,8 @@ class HomepageController extends Controller
     }
 
     public function gallery(){
-        return view('homepage.gallery');
+        $gallerys = Gallery::paginate(12);
+        return view('homepage.gallery', compact('gallerys'));
     }
 
     public function kontak(){

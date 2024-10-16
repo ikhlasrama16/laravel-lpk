@@ -16,6 +16,23 @@
                 </div>
                 @endforeach
             </div>
+            @if ($artikels->lastPage() > 1)
+            <nav class="mt-5 rounded">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item {{ $artikels->onFirstPage() ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $artikels->previousPageUrl() }}" tabindex="-1">Previous</a>
+                    </li>
+                    @for ($i = 1; $i <= $artikels->lastPage(); $i++)
+                    <li class="page-item {{ $artikels->currentPage() == $i ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $artikels->url($i) }}">{{ $i }}</a>
+                    </li>
+                    @endfor
+                    <li class="page-item {{ $artikels->hasMorePages() ? '' : 'disabled' }}">
+                        <a class="page-link" href="{{ $artikels->nextPageUrl() }}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            @endif
         </div>
     </section>
 @endsection

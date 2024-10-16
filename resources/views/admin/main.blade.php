@@ -249,21 +249,22 @@ $('.custom-file-input').on('change', function() {
     let fileName = $(this).val().split('\\').pop();
     $(this).next('.custom-file-label').addClass("selected").html(fileName);
 });
-
+// sweet alert
 @if(session()->has('success'))
-Swal.fire({
-    title: 'Success',
-    text: '{{ session('success') }}',
-    icon: 'success',
-    confirmButtonText: 'OK'
-});
+    Swal.fire({
+        title: 'Success',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
 @elseif(session()->has('error'))
-Swal.fire({
-    title: 'Error',
-    text: '{{ session('error') }}',
-    icon: 'error',
-    confirmButtonText: 'OK'
-});
+    Swal.fire({
+        title: 'Error',
+        text: '{{ session('error') }}',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
 @endif
+
 </script>
 </html>

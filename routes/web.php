@@ -66,6 +66,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/gallery', [GalleryController::class , 'index'])->name('gallery');
     Route::get('/gallery/add', [GalleryController::class , 'create'])->name('add_gallery');
     Route::post('/gallery/upload', [GalleryController::class , 'upload'])->name('upload_gallery');
+    Route::delete('/admin/gallery/{id}', [GalleryController::class, 'destroy'])->name('delete_gallery');
+
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/blog', [AdminController::class, 'blog'])->name('blog');

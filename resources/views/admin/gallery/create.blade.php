@@ -64,7 +64,14 @@
 
             <!-- Tampilkan error jika ada -->
             @if ($errors->has('image_gallery'))
-            <div class="alert alert-danger">{{ $errors->first('image_gallery') }}</div>
+            <script>
+                Swal.fire({
+                        title: 'Error',
+                        text: '{{ $errors->first('image_gallery') }}',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+            </script>
             @endif
 
             <input type="submit" class="btn btn-primary" value="Upload Foto">

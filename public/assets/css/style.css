@@ -571,6 +571,23 @@ button{
     object-fit: cover;
     height: 200px;
 }
+.pagination .page-link {
+    font-size: small;
+    color: #000;
+    text-decoration: none !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #00008B; /* Warna untuk halaman aktif */
+    border-color: #00008B;
+    color: #fff; /* Warna teks putih untuk halaman aktif */
+}
+
+.pagination .page-item .page-link:hover {
+    color: #00008B; /* Warna saat hover */
+    text-decoration: none; /* Pastikan tetap tidak ada underline saat hover */
+}
+
 
 /* kontak */
 #kontak form{

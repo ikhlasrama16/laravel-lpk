@@ -11,23 +11,34 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+        // Validasi form input
         $validator = Validator::make($request->all(), [
-            'email'     => 'required|email',
-            'name'      => 'required',
-            'password'  => 'required'
+            'email'     => 'required|email|unique:users,email', // validasi email unik
+            'name'      => 'required|string|max:255', // validasi nama
+            'password'  => 'required|string|min:8|confirmed', // validasi password dan konfirmasinya
         ]);
 
-        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+        // Jika validasi gagal, redirect kembali dengan error message
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
 
-        $data['email']         = $request->email;
-        $data['name']          = $request->name;
-        $data['password']      = Hash::make($request->passwordl);
+        // Simpan data user baru ke database
+        $data = [
+            'email'    => $request->email,
+            'name'     => $request->name,
+            'password' => Hash::make($request->password), // encrypt password
+        ];
 
+        // Buat user baru
         User::create($data);
-        return redirect()->route('admin.user');
 
+        // Redirect ke halaman daftar user setelah berhasil
+        return redirect()->route('admin.user');
     }
+
 
     public function add_user(){
         return view('admin.user.create');

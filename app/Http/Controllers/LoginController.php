@@ -11,22 +11,18 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    public function login_process(Request $request){
-        $request-> validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+    public function login_process(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
 
-        $data =[
-            'email'     =>$request->email,
-            'password'  =>$request->password
-        ];
-
-        if(Auth::attempt($data)){
-            return redirect()->route('admin.dashboard');
-        }else{
-            return redirect()->route('login')->with('failed', 'login credential incorrect');
+        // Cek apakah login berhasil
+        if (Auth::attempt($credentials)) {
+            // Login berhasil
+            return redirect()->intended('/admin/dashboard');
         }
+
+        // Jika login gagal
+        return back()->with('failed', 'Invalid credentials');
     }
 
     public function login(){

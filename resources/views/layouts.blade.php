@@ -102,7 +102,7 @@
             </div>
             <div class="col address">
                 <h5 class="poppins-bold">Address</h5>
-                <p>Jl. Wates No.Km.11, Bandut Lor, Argorejo, Kec. Sedayu, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55752</p>
+                <p>Jl. Wates Km.11, Bandut Lor, Argorejo, Kec. Sedayu, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55752</p>
                 <div class="kontak py-3">
                     <ul>
                         <li><i class="fa-solid fa-phone"></i> +62 811-2805-6666</li>

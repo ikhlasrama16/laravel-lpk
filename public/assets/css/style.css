@@ -120,6 +120,15 @@ button{
 #back-to-top:hover {
     background-color: #0056b3;
 }
+#watermark {
+    background-color: #f8f9fa; /* Optional, bisa diatur sesuai keinginan */
+    font-size: 14px;
+    color: #6c757d;
+}
+
+#watermark p {
+    margin: 0;
+}
 
 #menjadikan p {
     font-family: 'Poppins', sans-serif; /* Pastikan font Poppins sudah diimpor */

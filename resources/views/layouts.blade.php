@@ -130,6 +130,13 @@
     </div>
    </div>
 
+   <!-- Watermark Section -->
+   <div id="watermark" class="text-center py-3">
+    <p>© karirdijepang All rights reserved. Designed and developed by
+        <a href="https://sehattek.id/" target="_blank" style="color: #707070;">Sehattek</a>
+    </p>
+   </div>
+
    <!-- Tambahkan ini di HTML, tepat sebelum penutup tag </body> -->
    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&#8679;</a>
 

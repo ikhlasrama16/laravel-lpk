@@ -16,7 +16,7 @@
         <div class="content-syarat">
             <div class="container py-5">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-right">
                         <h3>Tahapan dan Syarat<br> Pemagang</h3>
                         <div class="stripe"></div>
                         <ul>
@@ -26,7 +26,7 @@
                             <li>Disiplin dan bertanggung jawab</li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-left">
                         <h3>Persyaratan Magang dan Kerja LPK Mandiri Nusantara</h3>
                         <div class="stripe"></div>
                         <ul>
@@ -47,18 +47,18 @@
         <div class="content-prosedur">
             <div class="container py-5">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-up">
                         <h3>Prosedur Seleksi Kerja Magang</h3>
                         <div class="stripe"></div>
                         <img src="{{ asset('assets/content/program-prosedur-magang.jpg') }}" alt="">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-up">
                         <h3>Kegiatan Pembelajaran</h3>
                         <div class="stripe"></div>
                         <img src="{{ asset('assets/content/program-kegiatan-pembelajaran-saat-di-asrama.jpg') }}" alt="">
                     </div>
                 </div>
-                <a href="{{ route('pendaftaran.index') }}">
+                <a href="{{ route('pendaftaran.index') }}" data-aos="fade-up">
                     <button class="mt-5">Daftar Sekarang</button>
                 </a>
             </div>

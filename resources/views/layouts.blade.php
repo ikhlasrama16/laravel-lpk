@@ -14,7 +14,8 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     {{-- magnific --}}
     <link rel="stylesheet" href="{{ asset('assets/css/magnific.css') }}">
-
+    {{-- aos --}}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('OwlCarousel2/dist/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('OwlCarousel2/dist/assets/owl.theme.default.min.css') }}">
 </head>
@@ -80,13 +81,13 @@
                     <div class="g5core-header-customize-item g5core-hc-custom-html">
                         <ul class="custom-header-contact pdr-35" style="list-style-type: none; padding-left: 0;">
                             <li>
-                                <i class="fa-solid fa-phone"></i>
-                                <span>Hubungi: +6285692592551</span>
+                                <a href="{{ route('pendaftaran.index') }}" data-aos="fade-up">
+                                    <button class="mt-2">Daftar Sekarang</button>
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </nav>
@@ -128,6 +129,11 @@
         </div>
     </div>
    </div>
+
+   <!-- Tambahkan ini di HTML, tepat sebelum penutup tag </body> -->
+   <a href="#" id="back-to-top" title="Back to top" style="display: none;">&#8679;</a>
+
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
    <script src="{{ asset('assets/script/magnific.js') }}"></script>
@@ -166,6 +172,25 @@
 
 
     <script>
+        // back to top
+        $(document).ready(function() {
+        // Saat user scroll ke bawah lebih dari 100px, tampilkan tombol
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+
+        // Saat tombol diklik, scroll kembali ke atas
+        $('#back-to-top').click(function(e) {
+            e.preventDefault();
+            // Scroll langsung ke atas tanpa animasi
+            $('html, body').scrollTop(0);
+            return false;
+        });
+    });
         // scroll
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -200,6 +225,9 @@
                 }
             });
         });
+
+        // aos
+        AOS.init();
     </script>
 </body>
 

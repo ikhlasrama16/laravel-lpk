@@ -101,6 +101,25 @@ button{
     margin-left: 0;
 
 }
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 9999;
+    cursor: pointer;
+    width: 50px;
+}
+
+#back-to-top:hover {
+    background-color: #0056b3;
+}
 
 #menjadikan p {
     font-family: 'Poppins', sans-serif; /* Pastikan font Poppins sudah diimpor */

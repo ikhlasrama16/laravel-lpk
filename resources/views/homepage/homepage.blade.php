@@ -15,7 +15,7 @@
                 <img src="{{ asset('assets/background/Hero-LPK1.png') }}" alt="Hero Image">
             </div>
         </div>
-        <div id="menjadikan">
+        <div id="menjadikan" data-aos="fade-up">
             <H2 class="poppins-bold d-flex justify-content-center mt-5">Menjadikan Tenaga Kerja<br> Terampil, Handal, Cekatan</H2>
             <p>
                 Lembaga Pendidikan Keterampilan yang mengutamakan kualitas pendidikan dan menyiapkan tenaga kerja yang handal dan
@@ -26,11 +26,11 @@
 
         <div id="program-homepage" class="py-5">
             <div class="container d-flex justify-content-between">
-                <div class="image">
+                <div class="image" data-aos="zoom-in">
                     <img src="{{ asset('assets/content/program-homepage.jpg') }}" alt="Program Homepage"
                         class="rounded w-75">
                 </div>
-                <div class="description">
+                <div class="description" data-aos="zoom-in">
                     <h2 class="poppins-bold">Apa saja Progam Magang di<br> Karirdijepang</h2>
                     <div class="stripe"></div>
                     <p>Tokutei Ginou 特定技能 (kontrak dan visa kerja 5 tahun)</p>
@@ -54,7 +54,7 @@
 
         <div id="mengapa">
             <div class="container">
-                <div class="item">
+                <div class="item" data-aos="fade-right">
                     <h1 class="poppins-bold h1 py-5">Mengapa Memilih LPK Mandiri Nusantara</h1>
                     <div class="stripe"></div>
                     <p class="poppins-regular">
@@ -66,14 +66,14 @@
                         <button class="mt-2">PENDAFTARAN</button>
                     </a>
                 </div>
-                <div class="item">
+                <div class="item" data-aos="fade-left">
                     <img src="{{ asset('assets/content/mengapa-lpk-mandiri-nusantara-1.jpg') }}" alt="" class="py-5">
                 </div>
             </div>
         </div>
 
         <div id="testimoni">
-            <div class="owl-carousel owl-theme">
+            <div class="owl-carousel owl-theme" data-aos="zoom-in-up">
                 @foreach ($testimonis as $key => $testimoni)
                 <div class="card">
                         <p>“ {{ $testimoni->pesan }} ”</p>
@@ -109,7 +109,7 @@
 
         <div id="lokasi">
             <div class="container d-flex justify between">
-                <div class="py-5 col maps">
+                <div class="py-5 col maps" data-aos="zoom-in-right">
                     <h1 class="poppins-bold mt-5">Lokasi</h1>
                     <div class="stripe"></div>
                     <iframe
@@ -117,7 +117,7 @@
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade" class="mt-3"></iframe>
                 </div>
-                <div class="py-5 col email">
+                <div class="py-5 col email" data-aos="zoom-in-left">
                     <h1 class="poppins-bold mt-5">Hubungi Kami</h1>
                     <div class="stripe"></div>
                     <form action="mailto:info@karirdijepang.id" method="post" enctype="text/plain" class="mt-3">

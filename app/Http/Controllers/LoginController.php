@@ -13,17 +13,26 @@ class LoginController extends Controller
 {
     public function login_process(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        // Cek apakah login berhasil
-        if (Auth::attempt($credentials)) {
-            // Login berhasil
+        // Cari user berdasarkan email
+        $user = User::where('email', $request->email)->first();
+
+        // Cek apakah user ditemukan dan password cocok
+        if ($user && Hash::check($request->password, $user->password)) {
+            // Jika password benar, loginkan user
+            Auth::login($user);
             return redirect()->intended('/admin/dashboard');
         }
 
-        // Jika login gagal
+        // Jika email atau password salah, kembalikan dengan pesan error
         return back()->with('failed', 'Invalid credentials');
     }
+
 
     public function login(){
         return view('auth.login');

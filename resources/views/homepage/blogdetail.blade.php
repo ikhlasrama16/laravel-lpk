@@ -5,7 +5,7 @@
             <h3 class="fw-bold mb-3">
                 {{ $artikel->title }}
             </h3>
-            <p>{{ $artikel->created_at }}</p>
+            <p>{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</p>
 
             <img src="{{ asset('storage/artikel/'.$artikel->image) }}" class="img-fluid rounded-4 mb-3" alt="">
 

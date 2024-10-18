@@ -10,7 +10,7 @@
                         <div class="card bg-white border-0">
                             <img src="{{ asset('storage/artikel/'. $item->image) }}" class="img-fluid rounded-4 mb-3" height="50" alt="">
                             <h3 class="fw-bold mb-3">{{ $item->title }}</h3>
-                            <p>{{ $item->created_at }}</p>
+                            <p>{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</p>
                         </div>
                     </a>
                 </div>

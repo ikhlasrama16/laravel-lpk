@@ -34,8 +34,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4 d-flex flex-column" style="height: 100vh;">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
-        <img src="{{ asset('assets/logo/Logo-Mandiri-Nusantara.png') }}" alt="LPK Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">LPK Mandiri Admin</span>
+        <img src="{{ asset('assets/logo/KDJ Logo.png') }}" alt="LPK Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Karir di Jepang Admin</span>
     </a>
 
     <!-- Sidebar -->

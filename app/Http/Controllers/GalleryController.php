@@ -22,7 +22,7 @@ class GalleryController extends Controller
         // Validasi agar file wajib di-upload
         $request->validate([
             'image_gallery' => 'required|array|min:1', // Pastikan ada setidaknya satu file
-            'image_gallery.*' => 'image|mimes:jpeg,png,svg|max:10000' // Validasi format dan ukuran file
+            'image_gallery.*' => 'image|mimes:jpeg,png,svg|max:5000' // Validasi format dan ukuran file
         ]);
 
         $files = $request->file('image_gallery');

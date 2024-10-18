@@ -20,7 +20,7 @@ class PostController extends Controller
     public function post(Request $request){
         $rules = [
             'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
             'description' => 'required|min:20',
         ];
 
@@ -53,7 +53,7 @@ class PostController extends Controller
     }
 
     public function uploadImage(Request $request) {
-        $rules = ['image' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000'];
+        $rules = ['image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000'];
         $this->validate($request, $rules);
 
         // Proses upload gambar
@@ -83,7 +83,7 @@ class PostController extends Controller
         // Validation rules
         $rules = [
             'title' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:10000', // Gambar opsional
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:5000', // Gambar opsional
             'description' => 'required|min:20',
         ];
 

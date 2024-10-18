@@ -131,17 +131,34 @@ class PostController extends Controller
     }
 
 
-    public function delete_blog($id){
+    public function delete_blog($id)
+    {
         $artikel = Post::find($id);
+
+        // Hapus gambar utama di folder storage/artikel/
         if (\File::exists('storage/artikel/' . $artikel->image)) {
             \File::delete('storage/artikel/' . $artikel->image);
         }
 
+        // Hapus gambar-gambar yang ada di content-artikel dari deskripsi (jika ada)
+        // Asumsikan bahwa gambar di content-artikel memiliki pola yang dikenali seperti <img src="...">
+        preg_match_all('/<img.*?src=".*?storage\/content-artikel\/(.*?)"/', $artikel->description, $matches);
+
+        if (!empty($matches[1])) {
+            foreach ($matches[1] as $image) {
+                $imagePath = 'storage/content-artikel/' . $image;
+                if (\File::exists($imagePath)) {
+                    \File::delete($imagePath);
+                }
+            }
+        }
+
+        // Hapus artikel dari database
         $artikel->delete();
 
-        return redirect(route('admin.blog'))->with('success', 'data berhasil di hapus');
-
+        return redirect(route('admin.blog'))->with('success', 'Data berhasil dihapus beserta gambar di dalam konten.');
     }
+
 
 
 

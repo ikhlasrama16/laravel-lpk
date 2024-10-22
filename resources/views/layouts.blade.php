@@ -94,41 +94,40 @@
 
    @yield('content')
 
-
-   <div id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col logo">
-                <img src="{{ asset('assets/logo/KDJ Logo.png') }}" alt="">
-            </div>
-            <div class="col address">
-                <h5 class="poppins-bold">Address</h5>
-                <p>Jl. Wates Km.11, Bandut Lor, Argorejo, Kec. Sedayu, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55752</p>
-                <div class="kontak py-3">
-                    <ul>
-                        <li><i class="fa-solid fa-phone"></i> +62 811-2805-6666</li>
-                        <li><i class="fa-brands fa-whatsapp"></i> +62 811-2805-6666</li>
-                        <li><i class="fa-solid fa-envelope"></i> info@karirdijepang.id</li>
-                    </ul>
+   <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col logo text-center">
+                    <img src="{{ asset('assets/logo/KDJ Logo.png') }}" alt="">
                 </div>
-            </div>
-
-            <div class="col- link">
-                <h5 class="poppins-bold">Link</h5>
-                <ul class="">
-                    <li><a href="">Registration</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                </ul>
-                <div class="mx-auto">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-twitter"></i>
+                <div class="col address text-start">
+                    <h5 class="poppins-bold">Address</h5>
+                    <p>Jl. Wates Km.11, Bandut Lor, Argorejo, Kec. Sedayu, Kabupaten Bantul, Daerah Istimewa Yogyakarta
+                        55752</p>
+                    <div class="kontak py-3">
+                        <ul>
+                            <li><i class="fa-solid fa-phone"></i> +62 811-2805-6666</li>
+                            <li><i class="fa-brands fa-whatsapp"></i> +62 811-2805-6666</li>
+                            <li><i class="fa-solid fa-envelope"></i> info@karirdijepang.id</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col link text-start">
+                    <h5 class="poppins-bold">Link</h5>
+                    <ul>
+                        <li><a href="">Registration</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                    </ul>
+                    <div class="mx-auto">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-   </div>
+    </section>
 
    <!-- Watermark Section -->
    <div id="watermark" class="text-center py-3">
@@ -181,23 +180,23 @@
     <script>
         // back to top
         $(document).ready(function() {
-        // Saat user scroll ke bawah lebih dari 100px, tampilkan tombol
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
-                $('#back-to-top').fadeIn();
-            } else {
-                $('#back-to-top').fadeOut();
-            }
-        });
+            // Saat user scroll ke bawah lebih dari 100px, tampilkan tombol
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
 
-        // Saat tombol diklik, scroll kembali ke atas
-        $('#back-to-top').click(function(e) {
-            e.preventDefault();
-            // Scroll langsung ke atas tanpa animasi
-            $('html, body').scrollTop(0);
-            return false;
+            // Saat tombol diklik, scroll kembali ke atas
+            $('#back-to-top').click(function(e) {
+                e.preventDefault();
+                // Scroll langsung ke atas tanpa animasi
+                $('html, body').scrollTop(0);
+                return false;
+            });
         });
-    });
         // scroll
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');

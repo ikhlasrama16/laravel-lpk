@@ -24,12 +24,34 @@
     font-style: normal;
 }
 
-
+/* navbar */
 .nav-item .nav-link {
     font-size: 18px;
     margin-left: 5px;
     margin-right: 5px;
 }
+.navbar {
+    transition: background-color 0.3s;
+}
+
+.navbar.scrolled {
+    background-color: rgb(255, 255, 255); /* Contoh warna background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+    .navbar {
+        background-color: rgb(255, 255, 255); /* Set background to white for mobile */
+        display: flex; /* Use flexbox for alignment */
+        justify-content: center; /* Center align items horizontally */
+        align-items: center; /* Center align items vertically */
+    }
+
+    .navbar-brand {
+        margin: 0 auto; /* Center the navbar brand */
+    }
+}
+
+
 .fa {
     font-family: 'Font Awesome 5 Free' !important;
     font-weight: 900 !important;
@@ -53,6 +75,7 @@ button{
     cursor: pointer;
     border-radius: 22px;
 }
+/* Hero */
 .hero {
     display: flex;
     align-items: center;
@@ -62,51 +85,97 @@ button{
     color: white;
     height: 80vh;
 }
+
 .hero-text {
     max-width: 50%;
     color: #1e1e25;
     font-weight: 700;
 }
+
 .hero-text h1 {
     font-size: 3em;
     margin: 0;
 }
+
 .hero-text p {
     font-size: 1.5em;
     margin: 20px 0;
 }
+
 .hero-text button {
     padding: 10px 20px;
     font-size: 1em;
     color: aliceblue;
     font-weight: 700;
-    background-color: #00008B;;
+    background-color: #00008B;
     border: none;
     cursor: pointer;
     border-radius: 22px;
 }
+
 .hero-image {
     max-width: 40%;
 }
+
 .hero-image img {
     width: 100%;
     border-radius: 10px;
 }
-.stripe{
-    width: 17%; /* Lebar garis */
-    height: 8px; /* Tinggi garis */
-    background-color: #00008B; /* Warna garis */
-    margin: 10px auto; /* Margin atas dan bawah, serta pusatkan garis */
-    border-radius: 22px;
-    margin-left: 0;
 
+/* Media query for mobile view */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Stacks the image on top of the text */
+        height: auto; /* Adjusts height for content */
+        margin-top: 50px;
+    }
+
+    .hero-image {
+        max-width: 100%; /* Make the image take full width on mobile */
+        margin-bottom: 20px; /* Adds some space between image and text */
+    }
+
+    .hero-text {
+        max-width: 100%; /* Make the text take full width on mobile */
+        text-align: center; /* Centers the text for better readability */
+        margin-top: 50px;
+    }
+
+    .hero-text h1 {
+        font-size: 2em; /* Slightly smaller font for mobile */
+    }
+
+    .hero-text button {
+        font-size: 1em;
+        padding: 12px 24px;
+        margin-bottom: 20px;
+    }
 }
+
+.stripe {
+    width: 17%; /* Default width for larger screens */
+    height: 8px; /* Height of the stripe */
+    background-color: #00008B; /* Color of the stripe */
+    margin: 10px auto; /* Top and bottom margins, and center horizontally */
+    border-radius: 22px;
+    margin-left: 0; /* Align left on larger screens */
+}
+
+@media (max-width: 768px) {
+    .stripe {
+        width: 75%; /* Make the stripe 75% wide on mobile screens */
+        margin-left: auto; /* Center the stripe */
+        margin-right: auto; /* Ensure the stripe stays centered */
+    }
+}
+
+
 #back-to-top {
     position: fixed;
     bottom: 30px;
     right: 30px;
     display: none;
-    background-color: #007bff;
+    background-color: #00008B;
     color: white;
     text-align: center;
     padding: 10px;
@@ -130,29 +199,81 @@ button{
     margin: 0;
 }
 
+#menjadikan {
+    text-align: center; /* Center-align content in the section */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+#menjadikan h2 {
+    font-family: 'Poppins', sans-serif; /* Ensure the font is Poppins */
+    font-size: 2em; /* Adjust font size for headings */
+    font-weight: 700; /* Make the heading bold */
+    line-height: 1.2; /* Adjust line height for readability */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
 #menjadikan p {
-    font-family: 'Poppins', sans-serif; /* Pastikan font Poppins sudah diimpor */
-    font-size: 1.2em; /* Sesuaikan ukuran font */
-    font-weight: 400; /* Berat font reguler */
-    text-align: center; /* Pusatkan teks */
-    max-width: 600px; /* Lebar maksimal paragraf */
-    margin: 0 auto; /* Pusatkan paragraf secara horizontal */
-    line-height: 1.5; /* Jarak antar baris */
-    color: #1e1e25; /* Warna teks */
+    font-family: 'Poppins', sans-serif; /* Ensure font is Poppins */
+    font-size: 1.2em; /* Adjust font size */
+    font-weight: 400; /* Regular font weight */
+    max-width: 600px; /* Maximum width for the paragraph */
+    margin: 0 auto; /* Center the paragraph horizontally */
+    line-height: 1.5; /* Line height for readability */
+    color: #1e1e25; /* Text color */
 }
 
-.navbar {
-    transition: background-color 0.3s;
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    #menjadikan h2 {
+        font-size: 1.5em; /* Smaller font size for headings on mobile */
+    }
+
+    #menjadikan p {
+        font-size: 1em; /* Smaller font size for paragraph on mobile */
+        padding: 0 10px; /* Add horizontal padding on mobile for spacing */
+    }
 }
 
-.navbar.scrolled {
-    background-color: rgb(255, 255, 255); /* Contoh warna background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+/* program-homepage */
+#program-homepage .description {
+    font-size: 1rem;
 }
 
-#program-homepage .description{
-    transform: translateX(-75px);
+#program-homepage h2 {
+    font-size: 1.5rem; /* Adjust heading size */
 }
+
+#program-homepage p {
+    font-size: 1rem; /* Adjust paragraph size */
+}
+
+@media (max-width: 768px) {
+    #program-homepage .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #program-homepage .image,
+    #program-homepage .description {
+        width: 100%;
+        text-align: center;
+    }
+
+    #program-homepage .image img {
+        width: 100%; /* Make image full width on small screens */
+    }
+
+    #program-homepage h2 {
+        font-size: 1.25rem; /* Smaller font size for mobile */
+    }
+
+    #program-homepage p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+}
+
 .hover-container {
     position: relative;
     overflow: hidden;
@@ -192,25 +313,28 @@ button{
     transform: translateY(0);
 }
 
-
+/* mengapa */
 #mengapa {
     width: 100vw;
     height: 59vh;
     background-color: #eefbff;
 }
 
-#mengapa p{
-    max-width: 600px; /* Lebar maksimal untuk deskripsi */
-    text-align: start; /* Opsional: untuk meratakan teks */
+#mengapa p {
+    max-width: 600px;
+    text-align: start;
     padding-top: 5%;
     font-size: medium;
 }
-#mengapa .container{
+
+#mengapa .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-direction: row; /* Default direction for larger screens */
 }
 
-#mengapa img{
+#mengapa img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -218,17 +342,52 @@ button{
     padding-top: 10%;
     border-radius: 20px;
 }
-#mengapa button{
+
+#mengapa button {
     padding: 10px 20px;
     font-size: 1em;
     color: aliceblue;
     font-weight: 700;
-    background-color: #00008B;;
+    background-color: #00008B;
     border: none;
     cursor: pointer;
     border-radius: 22px;
 }
 
+/* Add media query for mobile view */
+@media (max-width: 768px) {
+    #mengapa .container {
+        flex-direction: column; /* Change to column for mobile view */
+    }
+
+    #mengapa img {
+        width: 100%; /* Make the image take full width on mobile */
+        padding-top: 0; /* Remove extra top padding on mobile */
+    }
+
+    #mengapa p {
+        padding-top: 2%; /* Adjust padding for better spacing */
+        text-align: center; /* Center the text for mobile view */
+    }
+
+    #mengapa h1 {
+        text-align: center; /* Center the heading */
+    }
+    #mengapa button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; /* Center the button horizontally */
+    }
+
+    .stripe {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/* testimoni */
 #testimoni{
     display: flex;
     align-items: center;
@@ -260,12 +419,27 @@ button{
     object-fit: cover;
     border-radius: 50%;
 }
+@media (max-width: 768px) {
+    #testimoni{
+        margin-top: 300px;
+    }
+    #testimoni .card {
+        max-width: 90%; /* Make cards wider on mobile */
+        margin: 0 auto; /* Center cards */
+    }
 
-#partner{
+    #testimoni .owl-carousel {
+        flex-direction: column; /* Stack carousel items on mobile */
+    }
+}
+
+
+#partner {
     margin: 9;
     padding: 0;
     box-sizing: border-box;
 }
+
 @keyframes slide {
     from {
         transform: translateX(0);
@@ -274,103 +448,188 @@ button{
         transform: translateX(-100%);
     }
 }
+
 .logos {
-    overflow: hidden;
+    overflow: hidden; /* Prevent overflow */
     padding: 30px 0;
-    margin-left: 15%;
-    white-space: nowrap;
+    margin: 0 auto; /* Center the logos container */
+    white-space: nowrap; /* Keep logos in a single line */
     position: relative;
+    max-width: 100%; /* Ensure the logos don't exceed the width of the screen */
 }
-.logos:hover .logos-slide{
+
+.logos:hover .logos-slide {
     animation-play-state: paused;
 }
 
 .logos-slide {
     display: inline-block;
     animation: 10s slide infinite linear;
+    /* Set a max width to prevent logos from exceeding the screen */
+    max-width: 100%; /* Allow sliding within the visible area */
 }
 
-.logos-slide img{
+.logos-slide img {
     height: 200px;
-    margin: 0 40px;
+    margin: 0 20px; /* Adjust margins as needed */
 }
-#lokasi{
-    width: 100vw;
-    height: 80vh;
+
+/* Add media query for mobile view */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .logos {
+        margin-left: 0; /* Remove left margin */
+        text-align: center; /* Center align logos */
+    }
+
+    .logos-slide {
+        margin: 0 auto; /* Center the logos slide */
+        max-width: none; /* Reset max width for sliding effect */
+    }
+}
+
+
+#lokasi {
     background-color: #eefbff;
+    padding: 60px 0; /* Adjust top and bottom padding */
 }
-#lokasi .email{
-    margin-left: 15%;
+
+#lokasi .container {
+    max-width: 1140px; /* Constrain container width for better alignment */
+    margin: 0 auto; /* Center align the container */
 }
+
+#lokasi .stripe {
+    width: 50px;
+    height: 5px;
+    background-color: #00008B;
+    margin-bottom: 20px;
+}
+
+#lokasi iframe {
+    border-radius: 10px; /* Optional: Add some rounding to the map corners */
+}
+
+#lokasi .form-control {
+    border-radius: 5px; /* Ensure consistent styling for form inputs */
+}
+
 #lokasi .email button{
     background: #00008B;
     color: #eefbff;
 }
 
-#footer{
-    border-top: 1px solid #00008B;
-    height: 30vh;
+@media (max-width: 768px) {
+    #lokasi {
+        padding: 20px 10px; /* Reduce padding for mobile screens */
+    }
+
+    #lokasi .stripe {
+        width: 30px; /* Make the stripe smaller on mobile */
+    }
+
+    #lokasi iframe {
+        height: 250px; /* Reduce map height on mobile */
+    }
+
+    #lokasi button {
+        width: 100%; /* Make the button full width on mobile */
+    }
 }
-#footer .container{
+
+
+/* Footer */
+#footer {
+    border-top: 1px solid #00008B;
+    height: auto;
+    clear: both;
+    padding: 20px 0;
+    text-align: center; /* Center align all text in footer */
+}
+
+#footer .container {
     margin-top: 25px;
 }
+
+/* Flex settings for the footer row */
 #footer .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-
+    justify-content: space-between; /* Center items horizontally */
 }
-#footer .logo{
-    flex: 0 0 25%;
-    max-width: 25%;
-    padding-right: 15px;
-    padding-left: 15px;
 
+#footer .logo {
+    flex: 0 0 25%; /* Full width on mobile */
+    max-width: 25%; /* Ensure full width on mobile */
+    padding: 0 15px; /* Optional: Adjust padding */
 }
+
 #footer .address {
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding-right: 15px;
-    padding-left: 15px;
-    width: 400px;
+    flex: 0 0 50%; /* Full width on mobile */
+    max-width: auto; /* Ensure full width on mobile */
+    padding: 0 15px; /* Optional: Adjust padding */
     font-size: small;
 }
-#footer .link{
-    flex: 0 0 25%;
-    max-width: 25%;
-    padding-right: 15px;
-    padding-left: 15px;
+
+#footer .link {
+    flex: 0 0 25%; /* Full width on mobile */
+    max-width: auto; /* Ensure full width on mobile */
+    padding: 0 15px; /* Optional: Adjust padding */
 }
 
-#footer img{
-    width: 150px;
+/* Image settings */
+#footer img {
+    width: 150px; /* Default width for larger screens */
 }
-#footer .row{
-    margin-left: 10%;
-}
+
+/* List settings */
 #footer ul {
-    list-style-type: none; /* Menghilangkan bullet points */
-    padding: 0; /* Menghilangkan padding default */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
 }
 
 #footer ul li {
-    margin-bottom: 10px; /* Menambahkan jarak antar item */
-    display: flex; /* Mengatur ikon dan teks dalam satu baris */
-    align-items: center; /* Menyelaraskan ikon dan teks secara vertikal */
+    margin-bottom: 10px; /* Add spacing between items */
+    display: flex; /* Align icon and text in a row */
+    align-items: center; /* Vertically align icon and text */
+    margin-right: 10px; /* Space between icon and text */
 }
 
-#footer ul li i {
-    margin-right: 10px; /* Menambahkan jarak antara ikon dan teks */
-}
-#footer a{
+#footer a {
     color: inherit;
     text-decoration: none;
 }
-#footer a:hover{
+
+#footer a:hover {
     color: inherit;
     text-decoration: underline;
 }
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+    #footer .logo,
+    #footer .address,
+    #footer .link {
+        flex: 0 0 100%; /* Full width on mobile */
+        max-width: 100%;
+        text-align: center; /* Center align content on mobile */
+        padding: 10px 20px; /* Optional: Add vertical spacing */
+    }
+
+    /* Optional: Adjust image size for better mobile display */
+    #footer img {
+        width: 80%; /* Make the logo responsive */
+        max-width: 150px; /* Optional: Set a max width */
+    }
+}
+
+
+
+
 /* About */
 #about {
     display: flex;

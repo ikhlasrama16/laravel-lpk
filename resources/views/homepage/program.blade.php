@@ -16,7 +16,7 @@
         <div class="content-syarat">
             <div class="container py-5">
                 <div class="row">
-                    <div class="col-md-6" data-aos="fade-right">
+                    <div class="col-md-6" data-aos="fade-down">
                         <h3>Tahapan dan Syarat<br> Pemagang</h3>
                         <div class="stripe"></div>
                         <ul>
@@ -26,7 +26,7 @@
                             <li>Disiplin dan bertanggung jawab</li>
                         </ul>
                     </div>
-                    <div class="col-md-6" data-aos="fade-left">
+                    <div class="col-md-6" data-aos="fade-down">
                         <h3>Persyaratan Magang dan Kerja LPK Mandiri Nusantara</h3>
                         <div class="stripe"></div>
                         <ul>

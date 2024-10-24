@@ -2,9 +2,10 @@
 
 /* navbar */
 .nav-item .nav-link {
-    font-size: 18px;
+    font-size: 20px;
     margin-left: 5px;
     margin-right: 5px;
+    font-weight: bold;
 }
 .navbar {
     transition: background-color 0.3s;
@@ -14,6 +15,41 @@
     background-color: rgb(255, 255, 255); /* Contoh warna background */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+/* Gaya default untuk tombol toggle */
+.navbar-toggler .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #000;
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efek perubahan menjadi "X" saat tombol ditekan */
+.navbar-toggler.x .icon-bar:nth-of-type(1) {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+}
+
+.navbar-toggler.x .icon-bar:nth-of-type(2) {
+    opacity: 0; /* Garis tengah menghilang */
+}
+
+.navbar-toggler.x .icon-bar:nth-of-type(3) {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+/* Ketika dalam keadaan collapsed (default) */
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(1),
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(3) {
+    transform: rotate(0); /* Kembali ke posisi garis lurus */
+}
+
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(2) {
+    opacity: 1; /* Garis tengah muncul kembali */
+}
+
 @media (max-width: 768px) {
     .navbar {
         background-color: rgb(255, 255, 255); /* Set background to white for mobile */
@@ -39,7 +75,7 @@
 
 body {
     margin: 0;
-    font-family: 'poppins';
+    font-family: 'amicale';
 }
 button{
     padding: 10px 20px;
@@ -57,19 +93,23 @@ button{
     align-items: center;
     justify-content: center;
     padding: 50px;
-    background: url("../background/Hero-BG-Cornflour-Blue.svg");
+    background: url("../background/Hero-Home.png") no-repeat center center;
+    background-size: cover; /* Mengatur ukuran gambar agar cover 100% */
+    background-position: center; /* Memastikan posisi gambar di tengah */
     color: white;
     height: 80vh;
 }
 
 .hero-text {
-    max-width: 50%;
-    color: #1e1e25;
+    max-width: 32%;
+    color: white;
     font-weight: 700;
+    margin-right: 35%;
+    margin-top: 30px;
 }
 
-.hero-text h1 {
-    font-size: 3em;
+.hero-text h2 {
+    font-size: 2em;
     margin: 0;
 }
 
@@ -79,54 +119,55 @@ button{
 }
 
 .hero-text button {
-    padding: 10px 20px;
+    padding: 20px 20px;
+    background-color: transparent; /* Default background */
     font-size: 1em;
-    color: aliceblue;
+    color: aliceblue; /* Default text color */
     font-weight: 700;
-    background-color: #00008B;
-    border: none;
+    border: 2px solid white;
     cursor: pointer;
     border-radius: 22px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.hero-image {
-    max-width: 40%;
+.hero-text button:hover {
+    background-color: white; /* Background turns white on hover */
+    color: black; /* Text color becomes transparent on hover */
+    border-color: transparent; /* Optionally, make border transparent on hover */
 }
 
-.hero-image img {
-    width: 100%;
-    border-radius: 10px;
-}
 
 /* Media query for mobile view */
 @media (max-width: 768px) {
     .hero {
-        flex-direction: column; /* Stacks the image on top of the text */
-        height: auto; /* Adjusts height for content */
-        margin-top: 50px;
-    }
-
-    .hero-image {
-        max-width: 100%; /* Make the image take full width on mobile */
-        margin-bottom: 20px; /* Adds some space between image and text */
+        height: auto; /* Allow height to adjust on mobile */
+        padding: 20px 10px; /* Add some padding */
+        background-position: left center; /* Adjust background position */
+        margin-top: 150px;
+        justify-content: center;
+        align-items: center;
+        text-align: center; /* Center align text */
     }
 
     .hero-text {
-        max-width: 100%; /* Make the text take full width on mobile */
-        text-align: center; /* Centers the text for better readability */
-        margin-top: 50px;
+        max-width: 100%; /* Allow full width on mobile */
+        margin-right: 0; /* Remove right margin */
+        margin-left: 0; /* Remove left margin */
     }
 
-    .hero-text h1 {
-        font-size: 2em; /* Slightly smaller font for mobile */
+    .hero-text h2 {
+        font-size: 1.5em; /* Smaller font size on mobile */
+        line-height: 1.2; /* Adjust line height for better spacing */
     }
 
     .hero-text button {
-        font-size: 1em;
-        padding: 12px 24px;
-        margin-bottom: 20px;
+        width: 50%; /* Make button full width */
+        padding: 10px; /* Adjust padding for the button */
+        margin-top: 20px; /* Add some space between text and button */
     }
 }
+
+
 
 .stripe {
     width: 17%; /* Default width for larger screens */
@@ -181,6 +222,7 @@ button{
 }
 
 #menjadikan h2 {
+    text-transform: uppercase;
     font-size: 2em; /* Adjust font size for headings */
     font-weight: 700; /* Make the heading bold */
     line-height: 1.2; /* Adjust line height for readability */
@@ -188,9 +230,9 @@ button{
 }
 
 #menjadikan p {
-    font-size: 1.2em; /* Adjust font size */
+    font-size: 1.5em; /* Adjust font size */
     font-weight: 400; /* Regular font weight */
-    max-width: 600px; /* Maximum width for the paragraph */
+    max-width: 1000px; /* Maximum width for the paragraph */
     margin: 0 auto; /* Center the paragraph horizontally */
     line-height: 1.5; /* Line height for readability */
     color: #1e1e25; /* Text color */
@@ -212,15 +254,12 @@ button{
 
 /* program-homepage */
 #program-homepage .description {
-    font-size: 1rem;
-}
-
-#program-homepage h2 {
-    font-size: 1.5rem; /* Adjust heading size */
+    font-size: 1.5em;
 }
 
 #program-homepage p {
-    font-size: 1rem; /* Adjust paragraph size */
+    font-size: 1.2em; /* Adjust paragraph size */
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -239,66 +278,30 @@ button{
         width: 100%; /* Make image full width on small screens */
     }
 
-    #program-homepage h2 {
-        font-size: 1.25rem; /* Smaller font size for mobile */
+    #program-homepage li {
+        font-size: 1.0rem;
+        list-style: none;
+        padding-left: 0;
     }
 
     #program-homepage p {
-        font-size: 0.9rem; /* Smaller font size for mobile */
+        font-size: 1.1rem; /* Smaller font size for mobile */
     }
 }
 
-.hover-container {
-    position: relative;
-    overflow: hidden;
-    width: fit-content;
-    margin-top: 10%;
-}
-
-.hover-content {
-    display: flex;
-    align-items: center;
-    transition: transform 0.5s ease;
-}
-
-.hover-image {
-    max-width: 100px; /* Atur ukuran maksimum gambar */
-    max-height: 100px; /* Atur tinggi maksimum gambar */
-}
-
-.hover-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    box-sizing: border-box;
-    transform: translateY(100%);
-    transition: transform 0.5s ease;
-}
-
-.hover-container:hover .hover-content {
-    transform: translateY(-100%);
-}
-
-.hover-container:hover .hover-text {
-    transform: translateY(0);
-}
-
 /* mengapa */
-#mengapa {
-    width: 100vw;
-    height: 59vh;
-    background-color: #eefbff;
-}
-
 #mengapa p {
     max-width: 600px;
     text-align: start;
-    padding-top: 5%;
-    font-size: medium;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+#mengapa h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: arial;
+    margin-bottom: 10px;
 }
 
 #mengapa .container {
@@ -394,9 +397,6 @@ button{
     border-radius: 50%;
 }
 @media (max-width: 768px) {
-    #testimoni{
-        margin-top: 300px;
-    }
     #testimoni .card {
         max-width: 90%; /* Make cards wider on mobile */
         margin: 0 auto; /* Center cards */
@@ -412,6 +412,8 @@ button{
     margin: 9;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 }
 
 @keyframes slide {
@@ -429,7 +431,7 @@ button{
     margin: 0 auto; /* Center the logos container */
     white-space: nowrap; /* Keep logos in a single line */
     position: relative;
-    max-width: 100%; /* Ensure the logos don't exceed the width of the screen */
+    max-width: 60%; /* Ensure the logos don't exceed the width of the screen */
 }
 
 .logos:hover .logos-slide {
@@ -444,7 +446,7 @@ button{
 }
 
 .logos-slide img {
-    height: 200px;
+    height: 150px;
     margin: 0 20px; /* Adjust margins as needed */
 }
 
@@ -458,12 +460,19 @@ button{
     .logos {
         margin-left: 0; /* Remove left margin */
         text-align: center; /* Center align logos */
+        max-width: 100%;
+
     }
 
     .logos-slide {
         margin: 0 auto; /* Center the logos slide */
         max-width: none; /* Reset max width for sliding effect */
     }
+
+    .logos:hover .logos-slide {
+        animation-play-state: paused;
+    }
+
 }
 
 
@@ -475,13 +484,23 @@ button{
 #lokasi .container {
     max-width: 1140px; /* Constrain container width for better alignment */
     margin: 0 auto; /* Center align the container */
+
 }
 
-#lokasi .stripe {
-    width: 50px;
-    height: 5px;
-    background-color: #00008B;
-    margin-bottom: 20px;
+#lokasi .lokasi-content {
+    display: flex; /* Use flexbox layout for the content */
+    justify-content: space-between; /* Space between the map and contact form */
+    align-items: flex-start; /* Align items to the top */
+    gap: 100px; /* Add some space between the map and form */
+}
+
+#lokasi .map,
+#lokasi .form {
+    width: 48%; /* Make map and form take up 48% each for desktop view */
+}
+
+#lokasi .map {
+    margin-top: -50px; /* Move the map higher */
 }
 
 #lokasi iframe {
@@ -492,7 +511,7 @@ button{
     border-radius: 5px; /* Ensure consistent styling for form inputs */
 }
 
-#lokasi .email button{
+#lokasi .email button {
     background: #00008B;
     color: #eefbff;
 }
@@ -501,9 +520,13 @@ button{
     #lokasi {
         padding: 20px 10px; /* Reduce padding for mobile screens */
     }
+    #lokasi .container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+    }
 
     #lokasi .stripe {
-        width: 30px; /* Make the stripe smaller on mobile */
+        width: 50px; /* Make the stripe smaller on mobile */
     }
 
     #lokasi iframe {
@@ -511,9 +534,20 @@ button{
     }
 
     #lokasi button {
-        width: 100%; /* Make the button full width on mobile */
+        width: 100%; /* Make the button full width */
+    }
+
+    #lokasi .lokasi-content {
+        flex-direction: column; /* Stack elements on mobile */
+    }
+
+    #lokasi .map,
+    #lokasi .form {
+        width: 100%; /* Make both the map and form full width on mobile */
     }
 }
+
+
 
 
 /* Footer */
@@ -743,41 +777,34 @@ button{
 
 }
 #program h1, #program h2 {
+    text-transform: uppercase;
     width: 100%;
 }
 #program h2 {
     padding-bottom: 3px;
-    border-bottom: 1px solid white;
+    text-transform: uppercase;
 }
-#program .h3-wrapper {
+/* Flexbox for h3 to be aligned horizontally */
+.horizontal-headings {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Spread out the h3 headings */
     align-items: center;
-    width: 100%;
-    position: relative;
-}
-.h3-wrapper h3 {
-    flex: 1;
-    text-align: center;
 }
 
-.h3-wrapper h3:first-child {
-    text-align: right;
-    padding-right: 30px;
+.horizontal-headings h3 {
+    margin: 0 10px; /* Adjust the margin if needed */
 }
 
-.h3-wrapper h3:last-child {
-    text-align: left;
-    padding-left: 30px;
+/* Ensuring h2 stays vertical and separate from h3 */
+.vertical-heading {
+    display: block;
+    text-align: center; /* You can adjust text alignment if needed */
 }
 
-.h3-wrapper::after {
-    content: '|';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white; /* Sesuaikan warna garis */
+.vertical-heading h2 {
+    margin-bottom: 20px; /* Adds space below the h2 heading */
 }
+
 #program .content-syarat .container {
     display: flex;
     justify-content: space-between;
@@ -877,7 +904,6 @@ button{
 }
 /* Pendaftaran */
 #pendaftaran{
-    margin-top: 7%;
     margin-bottom: 1%;
 }
 #pendaftaran h1 {
@@ -911,9 +937,16 @@ button{
 #pendaftaran label{
     font-weight: 500;
 }
+
 #pendaftaran .container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 150px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2), /* Top shadow */
+                0 4px 8px rgba(0, 0, 0, 0.2);  /* Bottom and sides shadow */
+    background-color: #fff; /* Ensures background is solid */
+    border-radius: 20px;
 }
+
+
 
 #pendaftaran .form-control{
     border: 1px solid #333333; /* Black border */
@@ -930,4 +963,41 @@ button{
     border: none;
     cursor: pointer;
     border-radius: 15px;
+}
+@media (max-width: 768px) {
+    #pendaftaran {
+        margin-bottom: 5%;
+    }
+
+    #pendaftaran h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    #pendaftaran .form-row {
+        flex-direction: column; /* Stack form fields vertically */
+        gap: 15px;
+    }
+
+    #pendaftaran form {
+        margin-left: 0; /* Center form on mobile */
+        padding: 10px;
+    }
+
+    #pendaftaran .form-control {
+        padding: 8px;
+        font-size: 0.9em; /* Adjust input field size */
+    }
+
+    #pendaftaran button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 1.1em;
+    }
+
+    #pendaftaran .container {
+        margin-top: none;
+        box-shadow: none; /* Remove box-shadow on mobile */
+    }
 }

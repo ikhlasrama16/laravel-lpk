@@ -3,12 +3,12 @@
     <section id="program" class="mt-5 py-5">
         <div class="content-program">
             <div class="container">
-                <h1 class="poppins-bold">Program</h1>
+                <h1 class="poppins-bold uppercase fw-bold">INFO KARIR DI JEPANG</h1>
                 <div>
-                    <h2 class="py-5">Tokutei Ginou 特定技能 ( Kontrak dan Visa Kerja 5 Tahun )</h2>
-                    <div class="h3-wrapper">
-                        <h3>Bagian keperawatan lansia</h3>
-                        <h3>Bagian pertanian</h3>
+                    <h2 class="py-5 fw-light">Tokutei Ginou dan Ginoshusei (G to G)</h2>
+                    <div class="row horizontal-headings">
+                        <h3>Kaigoshi</h3>
+                        <h3>Kangoshi & Kaigofukushishi</h3>
                     </div>
                 </div>
             </div>
@@ -17,28 +17,22 @@
             <div class="container py-5">
                 <div class="row">
                     <div class="col-md-6" data-aos="fade-down">
-                        <h3>Tahapan dan Syarat<br> Pemagang</h3>
+                        <h3>Keunggulan Program Tokutei Ginou:</h3>
                         <div class="stripe"></div>
                         <ul>
-                            <li>Memiliki minat tinggi kerja dijepang</li>
-                            <li>Mau mengikuti pembelajaran selama di asrama</li>
-                            <li>Tidak bertato dan tidak bekas tindik</li>
-                            <li>Disiplin dan bertanggung jawab</li>
+                            <li>Kesempatan bekerja di berbagai sektor dengan permintaan tinggi</li>
+                            <li>Pelatihan dan sertifikasi yang membantu meningkatkan keterampilan.</li>
+                            <li>Peluang perpanjangan kontrak dan kesempatan mendapatkan visa permanen (Tokutei Ginou II).</li>
                         </ul>
                     </div>
                     <div class="col-md-6" data-aos="fade-down">
-                        <h3>Persyaratan Magang dan Kerja LPK Mandiri Nusantara</h3>
+                        <h3>Keunggulan Program G to G:</h3>
                         <div class="stripe"></div>
                         <ul>
-                            <li>Pendidikan Formal SMK/SMA/S-1 semua jurusan</li>
-                            <li>Laki-laki dan perempuan usia minimal 18 – 30 tahun</li>
-                            <li>Mencantumkan surat keterangan sehat ( puskesmas / klinik )</li>
-                            <li>Tidak cacat fisik dan buta warna</li>
-                            <li>Tinggi badan 150 cm ( perempuan )</li>
-                            <li>Tinggi badan 165 cm ( laki-laki )</li>
-                            <li>Mencantumkan diantaranya CV, pas foto 4x6 warna, SKKB, ijin orang tua bermaterai, fc KK, fc KTP, *sertifikat keahlian
-                            khusus</li>
-                            <li>Membawa foto warna ukuran 4x6 = 6 lembar, dan 3x4 = 6 lembar</li>
+                            <li>Pelatihan teknis komprehensif di sektor-sektor seperti manufaktur, pertanian, perikanan, dan konstruksi.</li>
+                            <li>Pengalaman kerja di perusahaan Jepang dengan standar internasional.</li>
+                            <li>Pengembangan keterampilan yang dapat diterapkan di Indonesia setelah masa pelatihan berakhir.</li>
+                            <li>Kontrak kerja selama 3 hingga 5 tahun, dengan pendampingan penuh dari pihak pemerintah.</li>
                         </ul>
                     </div>
                 </div>
@@ -48,16 +42,25 @@
             <div class="container py-5">
                 <div class="row">
                     <div class="col-md-6" data-aos="fade-up">
-                        <h3>Prosedur Seleksi Kerja Magang</h3>
+                        <h3>Apa itu Kaigoshi?</h3>
                         <div class="stripe"></div>
-                        <img src="{{ asset('assets/content/program-prosedur-magang.jpg') }}" alt="">
+                        <p> <b>Kaigoshi</b> adalah Caregiver atau perawat yang bertanggung jawab dalam memberikan perawatan sehari-hari kepada lansia atau
+                        penyandang disabilitas di fasilitas kesehatan, panti jompo, atau di rumah pasien. Tugas utama seorang Kaigoshi meliputi
+                        membantu aktivitas harian seperti makan, mandi, berpakaian, dan mobilitas pasien.</p>
                     </div>
                     <div class="col-md-6" data-aos="fade-up">
-                        <h3>Kegiatan Pembelajaran</h3>
+                        <h3>Apa itu Kangoshi & Kaigofukushishi?</h3>
                         <div class="stripe"></div>
-                        <img src="{{ asset('assets/content/program-kegiatan-pembelajaran-saat-di-asrama.jpg') }}" alt="">
+                        <p><b>Kangoshi</b> adalah istilah untuk perawat terdaftar (registered nurse) di Jepang yang memiliki kualifikasi medis dan lisensi
+                        resmi untuk bekerja di rumah sakit, klinik, atau fasilitas kesehatan lainnya. Sedangkan <b>Kaigofukushishi</b> adalah care
+                        worker bersertifikasi di Jepang yang telah melalui pelatihan khusus dan memiliki lisensi untuk memberikan perawatan
+                        kepada lansia atau penyandang disabilitas. Berbeda dengan Kaigoshi, seorang Kaigofukushishi memiliki sertifikasi formal
+                        dan kemampuan tambahan dalam hal pengetahuan tentang perawatan fisik dan psikologis.</p>
                     </div>
                 </div>
+                <p class="fw-bold py-5" data-aos="fade-up">
+                    Daftar sekarang dan bergabunglah dengan komunitas kami untuk mendapatkan info lowongan kerja di Jepang!
+                </p>
                 <a href="{{ route('pendaftaran.index') }}" data-aos="fade-up">
                     <button class="mt-5">Daftar Sekarang</button>
                 </a>

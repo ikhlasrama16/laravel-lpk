@@ -3,7 +3,7 @@
     <section id="pendaftaran">
         <div class="pendaftaran">
             <div class="container">
-                <h1>Pendaftaran</h1>
+                <h1 class="py-5">Pendaftaran</h1>
                 <form action="{{ route('pendaftaran.store') }}" class="col-md-9" method="POST">
                     @csrf
                     <div>

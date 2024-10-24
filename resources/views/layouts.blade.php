@@ -27,13 +27,15 @@
             <a class="navbar-brand" href="/">
                 <img src="{{ asset('assets/logo/KDJ Logo.png') }}" alt="" height="80">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler x collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0 fw-bold">
                     <li class="nav-item">
                         <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('homepage.index') ? 'highlight' : '' }}"
                             href="{{ route('homepage.index') }}">Home</a>
@@ -44,7 +46,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('program') ? 'highlight' : '' }}"
-                            href="{{ route('program') }}">Program</a>
+                            href="{{ route('program') }}">Info Karir</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('gallery') ? 'highlight' : '' }}"
@@ -196,6 +198,10 @@
                 $('html, body').scrollTop(0);
                 return false;
             });
+
+            $(".navbar-toggler").click(function(){
+                $(this).toggleClass("collapsed");
+            });
         });
         // scroll
         window.addEventListener('scroll', function() {
@@ -234,6 +240,11 @@
 
         // aos
         AOS.init();
+
+
+
+
+
     </script>
 </body>
 

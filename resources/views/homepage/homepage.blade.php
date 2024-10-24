@@ -16,7 +16,7 @@
             </div>
         </div>
         <div id="menjadikan" data-aos="fade-up">
-            <h2 class="poppins-bold d-flex justify-content-center mt-5">Menjadikan Tenaga Kerja<br> Terampil, Handal, Cekatan
+            <h2 class="d-flex justify-content-center mt-5">Menjadikan Tenaga Kerja<br> Terampil, Handal, Cekatan
             </h2>
             <p>
                 Lembaga Pendidikan Keterampilan yang mengutamakan kualitas pendidikan dan menyiapkan tenaga kerja yang handal

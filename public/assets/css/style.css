@@ -15,40 +15,39 @@
     background-color: rgb(255, 255, 255); /* Contoh warna background */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/* Gaya default untuk tombol toggle */
-.navbar-toggler .icon-bar {
+/* Styling navbar-toggle icon */
+.toggle-icon .bar {
     display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #000;
-    margin: 4px 0;
-    transition: all 0.3s ease-in-out;
+    width: 30px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #333; /* Warna default untuk toggle bar */
+    transition: all 0.4s ease;
 }
 
-/* Efek perubahan menjadi "X" saat tombol ditekan */
-.navbar-toggler.x .icon-bar:nth-of-type(1) {
-    transform: rotate(45deg);
-    transform-origin: 10% 10%;
+/* Animasi saat toggle aktif (membuka navbar) */
+.toggle-icon:not(.collapsed) .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
-.navbar-toggler.x .icon-bar:nth-of-type(2) {
-    opacity: 0; /* Garis tengah menghilang */
+.toggle-icon:not(.collapsed) .bar:nth-child(2) {
+    opacity: 0; /* Sembunyikan bar tengah */
 }
 
-.navbar-toggler.x .icon-bar:nth-of-type(3) {
-    transform: rotate(-45deg);
-    transform-origin: 10% 90%;
+.toggle-icon:not(.collapsed) .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Ketika dalam keadaan collapsed (default) */
-.navbar-toggler.x.collapsed .icon-bar:nth-of-type(1),
-.navbar-toggler.x.collapsed .icon-bar:nth-of-type(3) {
-    transform: rotate(0); /* Kembali ke posisi garis lurus */
+/* Navbar Menu Animation */
+.navbar-collapse {
+    transition: height 0.4s ease; /* Animasi smooth saat membuka menu */
 }
 
-.navbar-toggler.x.collapsed .icon-bar:nth-of-type(2) {
-    opacity: 1; /* Garis tengah muncul kembali */
+/* Custom styling on collapse */
+.navbar-collapse.show {
+    background-color: #f8f9fa00;
 }
+
 
 @media (max-width: 768px) {
     .navbar {
@@ -636,86 +635,6 @@ button{
 }
 
 
-
-
-/* About */
-#about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#about .content{
-    margin-top: 5%;
-}
-#about .content-tentang{
-    background: linear-gradient(to bottom, #eefbff, white);
-    width: 100vw;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-}
-/* #about .content-tentang img{
-    width: 60%;
-    border-radius: 10px;
-} */
-#about .content-visi{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-#about .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-#about h1 {
-    padding-top: 2%;
-    text-align: center;
-    width: 100%;
-}
-#about .content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.content-visi p{
-    margin-top: 50px;
-}
-.content-visi ul{
-    padding: 0;
-}
-.content-visi li{
-    margin-bottom: 10px;
-    margin-left: 20px;
-}
-.content-visi ul li::marker {
-    color: rgb(24, 0, 90);
-}
-#about .content-fasilitas{
-    background: linear-gradient(to bottom, white, #eefbff);
-    width: 100vw;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-top: 25px;
-}
-.content-fasilitas p{
-    margin-top: 50px;
-}
-.content-fasilitas ul{
-    padding: 0;
-}
-.content-fasilitas li{
-    margin-bottom: 10px;
-    margin-left: 20px;
-}
-.content-fasilitas ul li::marker {
-    color: rgb(24, 0, 90);
-}
-
 /* about1  */
 .about-us{
     display: flex;
@@ -748,6 +667,40 @@ button{
 .about-us li{
     margin-bottom: 5px;
 }
+/* Media query untuk layar kecil */
+@media (max-width: 768px) {
+    .about-us {
+        margin-top: 12%;
+        padding: 20px;
+        height: auto; /* Menghapus tinggi tetap untuk layar kecil */
+    }
+
+    .about-us h1 {
+        font-size: 2rem;
+    }
+
+    .about-us .p-top,
+    .about-us .p-bottom p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .about-us ul {
+        padding-left: 10px;
+    }
+
+    .about-us li {
+        font-size: 1rem;
+        line-height: 1.5; /* Membuat jarak antar item lebih nyaman di layar kecil */
+    }
+
+    .about-us .p-bottom h3 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
 
 /* Program */
 #program {

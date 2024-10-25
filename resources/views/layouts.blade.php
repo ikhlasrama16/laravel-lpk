@@ -27,12 +27,12 @@
             <a class="navbar-brand" href="/">
                 <img src="{{ asset('assets/logo/KDJ Logo.png') }}" alt="" height="80">
             </a>
-            <button class="navbar-toggler x collapsed" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler toggle-icon collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0 fw-bold">
@@ -241,9 +241,9 @@
         // aos
         AOS.init();
 
-
-
-
+        document.querySelector('.navbar-toggler').addEventListener('click', function () {
+            this.classList.toggle('collapsed');
+        });
 
     </script>
 </body>

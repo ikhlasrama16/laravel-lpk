@@ -60,7 +60,7 @@
                         <a class="nav-link fw-bold fs-5 ms-3 {{ Request::routeIs('kontak') ? 'highlight' : '' }}"
                             href="{{ route('kontak') }}">Kontak</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle fw-bold fs-5" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-flag"></i> Bahasa
@@ -77,7 +77,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="g5core-header-customize-inner py-3 ms-auto">
                     <div class="g5core-header-customize-item g5core-hc-custom-html">

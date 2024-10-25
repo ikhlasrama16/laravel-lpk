@@ -3,7 +3,7 @@
 {{-- blog artikel --}}
     <section id="blog" class="mt-5 py-5">
         <div class="container col-xxl-10 py-5">
-            <div class="row">
+            <div class="row" data-aos="fade-up">
                 @foreach ($artikels as $item)
                 <div class="col-lg-4 mb-4">
                     <a href="/blog/{{ $item->slug }}" class="text-decoration-none text-dark">

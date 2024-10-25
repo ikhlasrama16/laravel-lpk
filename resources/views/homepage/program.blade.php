@@ -3,13 +3,10 @@
     <section id="program" class="mt-5 py-5">
         <div class="content-program">
             <div class="container">
-                <h1 class="poppins-bold uppercase fw-bold">INFO KARIR DI JEPANG</h1>
+                <h1 class="poppins-bold uppercase fw-bold" style="font-family: arial;">INFO KARIR DI JEPANG</h1>
                 <div class="horizontal-headings">
-                    <h2 class="py-5 fw-light">Tokutei Ginou dan Ginoshusei (G to G)</h2>
-                </div>
-                <div class="row horizontal-headings">
-                    <h3>Kaigoshi</h3>
-                    <h3>Kangoshi & Kaigofukushishi</h3>
+                    <h1 class="py-5 fw-light">Tokutei Ginou dan Ginoshusei (G to G)</h1>
+                    <h1>Kaigoshi | Kangoshi & Kaigofukushishi</h1>
                 </div>
             </div>
         </div>

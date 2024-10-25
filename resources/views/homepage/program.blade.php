@@ -4,12 +4,12 @@
         <div class="content-program">
             <div class="container">
                 <h1 class="poppins-bold uppercase fw-bold">INFO KARIR DI JEPANG</h1>
-                <div>
+                <div class="horizontal-headings">
                     <h2 class="py-5 fw-light">Tokutei Ginou dan Ginoshusei (G to G)</h2>
-                    <div class="row horizontal-headings">
-                        <h3>Kaigoshi</h3>
-                        <h3>Kangoshi & Kaigofukushishi</h3>
-                    </div>
+                </div>
+                <div class="row horizontal-headings">
+                    <h3>Kaigoshi</h3>
+                    <h3>Kangoshi & Kaigofukushishi</h3>
                 </div>
             </div>
         </div>

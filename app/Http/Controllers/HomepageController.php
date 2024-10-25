@@ -21,9 +21,10 @@ class HomepageController extends Controller
         return view('homepage.blog', compact('artikels'));
     }
 
-    public function blog_detail($id) {
-        $artikel = Post::find($id);
+    public function blog_detail($slug) {
+        $artikel = Post::where('slug', $slug)->firstOrFail();
         return view('homepage.blogdetail', ['artikel' => $artikel]);
+
     }
 
     public function tentang(){

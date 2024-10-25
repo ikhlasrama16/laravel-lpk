@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
@@ -37,9 +38,14 @@ class PostController extends Controller
             $fileName = time() . '.' . $request->image->extension();
             $request->file('image')->storeAs('public/artikel', $fileName);
 
+            // Buat slug dari judul
+            $slug = Str::slug($request->title);
+
+
             // Simpan artikel
             Post::create([
                 'title' => $request->title,
+                'slug' => $slug,
                 'image' => $fileName,
                 'description' => $request->description,
             ]);
@@ -109,6 +115,9 @@ class PostController extends Controller
                 $fileName = $artikel->image;
             }
 
+            // Update slug jika judul berubah
+            $slug = Str::slug($request->title);
+
             // Proses gambar dalam deskripsi Summernote
             $dom = new \DOMDocument();
             libxml_use_internal_errors(true); // Abaikan kesalahan parsing HTML
@@ -118,6 +127,7 @@ class PostController extends Controller
             // Update artikel
             $artikel->update([
                 'title' => $request->title,
+                'slug' => $slug,
                 'image' => $fileName,
                 'description' => $dom->saveHTML(),
             ]);

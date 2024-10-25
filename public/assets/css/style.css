@@ -784,59 +784,17 @@ button{
     padding-bottom: 3px;
     text-transform: uppercase;
 }
-/* Flexbox for h3 to be aligned horizontally */
-.horizontal-headings {
+#program .horizontal-headings {
     display: flex;
-    justify-content: space-between; /* Spread out the h3 headings */
+    justify-content: space-around; /* Adjusts spacing between h2 elements */
     align-items: center;
+    flex-wrap: wrap; /* Optional: Allows wrapping if there's not enough space */
 }
 
-.horizontal-headings h3 {
-    margin: 0 10px; /* Adjust the margin if needed */
+#program .horizontal-headings h2 {
+    margin: 10px; /* Adjust as needed */
 }
 
-/* Ensuring h2 stays vertical and separate from h3 */
-.vertical-heading {
-    display: block;
-    text-align: center; /* You can adjust text alignment if needed */
-}
-
-.vertical-heading h2 {
-    margin-bottom: 20px; /* Adds space below the h2 heading */
-}
-
-#program .content-syarat .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#program .content-syarat h3 {
-    font-weight: bold;
-}
-.content-syarat ul{
-    padding: 0;
-}
-.content-syarat li{
-    margin-bottom: 10px;
-    margin-left: 20px;
-}
-.content-syarat ul li::marker {
-    color: rgb(24, 0, 90);
-}
-
-#program .content-prosedur .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#program .content-prosedur h3 {
-    font-weight: bold;
-}
-#program .content-prosedur img {
-    width: 100%;
-    border-radius: 10px;
-}
 
 /* Gallery */
 #gallery .container {

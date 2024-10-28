@@ -5,7 +5,7 @@
         <div class="hero">
             <div class="hero-text">
                 <h2 class="py-3 poppins-bold">Dapatkan informasi terbaru tentang Program Tokutei Ginou, G to G dan Magang di Jepang dan bergabung bersama kami di komunitas “Kerja di Negeri Sakura”</h2>
-                <a href="{{ route('pendaftaran.index') }}">
+                <a href="https://wa.me/+6281128056666" target="blank">
                     <button class="mt-2">JOIN GROUP WHATSAPP</button>
                 </a>
             </div>

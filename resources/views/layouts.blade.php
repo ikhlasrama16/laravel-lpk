@@ -204,14 +204,34 @@
             });
         });
         // scroll
+        let lastScrollTop = 0;
+
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) { // Ubah nilai 50 sesuai kebutuhan
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            const currentScroll = window.scrollY;
+
+            if (currentScroll > lastScrollTop && currentScroll > 50) {
+                // Scrolling down, hide navbar and set background to transparent
+                navbar.classList.add('hidden');
+                navbar.style.backgroundColor = "transparent";
+            } else if (currentScroll < lastScrollTop) {
+                // Scrolling up, show navbar and set background to white
+                navbar.classList.remove('hidden');
+                navbar.style.backgroundColor = "#ffffff";
             }
+
+            // Smoothly transition to transparent when reaching the top
+            if (currentScroll === 0) {
+                setTimeout(() => {
+                    navbar.style.backgroundColor = "transparent";
+                }, 100); // Add a short delay for smoothness
+            }
+
+            lastScrollTop = currentScroll;
         });
+
+
+
 
         // owlcarousel
         $(document).ready(function(){

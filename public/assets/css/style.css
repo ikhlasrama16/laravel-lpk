@@ -1,6 +1,12 @@
  @font-face { font-family: Amicale; src: url('../font/Amicale-Regular.otf'); }
 
 /* navbar */
+#navbar {
+    transition: transform 0.3s ease-in-out;
+}
+#navbar.hidden {
+    transform: translateY(-100%);
+}
 .nav-item .nav-link {
     font-size: 20px;
     margin-left: 5px;

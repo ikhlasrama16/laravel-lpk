@@ -6,8 +6,8 @@
             <h1 class="poppins-bold">Gallery</h1>
             <div class="grid-container gallery">
                 @foreach ($gallerys as $gallery)
-                <a href="{{ asset('storage/' . $gallery->image_path) }}">
-                    <img src="{{ asset('storage/' . $gallery->image_path) }}" alt="">
+                <a href="{{ asset($gallery->image_path) }}">
+                    <img src="{{ asset($gallery->image_path) }}" alt="Gallery Image">
                 </a>
                 @endforeach
             </div>
@@ -18,13 +18,13 @@
                         <a class="page-link" href="{{ $gallerys->previousPageUrl() }}" tabindex="-1">Previous</a>
                     </li>
                     @for ($i = 1; $i <= $gallerys->lastPage(); $i++)
-                    <li class="page-item {{ $gallerys->currentPage() == $i ? 'active' : '' }}">
-                        <a class="page-link" href="{{ $gallerys->url($i) }}">{{ $i }}</a>
-                    </li>
-                    @endfor
-                    <li class="page-item {{ $gallerys->hasMorePages() ? '' : 'disabled' }}">
-                        <a class="page-link" href="{{ $gallerys->nextPageUrl() }}">Next</a>
-                    </li>
+                        <li class="page-item {{ $gallerys->currentPage() == $i ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $gallerys->url($i) }}">{{ $i }}</a>
+                        </li>
+                        @endfor
+                        <li class="page-item {{ $gallerys->hasMorePages() ? '' : 'disabled' }}">
+                            <a class="page-link" href="{{ $gallerys->nextPageUrl() }}">Next</a>
+                        </li>
                 </ul>
             </nav>
             @endif

@@ -19,40 +19,36 @@ class GalleryController extends Controller
 
     public function upload(Request $request)
     {
-        // Validate that at least one image is uploaded
+        // Validasi agar file wajib di-upload
         $request->validate([
-            'image_gallery' => 'required|array|min:1',
-            'image_gallery.*' => 'image|mimes:jpeg,png,svg|max:5000' // Validate format and file size
+            'image_gallery' => 'required|array|min:1', // Pastikan ada setidaknya satu file
+            'image_gallery.*' => 'image|mimes:jpeg,png,svg|max:5000' // Validasi format dan ukuran file
         ]);
 
         $files = $request->file('image_gallery');
 
         if ($files) {
             foreach ($files as $file) {
-                // Get the original file extension
+                // Dapatkan ekstensi asli file
                 $extension = $file->getClientOriginalExtension();
 
-                // Generate a unique file name
+                // Buat nama file baru yang unik
                 $newFileName = 'gallery_' . time() . '_' . uniqid() . '.' . $extension;
 
-                // Save the file to storage/app/public/gallery
-                $storagePath = $file->storeAs('gallery', $newFileName, 'public');
+                // Simpan file ke storage 'public/gallery' dengan nama baru
+                $path = $file->storeAs('gallery', $newFileName, 'public');
 
-                // Save a copy of the file to public/images/gallery
-                $publicPath = public_path('images/gallery');
-                $file->move($publicPath, $newFileName);
-
-                // Store the path in the database (relative to public/images)
+                // Simpan path ke database
                 Gallery::create([
-                    'image_path' => 'images/gallery/' . $newFileName, // Save the public path in the database
+                    'image_path' => $path, // Menyimpan path file yang diupload
                 ]);
             }
 
-            // Redirect with success message
+            // Jika berhasil, kirimkan pesan sukses ke session
             return redirect()->route('admin.gallery')->with('success', 'Files uploaded and saved to database successfully.');
         }
 
-        // If no files were uploaded, return an error message
+        // Jika tidak ada file yang diupload, kirimkan pesan error
         return redirect()->route('admin.gallery')->with('error', 'No files uploaded. Please try again.');
     }
 

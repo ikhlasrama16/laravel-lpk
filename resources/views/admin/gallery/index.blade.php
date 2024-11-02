@@ -64,7 +64,7 @@
         <div class="grid-container gallery">
             @foreach ($gallerys as $gallery)
             <div class="container">
-                <img src="{{ asset($gallery->image_path) }}" alt="Image" class="image img-thumbnail">
+                <img src="{{ asset('storage/' . $gallery->image_path) }}" alt="Image" class="image img-thumbnail">
                 <div class="middle">
                     <!-- Form untuk menghapus gambar -->
                     <form action="{{ route('admin.delete_gallery', $gallery->id) }}" method="POST"

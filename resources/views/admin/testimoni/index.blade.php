@@ -37,7 +37,7 @@
                         <td>{{ Str::limit($testimoni->pesan, 100) }}</td>
                         <td>
                             @if($testimoni->gambar)
-                            <img src="{{ asset('storage/' . $testimoni->gambar) }}" alt="{{ $testimoni->name }}" width="80">
+                            <img src="{{ asset('storage/testimoni/' . $testimoni->gambar) }}" alt="{{ $testimoni->name }}" width="80">
                             @else
                             Tidak Ada Gambar
                             @endif

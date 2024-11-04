@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -18,7 +19,8 @@ class PostController extends Controller
     }
 
 
-    public function post(Request $request){
+    public function post(Request $request)
+    {
         $rules = [
             'title' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
@@ -34,13 +36,12 @@ class PostController extends Controller
         $this->validate($request, $rules, $messages);
 
         try {
-            // Simpan gambar utama
+            // Simpan gambar utama ke public/storage/artikel
             $fileName = time() . '.' . $request->image->extension();
-            $request->file('image')->storeAs('public/artikel', $fileName);
+            $request->file('image')->move(public_path('storage/artikel'), $fileName);
 
             // Buat slug dari judul
             $slug = Str::slug($request->title);
-
 
             // Simpan artikel
             Post::create([
@@ -50,31 +51,28 @@ class PostController extends Controller
                 'description' => $request->description,
             ]);
 
-            // Flash success message
             return redirect(route('admin.blog'))->with('success', 'Artikel berhasil dibuat!');
         } catch (\Exception $e) {
-            // Flash error message
             return redirect()->back()->with('error', 'Terjadi kesalahan saat membuat artikel!');
         }
     }
 
-    public function uploadImage(Request $request) {
+    public function uploadImage(Request $request)
+    {
         $rules = ['image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000'];
         $this->validate($request, $rules);
 
-        // Proses upload gambar
         if ($request->hasFile('image')) {
             $fileName = time() . '.' . $request->image->extension();
-            $filePath = $request->file('image')->storeAs('public/content-artikel', $fileName);
-            $url = Storage::url($filePath);  // Mengembalikan URL gambar yang disimpan
+            $filePath = public_path('storage/content-artikel/' . $fileName);
+            $request->file('image')->move(public_path('storage/content-artikel'), $fileName);
 
-            return response()->json(['url' => asset($url)]);
+            $url = asset('storage/content-artikel/' . $fileName);
+            return response()->json(['url' => $url]);
         }
 
         return response()->json(['error' => 'Gagal mengupload gambar'], 400);
     }
-
-
 
     public function edit_blog($id)
     {
@@ -86,10 +84,9 @@ class PostController extends Controller
     {
         $artikel = Post::findOrFail($id);
 
-        // Validation rules
         $rules = [
             'title' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:5000', // Gambar opsional
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:5000',
             'description' => 'required|min:20',
         ];
 
@@ -101,30 +98,24 @@ class PostController extends Controller
         $this->validate($request, $rules, $messages);
 
         try {
-            // Handle image update if new image uploaded
             if ($request->hasFile('image')) {
-                // Hapus gambar lama
-                if (\File::exists(public_path('storage/artikel/' . $artikel->image))) {
-                    \File::delete(public_path('storage/artikel/' . $artikel->image));
+                if (File::exists(public_path('storage/artikel/' . $artikel->image))) {
+                    File::delete(public_path('storage/artikel/' . $artikel->image));
                 }
 
-                // Simpan gambar baru
                 $fileName = time() . '.' . $request->image->extension();
-                $request->file('image')->storeAs('public/artikel', $fileName);
+                $request->file('image')->move(public_path('storage/artikel'), $fileName);
             } else {
                 $fileName = $artikel->image;
             }
 
-            // Update slug jika judul berubah
             $slug = Str::slug($request->title);
 
-            // Proses gambar dalam deskripsi Summernote
             $dom = new \DOMDocument();
-            libxml_use_internal_errors(true); // Abaikan kesalahan parsing HTML
+            libxml_use_internal_errors(true);
             $dom->loadHTML($request->description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
             libxml_clear_errors();
 
-            // Update artikel
             $artikel->update([
                 'title' => $request->title,
                 'slug' => $slug,
@@ -132,38 +123,31 @@ class PostController extends Controller
                 'description' => $dom->saveHTML(),
             ]);
 
-            // Flash success message
             return redirect(route('admin.blog'))->with('success', 'Artikel berhasil diupdate!');
         } catch (\Exception $e) {
-            // Flash error message
             return redirect()->back()->with('error', 'Terjadi kesalahan saat mengupdate artikel!');
         }
     }
-
 
     public function delete_blog($id)
     {
         $artikel = Post::find($id);
 
-        // Hapus gambar utama di folder storage/artikel/
-        if (\File::exists('storage/artikel/' . $artikel->image)) {
-            \File::delete('storage/artikel/' . $artikel->image);
+        if (File::exists(public_path('storage/artikel/' . $artikel->image))) {
+            File::delete(public_path('storage/artikel/' . $artikel->image));
         }
 
-        // Hapus gambar-gambar yang ada di content-artikel dari deskripsi (jika ada)
-        // Asumsikan bahwa gambar di content-artikel memiliki pola yang dikenali seperti <img src="...">
         preg_match_all('/<img.*?src=".*?storage\/content-artikel\/(.*?)"/', $artikel->description, $matches);
 
         if (!empty($matches[1])) {
             foreach ($matches[1] as $image) {
-                $imagePath = 'storage/content-artikel/' . $image;
-                if (\File::exists($imagePath)) {
-                    \File::delete($imagePath);
+                $imagePath = public_path('storage/content-artikel/' . $image);
+                if (File::exists($imagePath)) {
+                    File::delete($imagePath);
                 }
             }
         }
 
-        // Hapus artikel dari database
         $artikel->delete();
 
         return redirect(route('admin.blog'))->with('success', 'Data berhasil dihapus beserta gambar di dalam konten.');

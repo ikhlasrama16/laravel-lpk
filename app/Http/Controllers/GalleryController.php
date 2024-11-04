@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Gallery;
-use Storage;
+use File;
 
 class GalleryController extends Controller
 {
@@ -35,12 +35,15 @@ class GalleryController extends Controller
                 // Buat nama file baru yang unik
                 $newFileName = 'gallery_' . time() . '_' . uniqid() . '.' . $extension;
 
-                // Simpan file ke storage 'public/gallery' dengan nama baru
-                $path = $file->storeAs('gallery', $newFileName, 'public');
+                // Tentukan path di 'public/storage/gallery'
+                $publicPath = 'storage/gallery/' . $newFileName;
 
-                // Simpan path ke database
+                // Simpan file langsung ke public/storage/gallery
+                $file->move(public_path('storage/gallery'), $newFileName);
+
+                // Simpan path public ke database
                 Gallery::create([
-                    'image_path' => $path, // Menyimpan path file yang diupload
+                    'image_path' => $publicPath, // Menyimpan path file yang diupload
                 ]);
             }
 
@@ -53,16 +56,26 @@ class GalleryController extends Controller
     }
 
 
-
-    public function destroy($id){
+    public function destroy($id)
+    {
         $gallery = Gallery::findOrFail($id);
 
-        Storage::disk('public')->delete($gallery->image_path);
+        // Buat path file lengkap untuk gambar di public/storage/gallery
+        $filePath = public_path( $gallery->image_path);
 
+        // Cek dan hapus file jika ada
+        if (File::exists($filePath)) {
+            File::delete($filePath);
+        } else {
+            return redirect()->back()->with('error', 'Gambar tidak ditemukan atau sudah dihapus.');
+        }
+
+        // Hapus data dari database
         $gallery->delete();
 
-        return redirect()->back()->with('Success', 'Gambar berhasil di hapus');
+        return redirect()->back()->with('success', 'Gambar berhasil dihapus');
     }
+
 
 
 

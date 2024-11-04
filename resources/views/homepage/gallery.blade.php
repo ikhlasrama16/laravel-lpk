@@ -6,8 +6,8 @@
             <h1 class="poppins-bold">Gallery</h1>
             <div class="grid-container gallery">
                 @foreach ($gallerys as $gallery)
-                <a href="{{ asset('storage/' . $gallery->image_path) }}">
-                    <img src="{{ asset('storage/' . $gallery->image_path) }}" alt="">
+                <a href="{{ asset($gallery->image_path) }}">
+                    <img src="{{ asset($gallery->image_path) }}" alt="">
                 </a>
                 @endforeach
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Testimoni;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Storage;
@@ -45,7 +46,15 @@ class TestimoniController extends Controller
 
         // Simpan gambar jika diupload
         if ($request->hasFile('gambar')) {
-            $gambarPath = $request->file('gambar')->store('testimoni', 'public');
+            $gambar = $request->file('gambar');
+            $newFileName = 'testimoni_'. time(). '.' . $gambar->getClientOriginalExtension();
+
+            // pindah ke public/storage/testimoni
+            $gambar->move(public_path('storage/testimoni'), $newFileName);
+
+            // save ke database
+            $gambarPath = $newFileName;
+
         } else {
             $gambarPath = null;
         }
@@ -98,11 +107,15 @@ class TestimoniController extends Controller
         // Update gambar jika diupload
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama jika ada
-            if ($testimoni->gambar && Storage::disk('public')->exists($testimoni->gambar)) {
-                Storage::disk('public')->delete($testimoni->gambar);
+            if($testimoni->gambar && file_exists(public_path($testimoni->gambar))){
+                unlink(public_path($testimoni->gambar));
             }
-            $gambarPath = $request->file('gambar')->store('testimoni', 'public');
-            $testimoni->gambar = $gambarPath;
+            $gambar = $request->file('gambar');
+            $newFileName = 'testimoni_' . time() . '.' . $gambar->getClientOriginalExtension();
+            $gambar->move(public_path('storage/testimoni'), $newFileName);
+
+            // update path gambar
+            $testimoni->gambar = 'storage/testimoni/' . $newFileName;
         }
 
         // Update data lainnya
@@ -121,14 +134,20 @@ class TestimoniController extends Controller
     {
         $testimoni = Testimoni::findOrFail($id);
 
-        // Hapus gambar jika ada
-        if ($testimoni->gambar && Storage::disk('public')->exists($testimoni->gambar)) {
-            Storage::disk('public')->delete($testimoni->gambar);
+        // Buat path file lengkap untuk gambar di public/storage
+        $filePath = public_path( 'storage/testimoni/' . $testimoni->gambar);
+
+        // Cek dan hapus file jika ada
+        if (File::exists($filePath)) {
+            File::delete($filePath);
+        } else {
+            return redirect()->back()->with('error', 'Gambar tidak ditemukan atau sudah dihapus.');
         }
 
+        // Hapus data dari database
         $testimoni->delete();
 
         return redirect()->route('admin.testimoni')->with('success', 'Testimoni berhasil dihapus.');
-
     }
+
 }

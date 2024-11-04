@@ -63,7 +63,7 @@
                 <div class="card">
                         <p>“ {{ $testimoni->pesan }} ”</p>
                         @if($testimoni->gambar)
-                        <img src="{{ asset('storage/' . $testimoni->gambar) }}" alt="{{ $testimoni->name }}" class="rounded-circle" width="80">
+                        <img src="{{ asset('storage/testimoni/' . $testimoni->gambar) }}" alt="{{ $testimoni->name }}" class="rounded-circle" width="80">
                         @endif
                         <h5 class="mt-3">{{ $testimoni->name }}</h5>
                 </div>

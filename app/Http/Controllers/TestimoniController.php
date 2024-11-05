@@ -107,15 +107,16 @@ class TestimoniController extends Controller
         // Update gambar jika diupload
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama jika ada
-            if($testimoni->gambar && file_exists(public_path($testimoni->gambar))){
-                unlink(public_path($testimoni->gambar));
+            if ($testimoni->gambar && file_exists(public_path('storage/testimoni/' . $testimoni->gambar))) {
+                unlink(public_path('storage/testimoni/' . $testimoni->gambar));
             }
+
             $gambar = $request->file('gambar');
             $newFileName = 'testimoni_' . time() . '.' . $gambar->getClientOriginalExtension();
             $gambar->move(public_path('storage/testimoni'), $newFileName);
 
-            // update path gambar
-            $testimoni->gambar = 'storage/testimoni/' . $newFileName;
+            // Update path gambar
+            $testimoni->gambar = $newFileName;
         }
 
         // Update data lainnya
@@ -124,8 +125,8 @@ class TestimoniController extends Controller
         $testimoni->save();
 
         return redirect()->route('admin.testimoni')->with('success', 'Testimoni berhasil diupdate.');
-
     }
+
 
     /**
      * Remove the specified resource from storage.

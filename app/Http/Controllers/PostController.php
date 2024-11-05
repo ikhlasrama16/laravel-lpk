@@ -102,7 +102,6 @@ class PostController extends Controller
                 if (File::exists(public_path('storage/artikel/' . $artikel->image))) {
                     File::delete(public_path('storage/artikel/' . $artikel->image));
                 }
-
                 $fileName = time() . '.' . $request->image->extension();
                 $request->file('image')->move(public_path('storage/artikel'), $fileName);
             } else {
@@ -111,23 +110,57 @@ class PostController extends Controller
 
             $slug = Str::slug($request->title);
 
+            // Ekstrak URL gambar dari deskripsi lama dan baru
+            $oldContentImages = $this->extractImagesFromContent($artikel->description);
             $dom = new \DOMDocument();
             libxml_use_internal_errors(true);
             $dom->loadHTML($request->description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
             libxml_clear_errors();
 
+            // Simpan konten baru
+            $newContent = $dom->saveHTML();
+
+            // Update artikel
             $artikel->update([
                 'title' => $request->title,
                 'slug' => $slug,
                 'image' => $fileName,
-                'description' => $dom->saveHTML(),
+                'description' => $newContent,
             ]);
+
+            // Ekstrak URL gambar dari konten baru
+            $newContentImages = $this->extractImagesFromContent($newContent);
+
+            // Hapus gambar lama yang tidak ada di konten baru
+            foreach ($oldContentImages as $oldImage) {
+                if (!in_array($oldImage, $newContentImages)) {
+                    File::delete(public_path('storage/content-artikel/' . basename($oldImage)));
+                }
+            }
 
             return redirect(route('admin.blog'))->with('success', 'Artikel berhasil diupdate!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan saat mengupdate artikel!');
         }
     }
+
+    // Fungsi ekstraksi URL gambar dari konten
+    private function extractImagesFromContent($content)
+    {
+        $images = [];
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
+        libxml_clear_errors();
+
+        $imageTags = $dom->getElementsByTagName('img');
+        foreach ($imageTags as $img) {
+            $images[] = $img->getAttribute('src');
+        }
+
+        return $images;
+    }
+
 
     public function delete_blog($id)
     {

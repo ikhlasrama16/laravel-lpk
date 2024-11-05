@@ -38,7 +38,7 @@
                         <label for="gambar">Gambar</label>
                         @if($testimoni->gambar)
                         <div class="mb-2">
-                            <img src="{{ asset('storage/' . $testimoni->gambar) }}" alt="{{ $testimoni->name }}" width="100">
+                            <img src="{{ asset('storage/testimoni/' .$testimoni->gambar) }}" alt="{{ $testimoni->name }}" width="100">
                         </div>
                         @endif
                         <div class="input-group mb-3">

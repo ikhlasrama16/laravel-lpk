@@ -73,6 +73,7 @@
                         <!-- /.card-body -->
 
                         <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        <a href="{{ route('admin.blog') }}" class="btn btn-secondary mt-5">Batal</a>
                     </form>
                 </div>
             </div>

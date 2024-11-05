@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $data)
+                    @forelse ($data as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->nama }}</td>
@@ -63,7 +63,11 @@
                         <!-- /.modal-dialog -->
                     </div>
                     <!-- /.modal -->
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="5" class="text-center">Tidak ada data pendaftar.</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

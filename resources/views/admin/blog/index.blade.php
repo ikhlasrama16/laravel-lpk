@@ -47,7 +47,7 @@
                     @php
                         $no=1;
                     @endphp
-                    @foreach ($artikels as $artikel)
+                    @forelse ($artikels as $artikel)
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $artikel->title }}</td>
@@ -63,7 +63,11 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="5" class="text-center">Tidak ada content blog.</td>
+                        </tr>
+                    @endforelse
                   </tbody>
                 </table>
               </div>

@@ -62,7 +62,7 @@
             </a>
         </div>
         <div class="grid-container gallery">
-            @foreach ($gallerys as $gallery)
+            @forelse ($gallerys as $gallery)
             <div class="container">
                 <img src="{{ asset($gallery->image_path) }}" alt="Image" class="image img-thumbnail">
                 <div class="middle">
@@ -75,7 +75,11 @@
                     </form>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="5" class="text-center">Tidak ada data gallery</td>
+            </tr>
+            @endforelse
         </div>
     </div>
 </div>
